@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 //The script for the basic tentacle attack, this is similar to the knife and whip attack from vampire survivors
-public class TentacleAttack : Attack
+public class TentacleAttack : MonoBehaviour
 {
     //Basic variables that will be modified as the player gains upgrades
     [Header("Tentacle Variables")]
@@ -20,9 +20,9 @@ public class TentacleAttack : Attack
     private GameObject[] enemies;
     private List<GameObject> targetEnemies;
 
-    new public void Start()
+    public void Start()
     {
-        base.Start();
+        //base.Start();
         tentacle = GetComponent<LineRenderer>();
     }
 
@@ -63,7 +63,7 @@ public class TentacleAttack : Attack
         */
     }
 
-    public override void Use(float damageMult)
+    public void Use(float damageMult)
     {   
         //Creating an array of the player's current tentacles
         tentacles = GameObject.FindGameObjectsWithTag("Tentacle");

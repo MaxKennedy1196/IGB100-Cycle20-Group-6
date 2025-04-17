@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -6,6 +7,21 @@ public class Projectile : MonoBehaviour
 
     //Internal boolean to check if the projectile has dealt damage to an enemy
     private bool damageDealt = false;
+
+    public float projectileSpeed;
+    public float projectileLifetime;
+    public Vector2 targetLocation;
+
+    public void Start()
+    {
+        Destroy(this.gameObject, projectileLifetime);
+    }
+
+    public void Update()
+    {
+        transform.position += transform.up * Time.deltaTime * projectileSpeed;
+        Vector2MoveTowards 
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
