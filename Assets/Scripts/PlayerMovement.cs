@@ -17,8 +17,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
-        yInput = Input.GetAxis("Vertical");
+        yInput = 0;
+        xInput = 0;
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            yInput = 1f;
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            yInput = -1f;
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            xInput = 1f;
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            xInput = -1f;
+        }
+
+        //xInput = Input.GetAxis("Horizontal");
+        //yInput = Input.GetAxis("Vertical");
 
         moveVector = new Vector2(xInput,yInput);
         moveVector = Vector3.Normalize(moveVector);

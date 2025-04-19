@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     public void Update()
     {
         transform.position += transform.up * Time.deltaTime * projectileSpeed;
-        Vector2MoveTowards 
+        //Vector2MoveTowards 
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
