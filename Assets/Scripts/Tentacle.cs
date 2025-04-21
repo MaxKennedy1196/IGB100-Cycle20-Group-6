@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Tentacle : Projectile
 {
-    [HideInInspector] public GameObject target;
+    /*[HideInInspector] public GameObject target;
     private PlayerMovement player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,5 +15,5 @@ public class Tentacle : Projectile
     void Update()
     {
         
-    }
+    }*/
 }

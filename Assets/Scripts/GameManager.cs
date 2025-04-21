@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 //Script used to handle game elements and player upgrades
 public class GameManager : MonoBehaviour
@@ -9,10 +10,10 @@ public class GameManager : MonoBehaviour
 
     public float volumeLevel;
 
-    public PlayerMovement player;
-
     public GameObject tentacleObject;
 
+    public List<GameObject> enemyList = new List<GameObject>();
+    public Player player;
     
 
     // Awake Checks - Singleton setup
@@ -28,6 +29,12 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
+    }
+
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player            
     }
 
     public void Update()

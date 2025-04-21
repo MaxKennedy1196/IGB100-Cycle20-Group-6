@@ -1,26 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 //Abstract enemy parent class to be inherited from for child enemy types 
 public class Enemy : MonoBehaviour
 {
+    public GameManager Manager;
+    public Player player;
+
     public int health = 5; //Set to 5 for testing, needs to be reset once individual enemies are created
     public int damage;
     public int moveSpeed;
     public int attackRange;
-    private float damageRate = 0.2f;
-    private float damageTime;
 
     public GameObject deathEffect;
 
-    public PlayerMovement player;
+    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        //Reference to player
-        player = GameManager.instance.player;
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player      
+
+        Manager.enemyList.Add(gameObject);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -53,14 +57,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0) 
-        { 
-            Die(); 
-        }
+        if (health <= 0) { Die(); }
     }
 
-
-    void OnTriggerStay(Collider other)
+    /*void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && Time.time > damageTime)
         {
@@ -68,5 +68,5 @@ public class Enemy : MonoBehaviour
             damageTime = Time.time + damageRate;
 
         }
-    }
+    }*/
 }
