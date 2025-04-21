@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public int damage;
     public int moveSpeed;
     public int attackRange;
+    private float damageRate = 0.2f;
+    private float damageTime;
 
     public GameObject deathEffect;
 
@@ -52,5 +54,16 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) { Die(); }
+    }
+
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.transform.tag == "Player" && Time.time > damageTime)
+        {
+            other.GetComponent<Player>().takeDamage(damage);
+            damageTime = Time.time + damageRate;
+
+        }
     }
 }

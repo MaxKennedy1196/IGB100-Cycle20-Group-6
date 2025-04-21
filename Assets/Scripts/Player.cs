@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Movement();
         foreach (Attack attack in Attacks)
         { 
             if (Time.time > attack.timer)
@@ -35,32 +37,45 @@ public class Player : MonoBehaviour
                 attack.timer = Time.time + attack.attackTime;
             }
         }
+        
+    }
 
+    private void Movement()
+    {
         yInput = 0;
         xInput = 0;
 
         //get input for movement
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             yInput = 1f;
         }
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             yInput = -1f;
         }
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             xInput = 1f;
         }
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             xInput = -1f;
         }
 
-        moveVector = new Vector2(xInput,yInput);//put input in a 2D Vector
+        moveVector = new Vector2(xInput, yInput);//put input in a 2D Vector
         moveVector = Vector3.Normalize(moveVector);// normalize 2D vector
 
         transform.Translate(moveVector * moveSpeed * Time.deltaTime);//move player
-        
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
