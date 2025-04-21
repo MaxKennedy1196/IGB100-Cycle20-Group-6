@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -7,6 +8,15 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public float hunger = 100f;
     public float maxHunger = 100f;
+
+
+    float moveSpeed = 5f;
+    Vector2 moveVector = new Vector2(0,0);
+    float xInput;
+    float yInput;
+
+    public List<Attack> Attacks;
+    public float damageMult = 1.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +27,40 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (Attack attack in Attacks)
+        { 
+            if (Time.time > attack.timer)
+            { 
+                attack.Use(damageMult);
+                attack.timer = Time.time + attack.attackTime;
+            }
+        }
+
+        yInput = 0;
+        xInput = 0;
+
+        //get input for movement
+        if(Input.GetKey(KeyCode.W))
+        {
+            yInput = 1f;
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            yInput = -1f;
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            xInput = 1f;
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            xInput = -1f;
+        }
+
+        moveVector = new Vector2(xInput,yInput);//put input in a 2D Vector
+        moveVector = Vector3.Normalize(moveVector);// normalize 2D vector
+
+        transform.Translate(moveVector * moveSpeed * Time.deltaTime);//move player
         
     }
 }
