@@ -18,6 +18,13 @@ public class Player : MonoBehaviour
     public List<Attack> Attacks;
     public float damageMult = 1.0f;
 
+    private bool isdecaying = false;
+
+    private float hungerDecayRate = 0.1f;
+    private float hungerDecayTimer = 0f;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +83,15 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    public void hungerDecay(int amount)
+    {
+        if (!isdecaying)
+        {
+            isdecaying = true;
+            hungerDecayTimer = Time.time + 1f;
         }
     }
 }
