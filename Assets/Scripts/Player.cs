@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public float experience = 100f;
     public float maxExperience = 100f;
 
+    public float level = 1f;
+
 
     float moveSpeed = 5f;
     Vector2 moveVector = new Vector2(0,0);
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
 
     private bool isdecaying = false;
 
-    private float hungerDecayRate = 1f;
+    private float hungerDecayRate = 1.5f;
     private float hungerDecayTimer = 0f;
 
 
@@ -156,6 +158,27 @@ public class Player : MonoBehaviour
         {
             hunger = 0;
             takeDamage(5f * Time.deltaTime);
+        }
+    }
+
+    public void AddExperience(float amount)
+    {
+        experience += amount;
+        if (experience >= maxExperience)
+        {
+            experience = 0;
+            maxExperience += 10;
+            level += 1;
+
+            //call powerup cards funtion here
+        }
+    }
+    public void AddHunger(float amount)
+    {
+        hunger += amount;
+        if (hunger >= maxHunger)
+        {
+            hunger = maxHunger;
         }
     }
 }

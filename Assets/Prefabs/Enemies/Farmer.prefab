@@ -161,3 +161,4 @@ MonoBehaviour:
   damage: 0
   attackRange: 0
   deathEffect: {fileID: 0}
+  expDrop: {fileID: 8598268474157666394, guid: b481544366bce39479528d411ce1598f, type: 3}

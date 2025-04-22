@@ -12,10 +12,10 @@ public class Enemy : MonoBehaviour
     public int damage;
     float moveSpeed = 2;
     public int attackRange;
+    public int hungerProvided = 5;
 
     public GameObject deathEffect;
-
-    
+    public GameObject expDrop;
 
     void Awake()
     {
@@ -55,7 +55,10 @@ public class Enemy : MonoBehaviour
         //Instantiate(deathEffect, transform.position);
         Manager.enemyList.Remove(gameObject);
         Destroy(this.gameObject);
-        
+
+        Instantiate(expDrop, transform.position, Quaternion.identity);
+        player.AddHunger(hungerProvided);
+
     }
 
     public void TakeDamage(float damage)
