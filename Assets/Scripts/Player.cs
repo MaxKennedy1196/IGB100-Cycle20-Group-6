@@ -63,7 +63,8 @@ public class Player : MonoBehaviour
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
 
-                acquireClosestEnemy();
+                //if(attack.)
+                    acquireClosestEnemy();
                 projectile.target = target;//allocate projectile target
                 projectile.damage = attack.attackDamage;
                 projectile.projectileLifetime = attack.attackLifetime;
