@@ -32,19 +32,10 @@ public class Player : MonoBehaviour
 
     
     public List<AttackStats> AttackStatsList;
-    public List<float> AttackTimers = new List<float>();
-    List<float> newAttackTimers = new List<float>();
 
     public Transform target;
 
-    float             eldritchLaserCooldown = 1f;
-    float             eldritchLaserTimer = 1f;
-    float             eldritchLaserLifetime = 5f;
-    float             eldritchLaserDamage = 5f;
-    float             eldritchLaserSpeed = 10f;
-    float             eldritchLaserArea = 1f;
-    public GameObject eldritchLaserEffect;
-    public GameObject eldritchLaserProjectile;
+
 
     public float distance;
     public float closestDistance = 999f;
@@ -57,26 +48,23 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //foreach(AttackStats attack in AttackStatsList)
-        //{
-        //    AttackTimers.Add(attack.attackCooldown);
-        //}
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        foreach(AttackStats attack in AttackStatsList)
+        foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
-            attack.decreseTimer();
+            attack.decreseTimer();//decrease attack timer on each attack on the player
 
-            if(attack.attackTimer <= 0)
+            if(attack.attackTimer <= 0)//if attack timer is less than 0
             {
-                GameObject projectileObject = Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
-                Projectile projectile = projectileObject.GetComponent<Projectile>();
-                projectile.target = target;
+                GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
+                Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
+
+                acquireClosestEnemy();
+                projectile.target = target;//allocate projectile target
                 projectile.damage = attack.attackDamage;
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
@@ -88,26 +76,9 @@ public class Player : MonoBehaviour
             }
         }
 
-        AttackTimers = newAttackTimers;
-        newAttackTimers = new List<float>();
-
-
         closestDistance = 999f;
         Movement();
         hungerDecay();
-
-        foreach(GameObject enemy in Manager.enemyList)//target acquisition;
-        { 
-            distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
-    
-            if(distance < closestDistance)//if this particular enemy is closer than all previous ones make it the new minimum distance
-            {
-                closestDistance = distance;
-                target = enemy.transform; // set closest enemy to target
-            }
-        }
-
-
         
     }
 
@@ -181,4 +152,19 @@ public class Player : MonoBehaviour
             hunger = maxHunger;
         }
     }
+
+    private void acquireClosestEnemy()
+    {
+        foreach(GameObject enemy in Manager.enemyList)//target acquisition;
+        { 
+            distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
+    
+            if(distance < closestDistance)//if this particular enemy is closer than all previous ones make it the new minimum distance
+            {
+                closestDistance = distance;
+                target = enemy.transform; // set closest enemy to target
+            }
+        }
+    }
+
 }

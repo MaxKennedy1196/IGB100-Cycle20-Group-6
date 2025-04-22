@@ -45,24 +45,12 @@ public class Projectile : MonoBehaviour
             {
                 targetStats = enemy.GetComponent<Enemy>();
                 targetStats.TakeDamage(damage);
+                Destroy(this.gameObject);
+
             }
         }
 
-
-        //Vector2MoveTowards 
     }
 
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.transform.tag == "Enemy")
-    //    {   
-    //        if (!damageDealt)
-    //        {
-    //            Enemy enemy = collision.transform.GetComponent<Enemy>();
-    //            enemy.TakeDamage(damage);
-    //            enemy.Die();
-    //            damageDealt = true;
-    //        }
-    //    }
-    //}
+
 }
