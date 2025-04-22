@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float projectileSpeed;
     [HideInInspector] public float projectileLifetime;
     [HideInInspector] public float projectileArea;
+    [HideInInspector] public int enemiesPassedThrough;
     
     public Transform target;
     public Enemy targetStats;
@@ -45,12 +46,13 @@ public class Projectile : MonoBehaviour
             {
                 targetStats = enemy.GetComponent<Enemy>();
                 targetStats.TakeDamage(damage);
-                Destroy(this.gameObject);
-
+                enemiesPassedThrough -= 1;
+                if(enemiesPassedThrough <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
 
     }
-
-
 }

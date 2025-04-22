@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
   m_Name: EldritchLaser
   m_EditorClassIdentifier: 
-  attackCooldown: 1
-  attackTimer: 0.8784715
+  attackCooldown: 2
+  attackTimer: 1.9633445
   attackLifetime: 5
   attackDamage: 5
   attackSpeed: 7.5
   attackArea: 1
-  passthrough: 0
+  passthrough: 1
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
-  attackType: 0
   targettingType: 0

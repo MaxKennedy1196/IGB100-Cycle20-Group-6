@@ -14,15 +14,15 @@ public class AttackStats : ScriptableObject
     public int passthrough;// how many enemies this projectile can pass through before being deleted
     public GameObject attackEffect;//effect to be played when attack is triggered
     public GameObject attackProjectile;//projectile to be fired when attack is triggered
-    public AttackType attackType;// what type of attack is this? (Projectile, Radial, Emission)
+    //public AttackType attackType;// what type of attack is this? (Projectile, Radial, Emission)
     public TargettingType targettingType;// What type of targetting does this attack use
 
-    public enum AttackType
+    /*public enum AttackType
     {
         Projectile,
         Radial,
         Emission
-    }
+    }*/
 
 
     public enum TargettingType

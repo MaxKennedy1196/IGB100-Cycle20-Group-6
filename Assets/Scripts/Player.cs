@@ -35,9 +35,6 @@ public class Player : MonoBehaviour
 
     public Transform target;
 
-    
-
-
     public float distance;
     public float closestDistance = 999f;
 
@@ -64,13 +61,22 @@ public class Player : MonoBehaviour
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
 
-                //if(attack.targettingType == TargettingType.Closest)
+                if(attack.targettingType == AttackStats.TargettingType.Closest)
+                {
                     acquireClosestEnemy();
+                }
+
+                if(attack.targettingType == AttackStats.TargettingType.Random)
+                {
+                    acquireRandomEnemy();
+                }
+                    
                 projectile.target = target;//allocate projectile target
                 projectile.damage = attack.attackDamage;
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
                 projectile.projectileArea = attack.attackArea;
+                projectile.enemiesPassedThrough = attack.passthrough;
 
 
                 attack.resetTimer();
@@ -167,6 +173,12 @@ public class Player : MonoBehaviour
                 target = enemy.transform; // set closest enemy to target
             }
         }
+    }
+
+    private void acquireRandomEnemy()
+    {
+        int randEnemy = Random.Range(0, Manager.enemyList.Count + 1);
+        target = Manager.enemyList[randEnemy].transform;
     }
 
 }
