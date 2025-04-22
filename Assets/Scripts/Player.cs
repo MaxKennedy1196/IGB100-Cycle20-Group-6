@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public float hunger = 100f;
     public float maxHunger = 100f;
+    public float experience = 0f;
+    public float maxExperience = 100f;
 
 
     float moveSpeed = 5f;
