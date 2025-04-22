@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private bool isdecaying = false;
 
-    private float hungerDecayRate = 0.1f;
+    private float hungerDecayRate = 1f;
     private float hungerDecayTimer = 0f;
 
 
@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     {
 
         Movement();
+
+        hungerDecay();
+
         foreach (Attack attack in Attacks)
         { 
             if (Time.time > attack.timer)
@@ -86,12 +89,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void hungerDecay(int amount)
+    private void hungerDecay()
     {
-        if (!isdecaying)
+        hunger -= hungerDecayRate * Time.deltaTime;
+
+        if (hunger <= 0)
         {
-            isdecaying = true;
-            hungerDecayTimer = Time.time + 1f;
+            hunger = 0;
+            takeDamage(5f * Time.deltaTime);
         }
     }
 }
