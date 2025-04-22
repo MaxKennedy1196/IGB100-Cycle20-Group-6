@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     float moveSpeed = 2;
     public int attackRange;
     public int hungerProvided = 5;
+    public float damageRate = 1.0f;
+    float damageTime;
 
     public GameObject deathEffect;
     public GameObject expDrop;
@@ -67,7 +69,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0) { Die(); }
     }
 
-    /*void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && Time.time > damageTime)
         {
@@ -75,5 +77,5 @@ public class Enemy : MonoBehaviour
             damageTime = Time.time + damageRate;
 
         }
-    }*/
+    }
 }
