@@ -1488,8 +1488,8 @@ MonoBehaviour:
   maxHealth: 100
   hunger: 100
   maxHunger: 100
+  Attacks: []
   damageMult: 1
-<<<<<<< Updated upstream
 --- !u!95 &969109445
 Animator:
   serializedVersion: 7
@@ -1512,16 +1512,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-=======
-  timer: 0
-  attackCooldown: 0
-  attackDuration: 0
-  attackDamage: 0
-  attackArea: 0
-  attackEffect: {fileID: 0}
-  attackProjectile: {fileID: 0}
-  attackType: 0
->>>>>>> Stashed changes
 --- !u!1 &1015986026
 GameObject:
   m_ObjectHideFlags: 0
