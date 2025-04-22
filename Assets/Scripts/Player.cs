@@ -29,8 +29,9 @@ public class Player : MonoBehaviour
     //[HideInInspector] public float timer;
 
     
-    //public List<AttackStats> AttackStatsList;
-    //public List<float> AttackTimers;
+    public List<AttackStats> AttackStatsList;
+    public List<float> AttackTimers = new List<float>();
+    List<float> newAttackTimers = new List<float>();
 
     public Transform target;
 
@@ -38,7 +39,8 @@ public class Player : MonoBehaviour
     float             eldritchLaserTimer = 1f;
     float             eldritchLaserLifetime = 5f;
     float             eldritchLaserDamage = 5f;
-    float             eldritchLaserArea;
+    float             eldritchLaserSpeed = 10f;
+    float             eldritchLaserArea = 1f;
     public GameObject eldritchLaserEffect;
     public GameObject eldritchLaserProjectile;
 
@@ -55,13 +57,39 @@ public class Player : MonoBehaviour
     {
         //foreach(AttackStats attack in AttackStatsList)
         //{
-        //    AttackTimers.Add()
+        //    AttackTimers.Add(attack.attackCooldown);
         //}
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        foreach(AttackStats attack in AttackStatsList)
+        {
+            attack.decreseTimer();
+
+            if(attack.attackTimer <= 0)
+            {
+                GameObject projectileObject = Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
+                Projectile projectile = projectileObject.GetComponent<Projectile>();
+                projectile.target = target;
+                projectile.damage = attack.attackDamage;
+                projectile.projectileLifetime = attack.attackLifetime;
+                projectile.projectileSpeed = attack.attackSpeed;
+                projectile.projectileArea = attack.attackArea;
+
+
+                attack.resetTimer();
+                
+            }
+        }
+
+        AttackTimers = newAttackTimers;
+        newAttackTimers = new List<float>();
+
+
         closestDistance = 999f;
         Movement();
         hungerDecay();
@@ -69,27 +97,12 @@ public class Player : MonoBehaviour
         foreach(GameObject enemy in Manager.enemyList)//target acquisition;
         { 
             distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
-
+    
             if(distance < closestDistance)//if this particular enemy is closer than all previous ones make it the new minimum distance
             {
                 closestDistance = distance;
                 target = enemy.transform; // set closest enemy to target
-                print("found new shortest distance");
             }
-        }
-
-        eldritchLaserTimer -= Time.deltaTime;
-        if(eldritchLaserTimer <= 0f)
-        {
-            //Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
-            
-            GameObject eldritchLaser = Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
-            Projectile projectile = eldritchLaser.GetComponent<Projectile>();
-            projectile.target = target;
-            projectile.damage = eldritchLaserDamage;
-
-
-            eldritchLaserTimer = eldritchLaserCooldown;
         }
 
 

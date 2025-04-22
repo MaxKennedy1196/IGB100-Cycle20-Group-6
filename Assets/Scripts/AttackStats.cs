@@ -4,12 +4,14 @@ using UnityEngine;
 public class AttackStats : ScriptableObject
 {
     [Header("Attack Variables")]
-    public float attackCooldown;
-    public float attackDuration; // How long the attack will be on screen for
-    public float attackDamage;
-    public float attackArea;
+    public      float attackCooldown;
+    public      float attackTimer;
+    public      float attackLifetime;
+    public      float attackDamage;
+    public      float attackSpeed;
+    public      float attackArea;
     public GameObject attackEffect;
-    public GameObject projectile;
+    public GameObject attackLaserProjectile;
     public AttackType attackType;
 
     public enum AttackType
@@ -18,4 +20,17 @@ public class AttackStats : ScriptableObject
         Radial,
         Emission
     }
+
+    public void decreseTimer()
+    {
+        attackTimer -= Time.deltaTime;
+        
+    }
+
+    public void resetTimer()
+    {
+        attackTimer = attackCooldown;
+        
+    }
+
 }

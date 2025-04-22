@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public GameManager Manager;
     public Player player;
 
-    public int health = 5; //Set to 5 for testing, needs to be reset once individual enemies are created
+    public float health = 5; //Set to 5 for testing, needs to be reset once individual enemies are created
     public int damage;
     float moveSpeed = 2;
     public int attackRange;
@@ -53,10 +53,12 @@ public class Enemy : MonoBehaviour
     {
         //Create a death effect at the location of the enemy when they die
         //Instantiate(deathEffect, transform.position);
+        Manager.enemyList.Remove(gameObject);
         Destroy(this.gameObject);
+        
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0) { Die(); }
