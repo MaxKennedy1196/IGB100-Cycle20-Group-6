@@ -15,6 +15,7 @@ public class AttackStats : ScriptableObject
     public GameObject attackEffect;//effect to be played when attack is triggered
     public GameObject attackProjectile;//projectile to be fired when attack is triggered
     public AttackType attackType;// what type of attack is this? (Projectile, Radial, Emission)
+    public TargettingType targettingType;// What type of targetting does this attack use
 
     public enum AttackType
     {
@@ -23,7 +24,6 @@ public class AttackStats : ScriptableObject
         Emission
     }
 
-    public TargettingType targettingType;// What type of targetting does this attack use
 
     public enum TargettingType
     {
