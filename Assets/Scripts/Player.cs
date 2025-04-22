@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     float xInput;
     float yInput;
 
-    public List<Attack> Attacks;
+    //public List<AttackStats> AttackStats;
+    //public List<int> AttackTimers;
+
     public float damageMult = 1.0f;
 
     private bool isdecaying = false;
@@ -23,6 +25,24 @@ public class Player : MonoBehaviour
     private float hungerDecayRate = 1f;
     private float hungerDecayTimer = 0f;
 
+
+    [HideInInspector] public float timer;
+
+    [Header("Attack Variables")]
+    public float      attackCooldown;
+    public float      attackDuration; // How long the attack will be on screen for
+    public float      attackDamage;
+    public float      attackArea;
+    public GameObject attackEffect;
+    public GameObject attackProjectile;
+    public AttackType attackType;
+
+    public enum AttackType
+    {
+        Projectile,
+        Radial,
+        Emission
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,14 +59,16 @@ public class Player : MonoBehaviour
 
         hungerDecay();
 
-        foreach (Attack attack in Attacks)
-        { 
-            if (Time.time > attack.timer)
-            { 
-                attack.Use(damageMult);
-                attack.timer = Time.time + attack.attackTime;
-            }
-        }
+        //foreach (Attack attack in Attacks)
+        //{ 
+        //    if (Time.time > attack.timer)
+        //    { 
+        //        attack.Use(damageMult);
+        //        attack.timer = Time.time + attack.attackTime;
+        //    }
+        //}
+
+
         
     }
 
