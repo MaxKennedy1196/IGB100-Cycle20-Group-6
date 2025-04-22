@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     public Transform target;
 
+    
 
 
     public float distance;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
 
-                //if(attack.)
+                //if(attack.targettingType == TargettingType.Closest)
                     acquireClosestEnemy();
                 projectile.target = target;//allocate projectile target
                 projectile.damage = attack.attackDamage;

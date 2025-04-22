@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class UpgradeMenu : MonoBehaviour
-{
+{/*
     [HideInInspector] public GameManager Manager;
 
     public List<AttackStats> playerAttacks;
@@ -60,5 +60,5 @@ public class UpgradeMenu : MonoBehaviour
                 break;
         }
 
-    }
+    }*/
 }

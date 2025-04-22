@@ -5,7 +5,7 @@ using UnityEngine;
 [CustomEditor(typeof(Upgrade))]
 public class UpgradeEditor : Editor
 {
-    private Upgrade upgrade;
+    /*private Upgrade upgrade;
     public override void OnInspectorGUI()
     {
         // Unity provides a target when overriding the inspector look, and it has always the same type we declare on CustmoEditor(typeof()) on top
@@ -24,5 +24,5 @@ public class UpgradeEditor : Editor
 
 
         }
-    }
+    }*/
 }
