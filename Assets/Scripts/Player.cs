@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
-
+    public GameManager Manager;
     public float health = 100f;
     public float maxHealth = 100f;
     public float hunger = 100f;
     public float maxHunger = 100f;
-    public float experience = 0f;
+    public float experience = 100f;
     public float maxExperience = 100f;
 
 
@@ -16,9 +17,6 @@ public class Player : MonoBehaviour
     Vector2 moveVector = new Vector2(0,0);
     float xInput;
     float yInput;
-
-    //public List<AttackStats> AttackStats;
-    //public List<int> AttackTimers;
 
     public float damageMult = 1.0f;
 
@@ -28,47 +26,71 @@ public class Player : MonoBehaviour
     private float hungerDecayTimer = 0f;
 
 
-    [HideInInspector] public float timer;
+    //[HideInInspector] public float timer;
 
-    [Header("Attack Variables")]
-    public float      attackCooldown;
-    public float      attackDuration; // How long the attack will be on screen for
-    public float      attackDamage;
-    public float      attackArea;
-    public GameObject attackEffect;
-    public GameObject attackProjectile;
-    public AttackType attackType;
+    
+    //public List<AttackStats> AttackStatsList;
+    //public List<float> AttackTimers;
 
-    public enum AttackType
+    public Transform target;
+
+    float             eldritchLaserCooldown = 1f;
+    float             eldritchLaserTimer = 1f;
+    float             eldritchLaserLifetime = 5f;
+    float             eldritchLaserDamage = 5f;
+    float             eldritchLaserArea;
+    public GameObject eldritchLaserEffect;
+    public GameObject eldritchLaserProjectile;
+
+    public float distance;
+    public float closestDistance = 999f;
+
+    void Awake()
     {
-        Projectile,
-        Radial,
-        Emission
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
     }
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //foreach(AttackStats attack in AttackStatsList)
+        //{
+        //    AttackTimers.Add()
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        closestDistance = 999f;
         Movement();
-
         hungerDecay();
 
-        //foreach (Attack attack in Attacks)
-        //{ 
-        //    if (Time.time > attack.timer)
-        //    { 
-        //        attack.Use(damageMult);
-        //        attack.timer = Time.time + attack.attackTime;
-        //    }
-        //}
+        foreach(GameObject enemy in Manager.enemyList)//target acquisition;
+        { 
+            distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
+
+            if(distance < closestDistance)//if this particular enemy is closer than all previous ones make it the new minimum distance
+            {
+                closestDistance = distance;
+                target = enemy.transform; // set closest enemy to target
+                print("found new shortest distance");
+            }
+        }
+
+        eldritchLaserTimer -= Time.deltaTime;
+        if(eldritchLaserTimer <= 0f)
+        {
+            //Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
+            
+            GameObject eldritchLaser = Instantiate(eldritchLaserProjectile, transform.position, transform.rotation);
+            Projectile projectile = eldritchLaser.GetComponent<Projectile>();
+            projectile.target = target;
+            projectile.damage = eldritchLaserDamage;
+
+
+            eldritchLaserTimer = eldritchLaserCooldown;
+        }
 
 
         

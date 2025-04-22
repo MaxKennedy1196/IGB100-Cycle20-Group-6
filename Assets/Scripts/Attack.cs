@@ -65,7 +65,7 @@ public class Attack : MonoBehaviour
         Instantiate(attackEffect, transform.position, transform.rotation);
 
         Projectile projectile = Instantiate(attackProjectile, transform.position, transform.rotation);
-        projectile.targetLocation = targetLocation;
+        //projectile.targetLocation = targetLocation;
     }
 
     public void RadialAttack()

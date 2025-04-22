@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public int health = 5; //Set to 5 for testing, needs to be reset once individual enemies are created
     public int damage;
-    public int moveSpeed;
+    float moveSpeed = 2;
     public int attackRange;
 
     public GameObject deathEffect;
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player      
 
         Manager.enemyList.Add(gameObject);
+
+        moveSpeed += Random.Range(-0.5f,0.5f);
     }
 
 
