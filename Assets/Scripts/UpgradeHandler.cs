@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    public List<Attack> playerAttacks;
+    [HideInInspector] public GameManager Manager;
+
+    public List<AttackStats> playerAttacks;
 
     public Attack tentacleWhip;
     public Attack eldritchLaser;
@@ -15,7 +17,7 @@ public class UpgradeMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //playerAttacks[0] = tentacleWhip;
+        playerAttacks = Manager.player.AttackStatsList;
     }
 
     // Update is called once per frame
