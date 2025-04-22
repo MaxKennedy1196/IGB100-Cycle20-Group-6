@@ -8,33 +8,45 @@ public class Enemy : MonoBehaviour
     public GameManager Manager;
     public Player player;
 
-    public float health = 5; //Set to 5 for testing, needs to be reset once individual enemies are created
-    public int damage;
-    float moveSpeed = 2;
-    public int attackRange;
-    public int hungerProvided = 5;
-    public float damageRate = 1.0f;
-    float damageTime;
+    public EnemyStats stats;
+
+    public float health;
+    public float damage;
+    float moveSpeed;
+    public float attackRange;
+    public float hungerProvided;
+    //public float damageRate = 1.0f;
+    //float damageTime;
 
     public GameObject deathEffect;
     public GameObject expDrop;
+    float distance = 0f;
 
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player      
 
-        Manager.enemyList.Add(gameObject);
+        Manager.enemyList.Add(gameObject);//add self to enemy list
 
-        moveSpeed += Random.Range(-0.5f,0.5f);
+        health = stats.health;//get stats from enemy stats
+        damage = stats.damage;//get stats from enemy stats
+        moveSpeed = stats.moveSpeed;//get stats from enemy stats
+        attackRange = stats.attackRange;//get stats from enemy stats
+        hungerProvided = stats.hungerProvided;//get stats from enemy stats
+
+        moveSpeed += Random.Range(-0.5f,0.5f);// for randomisation of move speed to ensure enemies dont clump together
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        distance = Vector3.Distance(transform.position, player.transform.position);//distance between instance transform and player
         //Moving towards the player, made method so can be changed in children enemies if necessary (dash and constant movement types?)
         Movement();
+
+        Attack();
 
         //Attempting to attack the player if in range of them
         //if (Vector2.Distance(player.transform.position, transform.position) <= attackRange) { Attack(); }
@@ -46,7 +58,17 @@ public class Enemy : MonoBehaviour
         float step = moveSpeed * Time.deltaTime;
 
         // move sprite towards the target location
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+        if(distance >= attackRange)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+    }
+
+    public void Attack()
+    {
+        
+        if(distance <= attackRange)
+        {
+            player.takeDamage(damage);
+        }
     }
 
     //public abstract void Attack();
@@ -69,7 +91,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0) { Die(); }
     }
 
-    void OnTriggerStay(Collider other)
+    /*void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && Time.time > damageTime)
         {
@@ -77,5 +99,5 @@ public class Enemy : MonoBehaviour
             damageTime = Time.time + damageRate;
 
         }
-    }
+    }*/
 }

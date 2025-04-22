@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        health -= damage;
+        health -= damage * Time.deltaTime;
 
         if (health <= 0)
         {
@@ -152,6 +152,7 @@ public class Player : MonoBehaviour
             //call powerup cards funtion here
         }
     }
+    
     public void AddHunger(float amount)
     {
         hunger += amount;
