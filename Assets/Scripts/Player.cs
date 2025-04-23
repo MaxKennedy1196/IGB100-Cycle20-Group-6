@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     private float hungerDecayRate = 5f;
     private float hungerDecayTimer = 0f;
+    float starvationDamge = 2.5f;
 
 
     //[HideInInspector] public float timer;
@@ -165,7 +166,7 @@ public class Player : MonoBehaviour
         if (hunger <= 0)
         {
             hunger = 0;
-            takeDamage(5f);
+            takeDamage(starvationDamge);
         }
     }
 

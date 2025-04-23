@@ -8,6 +8,10 @@ public class EnemyStats : ScriptableObject
     public float moveSpeed;//How fast you want the enemy to be
     public float attackRange;//How far away from the player must the enmy be in order to deal damage to the player
     public float hungerProvided;// hunger provided for when the enemy dies.
+
+    public float foodSpawnChance;
+    public float xpSpawnChance;
+
     //public float damageRate = 1.0f;
     //float damageTime;
 }

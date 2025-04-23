@@ -24,6 +24,16 @@ public class Enemy : MonoBehaviour
     public GameObject foodDrop;
     float distance = 0f;
 
+    float xpSpawnChance;
+    float foodSpawnChance;
+
+    float foodSpawn;
+    float xpSpawn;
+
+    Vector2 spawnOffset;
+    Vector2 spawnPosition;
+    
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -37,6 +47,9 @@ public class Enemy : MonoBehaviour
         moveSpeed = stats.moveSpeed;//get stats from enemy stats
         attackRange = stats.attackRange;//get stats from enemy stats
         hungerProvided = stats.hungerProvided;//get stats from enemy stats
+
+        xpSpawnChance = stats.xpSpawnChance;
+        foodSpawnChance = stats.foodSpawnChance;
 
         moveSpeed += Random.Range(-0.5f,0.5f);// for randomisation of move speed to ensure enemies dont clump together
     }
@@ -99,11 +112,29 @@ public class Enemy : MonoBehaviour
         Manager.enemyList.Remove(gameObject);
         Destroy(this.gameObject);
 
-        Instantiate(expDrop, transform.position, Quaternion.identity);
-        GameObject FoodDrop = Instantiate(foodDrop, transform.position, Quaternion.identity);
-        PickUp food = foodDrop.GetComponent<PickUp>();
-        food.Value = hungerProvided;
-        //player.AddHunger(hungerProvided);
+        xpSpawn = Random.Range(0f,100f);
+        
+
+        if(xpSpawn <= xpSpawnChance)
+        {
+            spawnOffset = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
+            spawnPosition = transform.position;
+            spawnPosition += spawnOffset;
+            Instantiate(expDrop, spawnPosition, Quaternion.identity);
+        }
+
+        foodSpawn = Random.Range(0f,100f);
+
+        if(foodSpawn <= foodSpawnChance)
+        {
+            spawnOffset = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
+            spawnPosition = transform.position;
+            spawnPosition += spawnOffset;
+            GameObject FoodDrop = Instantiate(foodDrop, spawnPosition, Quaternion.identity);
+            PickUp food = foodDrop.GetComponent<PickUp>();
+            food.Value = hungerProvided;
+            //player.AddHunger(hungerProvided);
+        }
 
     }
 

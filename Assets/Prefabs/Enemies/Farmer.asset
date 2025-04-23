@@ -17,3 +17,5 @@ MonoBehaviour:
   moveSpeed: 2
   attackRange: 2
   hungerProvided: 5
+  foodSpawnChance: 50
+  xpSpawnChance: 50
