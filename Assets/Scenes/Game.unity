@@ -6827,7 +6827,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelected: 0
   upgradeType: 0
+  MoveSpeedChange: 0
+  MaxHealthChange: 0
+  MaxHungerChange: 0
+  AttackRateChangeAmount: 0
+  DamageChangeAmount: 0
+  RangeChangeAmount: 0
+  ProjectileCountChangeAmount: 0
 --- !u!1 &680520567
 GameObject:
   m_ObjectHideFlags: 0

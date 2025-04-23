@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
+    [HideInInspector] public bool playerSelected = false;
+
     public enum UpgradeType
     {
         Player,
@@ -13,54 +15,18 @@ public class Upgrade : MonoBehaviour
 
     public UpgradeType upgradeType;
 
+    //Player upgrade variables
+    public float MoveSpeedChange;
+    public float MaxHealthChange;
+    public float MaxHungerChange;
 
-    
-    /*public enum PlayerUpgradeOptions
-    {
-        MovementSpeed,
-        MaxHealth,
-        MaxHunger
-    }
-    public PlayerUpgradeOptions playerUpgradeOptions;
-    
+    //Attack upgrade variables
+    public float AttackRateChangeAmount;
+    public float DamageChangeAmount;
+    public float RangeChangeAmount;
+    public float ProjectileCountChangeAmount;
 
-    public enum AttackUpgradeOptions
-    {
-        AttackRate,
-        Damage,
-        Range,
-        ProjectileCount
-    }
-    public AttackUpgradeOptions attackUpgradeOptions;
-    
-
-    //Custom struct that creates two corresponding lists of variables to be upgraded and amounts to upgrade them by
-    
-
-    public struct PlayerUpgradeValues
-    {
-        public PlayerUpgradeOptions upgradeOptions;
-        public List<float> playerUpgradeAmounts;
-    }
-
-    public struct AttackUpgradeValues
-    {
-        public AttackUpgradeOptions upgradeOptions;
-        public List<float> playerUpgradeAmounts;
-    }
-
-
-    [Serializable]
-    public struct UpgradeValues
-    {
-        //Make list of enums/one single enum of different possible upgrade targets for player and one for possible upgrade targets for attacks
-
-        public enum UpgradeOptions { };
-        public List<float> upgradeAmounts;
-    }
-    [SerializeField] public UpgradeValues[] upgradeValues;
-
-
+    /*
     //Applies the upgrade to the object in question
     void ApplyUpgrade(int upgradeTier)
     {
