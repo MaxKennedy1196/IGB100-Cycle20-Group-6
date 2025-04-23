@@ -2132,6 +2132,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &164235462
 GameObject:
   m_ObjectHideFlags: 0
@@ -11395,6 +11396,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1104830605
 GameObject:
   m_ObjectHideFlags: 0
@@ -13048,6 +13050,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1315836850
 GameObject:
   m_ObjectHideFlags: 0
@@ -15748,6 +15751,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1635641809
 GameObject:
   m_ObjectHideFlags: 0
@@ -16201,6 +16205,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1657782575
 GameObject:
   m_ObjectHideFlags: 0
@@ -17463,6 +17468,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1722174998
 GameObject:
   m_ObjectHideFlags: 0
@@ -17684,6 +17690,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1757100568
 GameObject:
   m_ObjectHideFlags: 0
@@ -18734,6 +18741,7 @@ MonoBehaviour:
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+  spawningOn: 1
 --- !u!1 &1861435823
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float maxHunger = 100f;
     public float experience = 100f;
     public float maxExperience = 100f;
+    public SpriteRenderer spriteRenderer;
 
     public float level = 1f;
 
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>(); 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -107,10 +109,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             xInput = 1f;
+            spriteRenderer.flipX = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             xInput = -1f;
+            spriteRenderer.flipX = false;
         }
 
         moveVector = new Vector2(xInput, yInput);//put input in a 2D Vector

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public float hungerProvided;
     //public float damageRate = 1.0f;
     //float damageTime;
+    public SpriteRenderer spriteRenderer;
 
     public GameObject deathEffect;
     public GameObject expDrop;
@@ -25,7 +26,8 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player      
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>(); 
 
         Manager.enemyList.Add(gameObject);//add self to enemy list
 
@@ -59,7 +61,23 @@ public class Enemy : MonoBehaviour
 
         // move sprite towards the target location
         if(distance >= attackRange)
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+        {
+            Vector2 moveVector = Vector2.MoveTowards(transform.position, player.transform.position, step);
+            Vector2 positionVector = new Vector2(player.transform.position.x,player.transform.position.y );
+
+            Vector2 velocityVector = moveVector - positionVector;
+            if(velocityVector.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            if(velocityVector.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+
+            transform.position = moveVector;
+        }
+            
     }
 
     public void Attack()

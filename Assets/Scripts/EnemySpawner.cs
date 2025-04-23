@@ -6,16 +6,16 @@ public class EnemySpawner : MonoBehaviour
     public float enemyRate = 2.0f;
     public float enemyTimer;
     public GameObject Enemy;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool spawningOn;
+
 
     // Update is called once per frame
     void Update()
     {
-        SpawnEnemy();
+        if(spawningOn)
+        {
+            SpawnEnemy();
+        }
     }
 
     private void SpawnEnemy()
