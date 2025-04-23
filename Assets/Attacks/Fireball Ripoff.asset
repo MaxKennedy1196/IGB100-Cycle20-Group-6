@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
-  m_Name: EldritchLaser
+  m_Name: Fireball Ripoff
   m_EditorClassIdentifier: 
-  attackCooldown: 2
-  attackTimer: 0.40172565
+  attackCooldown: 3
+  attackTimer: 2.5156238
   attackLifetime: 5
-  attackDamage: 5
-  attackSpeed: 10
+  attackDamage: 15
+  attackSpeed: 7
   attackArea: 1
-  passthrough: 1
+  passthrough: 5
   attackEffect: {fileID: 0}
-  attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
-  targettingType: 0
+  attackProjectile: {fileID: 9197686042926581397, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
+  targettingType: 1

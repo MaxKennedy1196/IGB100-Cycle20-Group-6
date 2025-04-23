@@ -9969,10 +9969,12 @@ MonoBehaviour:
   maxHunger: 100
   experience: 0
   maxExperience: 100
+  spriteRenderer: {fileID: 0}
   level: 1
   damageMult: 1
   AttackStatsList:
   - {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
+  - {fileID: 11400000, guid: ddb5522c806c6c846b01aa527bced1f4, type: 2}
   target: {fileID: 0}
   distance: 0
   closestDistance: 999
@@ -15874,9 +15876,9 @@ RectTransform:
   m_Father: {fileID: 761362140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -880, y: -72.5}
-  m_SizeDelta: {x: 1760, y: 50}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643511453
 MonoBehaviour:

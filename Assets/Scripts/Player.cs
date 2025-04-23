@@ -48,11 +48,22 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
+        {
+            attack.resetTimer();
+        }
     }
 
     // Update is called once per frame
     void Update()
+    {
+        attacks();
+        movement();
+        hungerDecay();
+        
+    }
+
+    private void attacks()
     {
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
@@ -87,12 +98,9 @@ public class Player : MonoBehaviour
         }
 
         closestDistance = 999f;
-        Movement();
-        hungerDecay();
-        
     }
 
-    private void Movement()
+    private void movement()
     {
         yInput = 0;
         xInput = 0;

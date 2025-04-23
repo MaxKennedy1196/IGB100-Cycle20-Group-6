@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Farmer
   m_EditorClassIdentifier: 
   health: 5
-  damage: 1
+  damage: 5
   moveSpeed: 2
-  attackRange: 1
+  attackRange: 2
   hungerProvided: 5
