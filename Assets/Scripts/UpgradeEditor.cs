@@ -23,24 +23,32 @@ public class UpgradeEditor : Editor
         {
             if (upgrade.upgradeType == Upgrade.UpgradeType.Player)
             {
+                EditorGUILayout.PrefixLabel("Upgrade Name");
+                upgrade.upgradeTiers.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeTiers.UpgradeName);
                 EditorGUILayout.PrefixLabel("Movement Speed Increase");
-                upgrade.MoveSpeedChange = EditorGUILayout.FloatField(upgrade.MoveSpeedChange);
+                upgrade.upgradeTiers.MoveSpeedChange = EditorGUILayout.FloatField(upgrade.upgradeTiers.MoveSpeedChange);
                 EditorGUILayout.PrefixLabel("Max Health Increase");
-                upgrade.MaxHealthChange = EditorGUILayout.FloatField(upgrade.MaxHealthChange);
+                upgrade.upgradeTiers.MaxHealthChange = EditorGUILayout.FloatField(upgrade.upgradeTiers.MaxHealthChange);
                 EditorGUILayout.PrefixLabel("Max Hunger Increase");
-                upgrade.MaxHungerChange = EditorGUILayout.FloatField(upgrade.MaxHungerChange);
+                upgrade.upgradeTiers.MaxHungerChange = EditorGUILayout.FloatField(upgrade.upgradeTiers.MaxHungerChange);
             }
 
-            else
+            else if (upgrade.upgradeType == Upgrade.UpgradeType.Attack)
             {
+                EditorGUILayout.PrefixLabel("Attack Name");
+                upgrade.upgradeTiers.AttackName = EditorGUILayout.TextField(upgrade.upgradeTiers.AttackName);
                 EditorGUILayout.PrefixLabel("Attack Rate Increase");
-                upgrade.AttackRateChangeAmount = EditorGUILayout.FloatField(upgrade.AttackRateChangeAmount);
+                upgrade.upgradeTiers.AttackRateChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeTiers.AttackRateChangeAmount);
                 EditorGUILayout.PrefixLabel("Damage Increase");
-                upgrade.DamageChangeAmount = EditorGUILayout.FloatField(upgrade.DamageChangeAmount);
-                EditorGUILayout.PrefixLabel("Range Increase");
-                upgrade.RangeChangeAmount = EditorGUILayout.FloatField(upgrade.RangeChangeAmount);
+                upgrade.upgradeTiers.DamageChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeTiers.DamageChangeAmount);
                 EditorGUILayout.PrefixLabel("Projectile Count Increase");
-                upgrade.ProjectileCountChangeAmount = EditorGUILayout.FloatField(upgrade.ProjectileCountChangeAmount);
+                upgrade.upgradeTiers.ProjectileCountChangeAmount = EditorGUILayout.IntField(upgrade.upgradeTiers.ProjectileCountChangeAmount);
+            }
+
+            else if (upgrade.upgradeType == Upgrade.UpgradeType.NewAttack)
+            {
+                EditorGUILayout.PrefixLabel("New Attack Name");
+                upgrade.upgradeTiers.NewAttackName = EditorGUILayout.TextField(upgrade.upgradeTiers.NewAttackName);
             }
         }
     }

@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Attack", menuName = "AttackStats")]
@@ -12,47 +13,46 @@ public class AttackStats : ScriptableObject
     public      float attackMaxDamage;//max damage attack will deal to enemies
     public      float attackSpeed;//speed of projectile
     public      float attackArea;//what distance the projectile must be from an enemy before it can damage it
+    
     public int passthrough;// how many enemies this projectile can pass through before being deleted
+    [HideInInspector] public int projectileCount; //How many projectiles the attack fires; no logic for this implemented yet, may be removed
     public GameObject attackEffect;//effect to be played when attack is triggered
     public GameObject attackProjectile;//projectile to be fired when attack is triggered
-    //public AttackType attackType;// what type of attack is this? (Projectile, Radial, Emission)
-    public TargettingType targettingType;// What type of targetting does this attack use
+    public TargetingType targetingType;// What type of targetting does this attack use
     public bool DPS;
 
-    //public enum AttackType
-    //{
-    //    Projectile,
-    //    //Radial,
-    //    //Emission,
-    //    AOE
-    //}
+    [Header("Upgrades")]
+    public Upgrade[] upgrades;
 
+    [HideInInspector] public int upgradeTier;
+    [HideInInspector] public bool upgradeMaxed = false;
 
-    public enum TargettingType
+    public enum TargetingType
     {
         Closest,
         Random,
         Player
     }
 
-    public void decreseTimer()//decreases the attack timer over time
+    public void DecreaseTimer()//decreases the attack timer over time
     {
         attackTimer -= Time.deltaTime;
-        
     }
 
-    public void resetTimer()//reset attack timer to maximum cooldown
+    public void ResetTimer()//reset attack timer to maximum cooldown
     {
         attackTimer = attackCooldown;
     }
 
-    public void initTimer()//start game
+    public void InitTimer()//start game
     {
         attackTimer = 0f;
     }
 
-
-
-    
-
+    //Function that creates a reference to the next upgrade for the UpgradeHandler
+    public Upgrade GetNextUpgrade()
+    {
+        if (upgradeTier+1 == upgrades.Length) { upgradeMaxed = true; }
+        return upgrades[upgradeTier];
+    }
 }

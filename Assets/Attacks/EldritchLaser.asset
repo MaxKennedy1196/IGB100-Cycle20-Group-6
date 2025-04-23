@@ -22,5 +22,7 @@ MonoBehaviour:
   passthrough: 1
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
-  targettingType: 0
+  targetingType: 0
   DPS: 0
+  upgrades:
+  - {fileID: 0}

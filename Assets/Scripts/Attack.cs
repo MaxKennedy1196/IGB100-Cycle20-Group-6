@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+//Depracated script, has been superceded by AttackStats scriptable objects
 public class Attack : MonoBehaviour
 {
     [HideInInspector] public float timer;

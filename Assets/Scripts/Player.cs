@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float level = 1f;
 
 
-    float moveSpeed = 5f;
+    public float moveSpeed = 5f;
     Vector2 moveVector = new Vector2(0,0);
     float xInput;
     float yInput;
@@ -33,12 +33,15 @@ public class Player : MonoBehaviour
     //[HideInInspector] public float timer;
 
     
-    public List<AttackStats> AttackStatsList;
+    public List<AttackStats> AttackStatsList; //A list of all the players weapons
+    public int maxWeapons; //Defines the maximum number of weapons the player can have
 
     public Transform target;
 
     public float distance;
     public float closestDistance = 999f;
+
+    public List<Upgrade> upgrades;
 
     void Awake()
     {
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour
     {
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
-            attack.initTimer();
+            attack.InitTimer();
         }
     }
 
@@ -68,25 +71,27 @@ public class Player : MonoBehaviour
     {
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
-            attack.decreseTimer();//decrease attack timer on each attack on the player
+            attack.DecreaseTimer();//decrease attack timer on each attack on the player
 
             if(attack.attackTimer <= 0)//if attack timer is less than 0
             {
+                //Need to add logic for multiple projectiles if we are going to allow the projectile count to be upgraded
+
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
                 
 
-                if(attack.targettingType == AttackStats.TargettingType.Closest)
+                if(attack.targetingType == AttackStats.TargetingType.Closest)
                 {
                     acquireClosestEnemy();
                 }
 
-                if(attack.targettingType == AttackStats.TargettingType.Random)
+                if(attack.targetingType == AttackStats.TargetingType.Random)
                 {
                     acquireRandomEnemy();
                 }
 
-                if(attack.targettingType == AttackStats.TargettingType.Player)
+                if(attack.targetingType == AttackStats.TargetingType.Player)
                 {
                     target = gameObject.transform;
                     projectile.bindToPlayer = true;
@@ -110,7 +115,7 @@ public class Player : MonoBehaviour
                 projectile.enemiesPassedThrough = attack.passthrough;
 
 
-                attack.resetTimer();
+                attack.ResetTimer();
                 
             }
         }
