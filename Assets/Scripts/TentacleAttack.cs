@@ -1,14 +1,14 @@
-using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using NUnit.Framework;
+//using System.Collections;
+//using System.Collections.Generic;
+//using System.Linq;
+//using Unity.VisualScripting;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 //The script for the basic tentacle attack, this is similar to the knife and whip attack from vampire survivors
 public class TentacleAttack : MonoBehaviour
-{
+{/*
     //Basic variables that will be modified as the player gains upgrades
     [Header("Tentacle Variables")]
     public int tentacleRange = 3; //Need to tweak to figure out how far 3 actually goes
@@ -42,7 +42,7 @@ public class TentacleAttack : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         tentacleMove = false;
 
-        /*
+        
         for (float i = 0.0f; i < 1; i += 0.1f)
         {
             tentacle.SetPosition(0, transform.position);
@@ -60,7 +60,7 @@ public class TentacleAttack : MonoBehaviour
             tentacle.SetPosition(1, transform.position * i);
             yield return new WaitForSeconds(0.01f);
         }
-        */
+        
     }
 
     public void Use(float damageMult)
@@ -98,5 +98,5 @@ public class TentacleAttack : MonoBehaviour
             tentacle.SetPosition(1, targetEnemies[i].transform.position);
             //StartCoroutine(TentacleExtend(tentacle, targetEnemies[i].transform.position));
         }
-    }
+    }*/
 }

@@ -22,6 +22,8 @@ public class Projectile : MonoBehaviour
     public float closestDistance = 999f;
 
     public bool bindToPlayer = false;
+    public bool DPS = false;
+    float damageToEnemy = 0f;
 
     void Awake()
     {
@@ -59,7 +61,13 @@ public class Projectile : MonoBehaviour
             if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
             {
                 targetStats = enemy.GetComponent<Enemy>();
-                float damageToEnemy = Random.Range(damageMin,damageMax);
+                damageToEnemy = Random.Range(damageMin,damageMax);
+
+                if(DPS == true)
+                {
+                    damageToEnemy = damageToEnemy * Time.deltaTime;
+                }
+
                 targetStats.TakeDamage(damageToEnemy);
                 enemiesPassedThrough -= 1;
                 if(enemiesPassedThrough <= 0)

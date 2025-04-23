@@ -17,6 +17,7 @@ public class AttackStats : ScriptableObject
     public GameObject attackProjectile;//projectile to be fired when attack is triggered
     //public AttackType attackType;// what type of attack is this? (Projectile, Radial, Emission)
     public TargettingType targettingType;// What type of targetting does this attack use
+    public bool DPS;
 
     //public enum AttackType
     //{

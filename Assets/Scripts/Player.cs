@@ -90,7 +90,15 @@ public class Player : MonoBehaviour
                     target = gameObject.transform;
                     projectile.bindToPlayer = true;
                 }
-                
+
+                if(attack.DPS == true)
+                {
+                    projectile.DPS = true;
+                }   
+                if(attack.DPS == false)
+                {
+                    projectile.DPS = false;
+                }             
                     
                 projectile.target = target;//allocate projectile target
                 projectile.damageMin = attack.attackMinDamage;

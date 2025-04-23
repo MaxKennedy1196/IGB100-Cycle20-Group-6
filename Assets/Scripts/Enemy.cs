@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage * Time.deltaTime;
+        health -= damage;
         if (health <= 0) { Die(); }
     }
 
