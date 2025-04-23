@@ -4,11 +4,29 @@ using UnityEditor;
 public class LayerRandomiser : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    public GameManager Manager;
+    public Player player;
+    Transform playerTransform;
+    public float yPos;
+    public int orderPos;
 
     void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();// this is a temporary fix to our clipping issue
-        spriteRenderer.sortingOrder = Random.Range(-25,25);
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();// Get renderer
+
+        
+    }
+
+    void Update()
+    {
+        Vector2 positionScaledToCamera = transform.position - playerTransform.position;
+        yPos = positionScaledToCamera.y * 32;
+        yPos = Mathf.Round(yPos);
+        orderPos = (int)yPos;
+        spriteRenderer.sortingOrder = orderPos * -1;
     }
 
 }
