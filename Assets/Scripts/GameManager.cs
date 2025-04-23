@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public float volumeLevel;
 
-    public GameObject tentacleObject;
+    //public GameObject tentacleObject;
 
     public List<GameObject> enemyList = new List<GameObject>();
     public Player player;
@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { TentacleIncrease(); }
+        //if (Input.GetKeyDown(KeyCode.Space)) { TentacleIncrease(); }
     }
 
-    public void TentacleIncrease()
+    /*public void TentacleIncrease()
     {
         GameObject newTentacle = Instantiate(tentacleObject, player.transform.position, player.transform.rotation, player.transform);
-    }
+    }*/
 }

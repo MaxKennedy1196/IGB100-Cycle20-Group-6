@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     private bool isdecaying = false;
 
-    private float hungerDecayRate = 1.5f;
+    private float hungerDecayRate = 5f;
     private float hungerDecayTimer = 0f;
 
 
@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
         if (hunger <= 0)
         {
             hunger = 0;
-            takeDamage(5f * Time.deltaTime);
+            takeDamage(5f);
         }
     }
 

@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public GameObject deathEffect;
     public GameObject expDrop;
+    public GameObject foodDrop;
     float distance = 0f;
 
     void Awake()
@@ -99,7 +100,10 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
 
         Instantiate(expDrop, transform.position, Quaternion.identity);
-        player.AddHunger(hungerProvided);
+        GameObject FoodDrop = Instantiate(foodDrop, transform.position, Quaternion.identity);
+        PickUp food = foodDrop.GetComponent<PickUp>();
+        food.Value = hungerProvided;
+        //player.AddHunger(hungerProvided);
 
     }
 
