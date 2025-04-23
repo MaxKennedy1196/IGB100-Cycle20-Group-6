@@ -1,11 +1,24 @@
 using UnityEditor;
 using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting;
 
 [CustomEditor(typeof(Upgrade))]
 public class UpgradeEditor : Editor
 {
-    /*private Upgrade upgrade;
+    public string[] playerUpgradeOptions = { "MovementSpeed", "MaxHealth", "MaxHunger" };
+    public string[] attackUpgradeOptions = { "AttackRate", "Damage", "Range", "ProjectileCount" };
+
+
+    public enum UpgradeOptions
+    {
+        MovementSpeed,
+        MaxHealth,
+        MaxHunger
+    }
+    public UpgradeOptions playerOptions;
+
+    private Upgrade upgrade;
     public override void OnInspectorGUI()
     {
         // Unity provides a target when overriding the inspector look, and it has always the same type we declare on CustmoEditor(typeof()) on top
@@ -19,10 +32,11 @@ public class UpgradeEditor : Editor
 
             //Accessing variables for a player upgrade
             case Upgrade.UpgradeType.Player:
-                upgrade.upgradeOptions = upgrade.playerUpgradeOptions; //Need to fix type conversion
+                //Upgrade.UpgradeValues.UpgradeOptions = ;
+                 //Need to fix type conversion
                 break;
 
 
         }
-    }*/
+    }
 }
