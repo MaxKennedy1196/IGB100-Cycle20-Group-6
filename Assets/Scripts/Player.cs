@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     {
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
-            attack.resetTimer();
+            attack.initTimer();
         }
     }
 
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
             {
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
+                
 
                 if(attack.targettingType == AttackStats.TargettingType.Closest)
                 {
@@ -83,9 +84,17 @@ public class Player : MonoBehaviour
                 {
                     acquireRandomEnemy();
                 }
+
+                if(attack.targettingType == AttackStats.TargettingType.Player)
+                {
+                    target = gameObject.transform;
+                    projectile.bindToPlayer = true;
+                }
+                
                     
                 projectile.target = target;//allocate projectile target
-                projectile.damage = attack.attackDamage;
+                projectile.damageMin = attack.attackMinDamage;
+                projectile.damageMax = attack.attackMaxDamage;
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
                 projectile.projectileArea = attack.attackArea;

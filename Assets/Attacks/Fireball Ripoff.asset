@@ -15,10 +15,12 @@ MonoBehaviour:
   attackCooldown: 3
   attackTimer: 2.5156238
   attackLifetime: 5
-  attackDamage: 15
+  attackMinDamage: 10
+  attackMaxDamage: 15
   attackSpeed: 7
   attackArea: 1
   passthrough: 5
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
+  attackType: 0
   targettingType: 1

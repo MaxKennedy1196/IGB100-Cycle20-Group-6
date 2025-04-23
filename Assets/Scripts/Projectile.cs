@@ -4,21 +4,24 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameManager Manager;
-    public float damage;
+    public float damageMin;
+    public float damageMax;
 
     //Internal boolean to check if the projectile has dealt damage to an enemy
     private bool damageDealt = false;
 
-    [HideInInspector] public float projectileSpeed;
-    [HideInInspector] public float projectileLifetime;
-    [HideInInspector] public float projectileArea;
-    [HideInInspector] public int enemiesPassedThrough;
+    public float projectileSpeed;
+    public float projectileLifetime;
+    public float projectileArea;
+    public int enemiesPassedThrough;
     
     public Transform target;
     public Enemy targetStats;
 
     public float distance;
     public float closestDistance = 999f;
+
+    public bool bindToPlayer = false;
 
     void Awake()
     {
@@ -36,7 +39,18 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
-        transform.position += transform.up * Time.deltaTime * projectileSpeed;
+        if(bindToPlayer == false)
+        {
+            transform.position += transform.up * Time.deltaTime * projectileSpeed;
+        }
+
+        if(bindToPlayer == true)
+        {
+            transform.position = target.position;
+        }
+            
+
+
 
         foreach(GameObject enemy in Manager.enemyList)//target acquisition;
         { 
@@ -45,7 +59,8 @@ public class Projectile : MonoBehaviour
             if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
             {
                 targetStats = enemy.GetComponent<Enemy>();
-                targetStats.TakeDamage(damage);
+                float damageToEnemy = Random.Range(damageMin,damageMax);
+                targetStats.TakeDamage(damageToEnemy);
                 enemiesPassedThrough -= 1;
                 if(enemiesPassedThrough <= 0)
                 {

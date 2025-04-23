@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
-  m_Name: EldritchLaser
+  m_Name: Garlic Ripoff
   m_EditorClassIdentifier: 
-  attackCooldown: 2
-  attackTimer: 0.40172565
-  attackLifetime: 5
-  attackMinDamage: 5
-  attackMaxDamage: 7
-  attackSpeed: 10
-  attackArea: 1
-  passthrough: 1
+  attackCooldown: 15
+  attackTimer: 5.7376323
+  attackLifetime: 10
+  attackMinDamage: 8
+  attackMaxDamage: 10
+  attackSpeed: 0
+  attackArea: 2.5
+  passthrough: 9999999
   attackEffect: {fileID: 0}
-  attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
-  attackType: 0
-  targettingType: 0
+  attackProjectile: {fileID: 9197686042926581397, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
+  targettingType: 2

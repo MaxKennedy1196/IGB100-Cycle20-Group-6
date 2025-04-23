@@ -48,7 +48,7 @@ public class Upgrade : MonoBehaviour
         public AttackUpgradeOptions upgradeOptions;
         public List<float> playerUpgradeAmounts;
     }
-    */
+
 
     [Serializable]
     public struct UpgradeValues
@@ -70,5 +70,5 @@ public class Upgrade : MonoBehaviour
             upgradeValues[upgradeTier].upgradeTargets[i] += upgradeValues[upgradeTier].upgradeAmounts[i];
         }
 
-    }
+    }*/
 }
