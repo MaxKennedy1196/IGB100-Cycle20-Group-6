@@ -12,6 +12,8 @@ public class EnemyStats : ScriptableObject
     public float foodSpawnChance;
     public float xpSpawnChance;
 
+    public GameObject deathEffect;
+
     //public float damageRate = 1.0f;
     //float damageTime;
 }

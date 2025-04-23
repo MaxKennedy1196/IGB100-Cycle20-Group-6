@@ -6,7 +6,7 @@ public class PickUp : MonoBehaviour
     public AudioClip pickUpSound;
     public Player player;
     public Transform playerTransform;
-    float pickupDistance = 1f;
+    float pickupDistance = 1.5f;
     float distance = 0f;
 
     public PickupType pickupType;// What type of targetting does this attack use

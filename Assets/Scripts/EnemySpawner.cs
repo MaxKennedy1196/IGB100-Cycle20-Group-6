@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public float enemyTimer;
     public GameObject Enemy;
     public bool spawningOn;
-
+    
 
     // Update is called once per frame
     void Update()

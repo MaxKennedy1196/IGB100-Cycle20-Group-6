@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> enemyList = new List<GameObject>();
     public Player player;
+
+    public GameObject expDrop;
+    public GameObject foodDrop;
     
 
     // Awake Checks - Singleton setup

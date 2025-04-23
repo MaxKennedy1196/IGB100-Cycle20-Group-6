@@ -20,8 +20,7 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public GameObject deathEffect;
-    public GameObject expDrop;
-    public GameObject foodDrop;
+    
     float distance = 0f;
 
     float xpSpawnChance;
@@ -50,6 +49,8 @@ public class Enemy : MonoBehaviour
 
         xpSpawnChance = stats.xpSpawnChance;
         foodSpawnChance = stats.foodSpawnChance;
+
+        deathEffect = stats.deathEffect;
 
         moveSpeed += Random.Range(-0.5f,0.5f);// for randomisation of move speed to ensure enemies dont clump together
     }
@@ -108,7 +109,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         //Create a death effect at the location of the enemy when they die
-        //Instantiate(deathEffect, transform.position);
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Manager.enemyList.Remove(gameObject);
         Destroy(this.gameObject);
 
@@ -120,7 +121,7 @@ public class Enemy : MonoBehaviour
             spawnOffset = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
             spawnPosition = transform.position;
             spawnPosition += spawnOffset;
-            Instantiate(expDrop, spawnPosition, Quaternion.identity);
+            Instantiate(Manager.expDrop, spawnPosition, Quaternion.identity);
         }
 
         foodSpawn = Random.Range(0f,100f);
@@ -130,8 +131,8 @@ public class Enemy : MonoBehaviour
             spawnOffset = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
             spawnPosition = transform.position;
             spawnPosition += spawnOffset;
-            GameObject FoodDrop = Instantiate(foodDrop, spawnPosition, Quaternion.identity);
-            PickUp food = foodDrop.GetComponent<PickUp>();
+            GameObject FoodDrop = Instantiate(Manager.foodDrop, spawnPosition, Quaternion.identity);
+            PickUp food = FoodDrop.GetComponent<PickUp>();
             food.Value = hungerProvided;
             //player.AddHunger(hungerProvided);
         }
