@@ -18,10 +18,6 @@ public class UpgradeMenu : MonoBehaviour
     private List<Upgrade> playerUpgrades;
     private List<Upgrade> upgradePool;
 
-    public Attack tentacleWhip;
-    public Attack eldritchLaser;
-    public Attack miasma;
-
     private Upgrade[] upgrades;
     private Upgrade chosenUpgrade;
 
@@ -51,7 +47,6 @@ public class UpgradeMenu : MonoBehaviour
         //Creating a new empty list of three upgrade choices for the player
         upgrades = new Upgrade[3];
 
-        //Setting the first upgrade to be one of the weapons they already have
         //Setting the first upgrade to always be a weapon the player already has
         upgrades[0] = upgradableAttacks[(Random.Range(0, playerAttacks.Count))].GetNextUpgrade();
 
