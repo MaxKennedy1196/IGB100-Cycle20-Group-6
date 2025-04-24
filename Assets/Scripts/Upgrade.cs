@@ -1,14 +1,13 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New Upgrade", menuName = "Upgrade")]
 public class Upgrade : ScriptableObject
 {
-    public Player player;
+    [HideInInspector] public bool playerSelected = false;
 
     public enum UpgradeType
     {
@@ -22,56 +21,43 @@ public class Upgrade : ScriptableObject
     [Serializable]
     public struct UpgradeTierValues
     {
-        //General upgrade variables
-        public string UpgradeName;
-        public string UpgradeText; //Text that explains to the user what the upgrade does (+2 damage etc.)
-
         //Player upgrade variables
+        public string UpgradeName;
         public float MoveSpeedChange;
         public float MaxHealthChange;
         public float MaxHungerChange;
-        public float XPGainChange;
 
         //Attack upgrade variables
-        public AttackStats attack;
+        public string AttackName;
         public float AttackRateChangeAmount;
         public float DamageChangeAmount;
         public float RangeChangeAmount;
         public int ProjectileCountChangeAmount;
 
         //New attack variables
-        public AttackStats NewAttack;
+        public string NewAttackName;
     }
 
-    [SerializeField] public UpgradeTierValues upgradeValues;
+    [SerializeField] public UpgradeTierValues upgradeTiers;
 
-    //Applies an upgrade according to the chosen type of the upgrade
-    public void ApplyUpgrade()
+    //Applies an attack upgrade
+    void ApplyAttackUpgrade(AttackStats attack)
     {
-        player = GameManager.instance.player;
+        attack.attackTimer -= upgradeTiers.AttackRateChangeAmount;
+        //Not sure how we're doing damage increases but currently damage increase upgrades boost the min and max by the same amount
+        attack.attackMinDamage += upgradeTiers.DamageChangeAmount;
+        attack.attackMaxDamage += upgradeTiers.DamageChangeAmount;
+        //Also not sure if projectile count upgrades are being added or not
+        attack.projectileCount += upgradeTiers.ProjectileCountChangeAmount;
+        attack.upgradeTier++;
+    }
 
-        switch (upgradeType)
-        {
-            //Upgrading player values
-            case UpgradeType.Player:
-                player.moveSpeed += upgradeValues.MoveSpeedChange;
-                player.maxHealth += upgradeValues.MaxHealthChange;
-                player.maxHunger += upgradeValues.MaxHungerChange;
-                break;
-
-            //Upgrading attack values
-            case UpgradeType.Attack:
-                upgradeValues.attack.attackTimer -= upgradeValues.AttackRateChangeAmount;
-                upgradeValues.attack.attackMinDamage += upgradeValues.DamageChangeAmount;
-                upgradeValues.attack.attackMaxDamage += upgradeValues.DamageChangeAmount;
-                upgradeValues.attack.upgradeTier++;
-                break;
-
-            //Adding the new attack to the player's attacks
-            case UpgradeType.NewAttack:
-                player.AttackStatsList.Add(upgradeValues.NewAttack);
-                break;
-
-        }
+    //Applies a player upgrade
+    void ApplyPlayerUpgrade()
+    {
+        Player player = GameManager.instance.player;
+        player.moveSpeed += upgradeTiers.MoveSpeedChange;
+        player.maxHealth += upgradeTiers.MaxHealthChange;
+        player.maxHunger += upgradeTiers.MaxHungerChange;
     }
 }
