@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public float level = 1f;
+    public float[] levelUpRequirements;
 
 
     public float moveSpeed = 5f;
