@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Fireball Ripoff
   m_EditorClassIdentifier: 
   attackCooldown: 3
-  attackTimer: 1.949707
+  attackTimer: 1.5652461
   attackLifetime: 5
-  attackMinDamage: 10
-  attackMaxDamage: 15
+  attackMinDamage: 25
+  attackMaxDamage: 30
   attackSpeed: 7
   attackArea: 1
   passthrough: 5
@@ -25,6 +25,8 @@ MonoBehaviour:
   attackProjectile: {fileID: 9197686042926581397, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
   targetingType: 1
   DPS: 0
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: 24e7ee1b7b0a9c449947d5825d0cef74, type: 2}
+  - {fileID: 11400000, guid: abad419d59b8449459e4b450994551f8, type: 2}
   upgradeTier: 0
   upgradeMaxed: 0

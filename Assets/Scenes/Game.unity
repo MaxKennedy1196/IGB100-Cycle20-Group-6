@@ -7260,7 +7260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677600837
 Transform:
   m_ObjectHideFlags: 0
@@ -20543,7 +20543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1860949412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20657,7 +20657,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c9900ae2d55a144a9f6fe32042d2206, type: 2}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
-  laser: {fileID: 11400000, guid: 14a1840a0079c5f499a4e6187a06c6da, type: 2}
+  laser2: {fileID: 11400000, guid: be822ea97889c964e9b4443270a90f48, type: 2}
+  laser3: {fileID: 11400000, guid: b4f42eaa9e8c3fc4cba7aa8cf8e50f6a, type: 2}
 --- !u!222 &1860949417
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -21,38 +21,34 @@ public class UpgradeMenu : MonoBehaviour
 
     //A variety of lists to compile upgrades and attacks from throughout the program
     private List<AttackStats> playerAttacks;
-    private List<AttackStats> upgradableAttacks;
+    private List<AttackStats> upgradableAttacks = new List<AttackStats>();
     public List<Upgrade> lockedAttacks; //List of all attacks the player is yet to unlock
-    private List<Upgrade> playerUpgrades;
-    private List<Upgrade> upgradePool;
+    private List<Upgrade> playerUpgrades = new List<Upgrade>();
+    private List<Upgrade> upgradePool = new List<Upgrade>();
 
     private Upgrade[] upgrades;
     [HideInInspector] public Upgrade chosenUpgrade;
     [HideInInspector] public bool upgradeSelected = false;
 
-    public Upgrade laser;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        playerAttacks = Manager.player.AttackStatsList;
-        playerUpgrades = Manager.player.upgrades;
-    }
+    public Upgrade laser2;
+    public Upgrade laser3;
 
     //Generating upgrades when the menu is made active
     public void OnEnable()
     {
+        playerAttacks = Manager.player.AttackStatsList;
+        playerUpgrades = Manager.player.upgrades;
+
         chosenUpgrade = null;
         upgradeSelected = false;
         upgrades = new Upgrade[3]; //Creating a new empty list of three upgrade choices for the player
-        /*
+
         //Adding any upgrades the player hasn't maxed out to the upgradableAttacks list
         foreach (AttackStats attack in playerAttacks)
         {
             if (!attack.upgradeMaxed) { upgradableAttacks.Add(attack); }
         }
-        */
-
+        
         GenerateUpgrades();
         PresentUpgrades();
     }
@@ -63,10 +59,11 @@ public class UpgradeMenu : MonoBehaviour
         Debug.Log("Generating Upgrades");
 
         //Setting the first upgrade to always be a weapon the player already has
-        //upgrades[0] = upgradableAttacks[(Random.Range(0, playerAttacks.Count))].GetNextUpgrade();
-        upgrades[0] = laser;
-        upgrades[1] = laser;
-        upgrades[2] = laser;
+        if (upgradableAttacks.Count > 1) { upgrades[0] = upgradableAttacks[(Random.Range(0, upgradableAttacks.Count))].GetNextUpgrade(); }
+        else if (upgradableAttacks.Count == 1) { upgrades[1] = upgradableAttacks[0].GetNextUpgrade(); }
+
+        upgrades[0] = laser2;
+        upgrades[2] = laser3;
 
         /*
         //Creating a pool of all the available upgrades
@@ -83,7 +80,7 @@ public class UpgradeMenu : MonoBehaviour
         }
 
         //Adding 2 more upgrades from the available upgrade pool to the player's upgrade choices
-        int i = 1;
+        int i = upgrades.Length();
         Upgrade nextUpgrade = new Upgrade();
         bool upgradeIsDupe = false;
         while (i < 3)
@@ -107,28 +104,18 @@ public class UpgradeMenu : MonoBehaviour
     //Shows the player their possible upgrade choices
     public void PresentUpgrades()
     {
+        //Hard-coded now cause I cbf to make a struct for this, TMP text can't be in an array for some reason (?)
         upgrade1Name.SetText(upgrades[0].upgradeValues.UpgradeName);
         upgrade1Description.SetText(upgrades[0].upgradeValues.UpgradeText);
-
-        //Stretch Goal to add animation for cards coming onto screen and flipping over when selected
-        for (int i = 0; i < upgrades.Length; i++)
-        {
-            //Getting both text elements of the button and customising them with the upgrade name and description respectively
-            
-            //TextMeshPro[] texts = upgradeButtons[i].GetComponentsInChildren<TextMeshPro>();
-            //texts[0].text = upgrades[i].upgradeValues.UpgradeName;
-            //texts[1].text = upgrades[i].upgradeValues.UpgradeText;
-            
-            //upgradeNames[i].GetComponent<TextMeshPro>().text = upgrades[i].upgradeValues.UpgradeName;
-            //upgradeNames[i].GetComponent<TextMeshPro>().text = laser.upgradeValues.UpgradeName;
-            //upgradeDescriptions[i].text = upgrades[i].upgradeValues.UpgradeText;
-        }
+        upgrade2Name.SetText(upgrades[1].upgradeValues.UpgradeName);
+        upgrade2Description.SetText(upgrades[1].upgradeValues.UpgradeText);
+        upgrade3Name.SetText(upgrades[2].upgradeValues.UpgradeName);
+        upgrade3Description.SetText(upgrades[2].upgradeValues.UpgradeText);
     }
 
     //Script for when the upgrade button is pressed, sets the chosen upgrade to the buttons corresponding upgrade
     public void UpgradeButtonPressed(int buttonInt)
     {
-        upgradeSelected = true;
         //Sets the chosen upgrade to the player's current upgrade choice
         chosenUpgrade = upgrades[buttonInt];
         chosenUpgrade.ApplyUpgrade();
@@ -139,6 +126,8 @@ public class UpgradeMenu : MonoBehaviour
             lockedAttacks.Remove(chosenUpgrade);
         }
 
-        
+        Time.timeScale = 1.0f;
+        upgradeSelected = true;
+        this.gameObject.SetActive(false);
     }
 }

@@ -24,6 +24,7 @@ public class Upgrade : ScriptableObject
     {
         //General upgrade variables
         public string UpgradeName;
+        //public string UpgradeTier; //Text that displays the upgrade's tier
         public string UpgradeText; //Text that explains to the user what the upgrade does (+2 damage etc.)
 
         //Player upgrade variables
@@ -33,14 +34,15 @@ public class Upgrade : ScriptableObject
         public float XPGainChange;
 
         //Attack upgrade variables
-        public AttackStats attack;
+        public Projectile attackProjectile;
+        public AttackStats attackStats;
         public float AttackRateChangeAmount;
         public float DamageChangeAmount;
         public float RangeChangeAmount;
         public int ProjectileCountChangeAmount;
 
         //New attack variables
-        public AttackStats NewAttack;
+        public AttackStats NewAttackStats;
     }
 
     [SerializeField] public UpgradeTierValues upgradeValues;
@@ -61,15 +63,16 @@ public class Upgrade : ScriptableObject
 
             //Upgrading attack values
             case UpgradeType.Attack:
-                upgradeValues.attack.attackTimer -= upgradeValues.AttackRateChangeAmount;
-                upgradeValues.attack.attackMinDamage += upgradeValues.DamageChangeAmount;
-                upgradeValues.attack.attackMaxDamage += upgradeValues.DamageChangeAmount;
-                upgradeValues.attack.upgradeTier++;
+                //upgradeValues.attack.attackCooldown -= upgradeValues.AttackRateChangeAmount; //Need to figure out how to make sure this targets the right variable without messing with the attackStats cooldown
+                upgradeValues.attackProjectile.damageMin += upgradeValues.DamageChangeAmount;
+                upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount; //This implementation doesn't work as scriptable objects don't reset at the start of each scene load
+                upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Need to check if range is an upgrade we want
+                //upgradeValues.attack.upgradeTier++;
                 break;
 
             //Adding the new attack to the player's attacks
             case UpgradeType.NewAttack:
-                player.AttackStatsList.Add(upgradeValues.NewAttack);
+                player.AttackStatsList.Add(upgradeValues.NewAttackStats);
                 break;
         }
     }

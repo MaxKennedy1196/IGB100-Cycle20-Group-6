@@ -45,8 +45,10 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeName);
                 EditorGUILayout.PrefixLabel("Upgrade Text");
                 upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
-                EditorGUILayout.PrefixLabel("Attack");
-                upgrade.upgradeValues.attack = (AttackStats)EditorGUILayout.ObjectField(upgrade.upgradeValues.attack, typeof(AttackStats), true);
+                EditorGUILayout.PrefixLabel("Attack Projectile");
+                upgrade.upgradeValues.attackProjectile = (Projectile)EditorGUILayout.ObjectField(upgrade.upgradeValues.attackProjectile, typeof(Projectile), true);
+                EditorGUILayout.PrefixLabel("Attack Stats");
+                upgrade.upgradeValues.attackStats = (AttackStats)EditorGUILayout.ObjectField(upgrade.upgradeValues.attackStats, typeof(AttackStats), true);
                 EditorGUILayout.PrefixLabel("Attack Rate Increase");
                 upgrade.upgradeValues.AttackRateChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.AttackRateChangeAmount);
                 EditorGUILayout.PrefixLabel("Damage Increase");
@@ -67,8 +69,7 @@ public class UpgradeEditor : Editor
                 EditorGUILayout.PrefixLabel("Upgrade Text");
                 upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
                 EditorGUILayout.PrefixLabel("New Attack");
-                upgrade.upgradeValues.NewAttack = (AttackStats)EditorGUILayout.ObjectField(upgrade.upgradeValues.NewAttack, typeof(AttackStats), true);
-
+                upgrade.upgradeValues.NewAttackStats = (AttackStats)EditorGUILayout.ObjectField(upgrade.upgradeValues.NewAttackStats, typeof(AttackStats), true);
             }
         }
     }

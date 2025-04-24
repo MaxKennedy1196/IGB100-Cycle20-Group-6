@@ -69,6 +69,8 @@ public class Player : MonoBehaviour
 
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
+            attack.upgradeTier = 0;
+            attack.upgradeMaxed = false;
             attack.InitTimer();
         }
     }
@@ -129,11 +131,11 @@ public class Player : MonoBehaviour
                 }             
                     
                 projectile.target = target;//allocate projectile target
-                projectile.damageMin = attack.attackMinDamage;
-                projectile.damageMax = attack.attackMaxDamage;
+                projectile.damageMin += attack.attackMinDamage; //Using += to account for projectiles having damage upgrade amounts added to them
+                projectile.damageMax += attack.attackMaxDamage; //Using += to account for projectiles having damage upgrade amounts added to them
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
-                projectile.projectileArea = attack.attackArea;
+                projectile.projectileArea += attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
                 projectile.enemiesPassedThrough = attack.passthrough;
 
 
@@ -204,8 +206,6 @@ public class Player : MonoBehaviour
         Time.timeScale = 0.0f;
         upgradeMenu.gameObject.SetActive(true);
         yield return new WaitUntil(UpgradeSelection);
-        upgradeMenu.gameObject.SetActive(false);
-        Time.timeScale = 1.0f;
     }
 
     public void AddExperience(float amount)
@@ -267,7 +267,6 @@ public class Player : MonoBehaviour
             playerForms[0].formObject.SetActive(true);
             playerForm = 1;
         }
-
         else if (level >= playerForms[0].formChangeLevel && level < playerForms[1].formChangeLevel)
         {
             playerForms[1].formObject.SetActive(true);
@@ -284,5 +283,4 @@ public class Player : MonoBehaviour
             playerForm = 4;
         }
     }
-
 }
