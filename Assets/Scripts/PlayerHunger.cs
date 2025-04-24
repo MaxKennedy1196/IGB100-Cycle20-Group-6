@@ -6,6 +6,7 @@ public class PlayerHunger : MonoBehaviour
     public Player player;
     public Image hungerBar;
     public Animator hungerAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerHunger : MonoBehaviour
     {
         hungerBar.fillAmount = player.hunger / player.maxHunger;
 
+        /* Commented out cause throwing warnings and not sure how to fix
         if (player.hunger <= 20)
         {
             hungerAnimator.SetBool("Hungry", true);
@@ -35,5 +37,6 @@ public class PlayerHunger : MonoBehaviour
         {
             hungerAnimator.SetBool("Hungry", false);
         }
+        */
     }
 }

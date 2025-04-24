@@ -51,6 +51,8 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.AttackRateChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.AttackRateChangeAmount);
                 EditorGUILayout.PrefixLabel("Damage Increase");
                 upgrade.upgradeValues.DamageChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.DamageChangeAmount);
+                EditorGUILayout.PrefixLabel("Range Increase");
+                upgrade.upgradeValues.RangeChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.RangeChangeAmount);
 
                 //Code for if/when projectile count upgrades are added
                 //EditorGUILayout.PrefixLabel("Projectile Count Increase");

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -9,17 +11,27 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public float hunger = 100f;
     public float maxHunger = 100f;
-    public float experience = 100f;
-    public float maxExperience = 100f;
+    public float experience = 0f;
+    [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
 
-    public float level = 1f;
+    //Level logic
+    public int level = 0; //Tracks the player's level
+    public float[] levelUpAmounts; //Contains the experience amounts required to progress to the next level
+
+    [Serializable]
+    public struct Form
+    {
+        public GameObject formObject; //Contains a form of the player
+        public int formChangeLevel; //Contains the level that cause the player to change to the next form
+    }
+
+    [HideInInspector] public int playerForm;
+    [SerializeField] public Form[] playerForms;
 
 
-    public GameObject form1;
-    public GameObject form2;
-    public GameObject form3;
-    public GameObject form4;
+    public UpgradeMenu upgradeMenu;
+
     private int lastCheckedLevel = -1;
 
     public float moveSpeed = 5f;
@@ -32,10 +44,6 @@ public class Player : MonoBehaviour
     private float hungerDecayRate = 5f;
     float starvationDamge = 2.5f;
 
-
-    //[HideInInspector] public float timer;
-
-    
     public List<AttackStats> AttackStatsList; //A list of all the players weapons
     public int maxWeapons; //Defines the maximum number of weapons the player can have
 
@@ -49,18 +57,20 @@ public class Player : MonoBehaviour
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
-        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>(); 
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        experience = 0f;
+        maxExperience = levelUpAmounts[0];
+        NextForm();
+
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
             attack.InitTimer();
         }
-
-        UpdateForm();
     }
 
     // Update is called once per frame
@@ -73,7 +83,7 @@ public class Player : MonoBehaviour
         int currentLevel = Mathf.FloorToInt(level);
         if (currentLevel != lastCheckedLevel)
         {
-            UpdateForm();
+            NextForm();
             lastCheckedLevel = currentLevel;
         }
 
@@ -187,15 +197,29 @@ public class Player : MonoBehaviour
         }
     }
 
+    bool UpgradeSelection() { return upgradeMenu.upgradeSelected; } //Returns false until an upgrade is selected
+
+    public IEnumerator UpgradeMenu()
+    {
+        Time.timeScale = 0.0f;
+        upgradeMenu.gameObject.SetActive(true);
+        yield return new WaitUntil(UpgradeSelection);
+        upgradeMenu.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
     public void AddExperience(float amount)
     {
         experience += amount;
         if (experience >= maxExperience)
         {
-            experience = 0;
-            maxExperience += 10;
-            level += 1;
-            UpdateForm();
+            experience = 0f;
+            maxExperience = levelUpAmounts[level];
+            level++;
+            Debug.Log("Upgrade Selection Menu");
+            StartCoroutine(UpgradeMenu());
+
+            if (playerForm < 4) { NextForm(); }
             //call powerup cards funtion here
         }
     }
@@ -225,32 +249,39 @@ public class Player : MonoBehaviour
 
     private void acquireRandomEnemy()
     {
-        int randEnemy = Random.Range(0, Manager.enemyList.Count + 1);
+        int randEnemy = UnityEngine.Random.Range(0, Manager.enemyList.Count + 1);
         target = Manager.enemyList[randEnemy].transform;
     }
 
-    private void UpdateForm()
+    private void NextForm()
     {
-        form1.SetActive(false);
-        form2.SetActive(false);
-        form3.SetActive(false);
-        form4.SetActive(false);
+        //Looping through all the forms and setting them as inactive
+        foreach (Form form in playerForms)
+        {
+            form.formObject.SetActive(false);
+        }
 
-        if (level >= 1 && level <= 4)
+        //Setting the player's form based on their current level
+        if (level < playerForms[0].formChangeLevel)
         {
-            form1.SetActive(true);
+            playerForms[0].formObject.SetActive(true);
+            playerForm = 1;
         }
-        else if (level >= 5 && level <= 9)
+
+        else if (level >= playerForms[0].formChangeLevel && level < playerForms[1].formChangeLevel)
         {
-            form2.SetActive(true);
+            playerForms[1].formObject.SetActive(true);
+            playerForm = 2;
         }
-        else if (level >= 10 && level <= 14)
+        else if (level >= playerForms[1].formChangeLevel && level < playerForms[2].formChangeLevel)
         {
-            form3.SetActive(true);
+            playerForms[2].formObject.SetActive(true);
+            playerForm = 3;
         }
-        else if (level >= 15)
+        else if (level >= playerForms[3].formChangeLevel)
         {
-            form4.SetActive(true);
+            playerForms[3].formObject.SetActive(true);
+            playerForm = 4;
         }
     }
 

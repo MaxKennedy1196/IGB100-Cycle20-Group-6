@@ -37,16 +37,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player            
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player
     }
 
     public void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space)) { TentacleIncrease(); }
-    }
 
-    /*public void TentacleIncrease()
-    {
-        GameObject newTentacle = Instantiate(tentacleObject, player.transform.position, player.transform.rotation, player.transform);
-    }*/
+    }
 }
