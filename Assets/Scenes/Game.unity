@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.836478, g: 0.03419549, b: 0.7471889, a: 1}
+  m_Color: {r: 0.34591186, g: 0, b: 0.30860755, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -731,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 969109444}
   hungerBar: {fileID: 32005765}
+  hungerAnimator: {fileID: 0}
 --- !u!1 &45215374
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,6 +8581,7 @@ GameObject:
   - component: {fileID: 858384985}
   - component: {fileID: 858384987}
   - component: {fileID: 858384986}
+  - component: {fileID: 858384988}
   m_Layer: 5
   m_Name: hungerBar
   m_TagString: Untagged
@@ -8627,8 +8629,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -6821513568853611820, guid: 1f55a2154a8c6684ea39d1e0530bd496, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8645,6 +8647,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858384984}
   m_CullTransparentMesh: 1
+--- !u!95 &858384988
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858384984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 3507031168367715365, guid: 0e45fca82d6ce18448daaeef3748ab52, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &871390394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8783,7 +8807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.075083375, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.4528302, g: 0.089711584, b: 0.14827663, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9357,7 +9381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8018868, b: 0.722817, a: 1}
+  m_Color: {r: 0.3031715, g: 0.8679245, b: 0.1992404, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10011,12 +10035,15 @@ MonoBehaviour:
   maxExperience: 100
   spriteRenderer: {fileID: 0}
   level: 1
+  moveSpeed: 5
   damageMult: 1
   AttackStatsList:
   - {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
+  maxWeapons: 0
   target: {fileID: 0}
   distance: 0
   closestDistance: 999
+  upgrades: []
 --- !u!1 &978301392
 GameObject:
   m_ObjectHideFlags: 0
@@ -12083,7 +12110,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_SizeDelta: {x: -30, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204566899
 MonoBehaviour:
@@ -12098,7 +12125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93725497, g: 0.95294124, b: 0.9960785, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14541,7 +14568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: ed67261f1af2d51448535eace4b4a21f, type: 3}
+  m_Sprite: {fileID: 5172071697805104047, guid: 8de90305cc2f65c4f8a0b86e6f2adf0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16786,8 +16813,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -6821513568853611820, guid: 1f55a2154a8c6684ea39d1e0530bd496, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
