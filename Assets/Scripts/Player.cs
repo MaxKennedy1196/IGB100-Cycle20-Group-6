@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     public float level = 1f;
 
 
+    public GameObject form1;
+    public GameObject form2;
+    public GameObject form3;
+    public GameObject form4;
+    private int lastCheckedLevel = -1;
+
     public float moveSpeed = 5f;
     Vector2 moveVector = new Vector2(0,0);
     float xInput;
@@ -23,10 +29,7 @@ public class Player : MonoBehaviour
 
     public float damageMult = 1.0f;
 
-    private bool isdecaying = false;
-
     private float hungerDecayRate = 5f;
-    private float hungerDecayTimer = 0f;
     float starvationDamge = 2.5f;
 
 
@@ -56,6 +59,8 @@ public class Player : MonoBehaviour
         {
             attack.InitTimer();
         }
+
+        UpdateForm();
     }
 
     // Update is called once per frame
@@ -64,7 +69,14 @@ public class Player : MonoBehaviour
         attacks();
         movement();
         hungerDecay();
-        
+
+        int currentLevel = Mathf.FloorToInt(level);
+        if (currentLevel != lastCheckedLevel)
+        {
+            UpdateForm();
+            lastCheckedLevel = currentLevel;
+        }
+
     }
 
     private void attacks()
@@ -183,7 +195,7 @@ public class Player : MonoBehaviour
             experience = 0;
             maxExperience += 10;
             level += 1;
-
+            UpdateForm();
             //call powerup cards funtion here
         }
     }
@@ -215,6 +227,31 @@ public class Player : MonoBehaviour
     {
         int randEnemy = Random.Range(0, Manager.enemyList.Count + 1);
         target = Manager.enemyList[randEnemy].transform;
+    }
+
+    private void UpdateForm()
+    {
+        form1.SetActive(false);
+        form2.SetActive(false);
+        form3.SetActive(false);
+        form4.SetActive(false);
+
+        if (level >= 1 && level <= 4)
+        {
+            form1.SetActive(true);
+        }
+        else if (level >= 5 && level <= 9)
+        {
+            form2.SetActive(true);
+        }
+        else if (level >= 10 && level <= 14)
+        {
+            form3.SetActive(true);
+        }
+        else if (level >= 15)
+        {
+            form4.SetActive(true);
+        }
     }
 
 }
