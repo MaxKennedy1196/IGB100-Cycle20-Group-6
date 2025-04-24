@@ -10847,14 +10847,14 @@ MonoBehaviour:
   moveSpeed: 5
   damageMult: 1
   AttackStatsList:
-  - {fileID: 11400000, guid: ddb5522c806c6c846b01aa527bced1f4, type: 2}
   - {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
-  - {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
-  maxWeapons: 0
+  maxWeapons: 3
   target: {fileID: 0}
   distance: 0
   closestDistance: 999
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: 55dffdf6819664c44a8e713e97ade191, type: 2}
+  - {fileID: 11400000, guid: be822ea97889c964e9b4443270a90f48, type: 2}
 --- !u!1 &978301392
 GameObject:
   m_ObjectHideFlags: 0
@@ -12670,7 +12670,9 @@ MonoBehaviour:
   - {fileID: 987679966}
   - {fileID: 1505783523}
   Manager: {fileID: 0}
-  lockedAttacks: []
+  lockedAttacks:
+  - {fileID: 11400000, guid: 14a1840a0079c5f499a4e6187a06c6da, type: 2}
+  - {fileID: 11400000, guid: 6c9900ae2d55a144a9f6fe32042d2206, type: 2}
 --- !u!1 &1104830605
 GameObject:
   m_ObjectHideFlags: 0
