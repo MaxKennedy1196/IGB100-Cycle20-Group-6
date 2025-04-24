@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Garlic Ripoff
   m_EditorClassIdentifier: 
   attackCooldown: 12.5
-  attackTimer: 13.657433
+  attackTimer: 10.424023
   attackLifetime: 10
   attackMinDamage: 8
   attackMaxDamage: 10
   attackSpeed: 0
   attackArea: 2.5
   passthrough: 999999999
+  projectileCount: 0
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
-  targettingType: 2
+  targetingType: 2
   DPS: 1
+  upgrades: []
+  upgradeTier: 0
+  upgradeMaxed: 0
