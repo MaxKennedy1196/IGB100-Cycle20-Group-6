@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.24114704, a: 1}
+  m_Sprite: {fileID: 4430759543230457268, guid: faf6572af4b37b444a54f918bdf9410d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
-  damage: 0
+  damageMin: 12
+  damageMax: 12
   projectileSpeed: 10
   projectileLifetime: 1
   projectileArea: 0
@@ -111,6 +112,8 @@ MonoBehaviour:
   targetStats: {fileID: 0}
   distance: 0
   closestDistance: 999
+  bindToPlayer: 0
+  DPS: 0
 --- !u!96 &5026661436412594363
 TrailRenderer:
   serializedVersion: 3
@@ -166,16 +169,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.149839
-        value: 0.7161218
+        value: 0.48637784
         inSlope: -1.6538111
         outSlope: -1.6538111
         tangentMode: 0
@@ -196,8 +190,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.23921569, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.72156864, g: 0.09411765, b: 0.039215688, a: 1}
+      key1: {r: 1, g: 0.34509805, b: 0.050980393, a: 0.48235294}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

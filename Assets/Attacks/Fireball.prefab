@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.15378265, b: 0, a: 1}
+  m_Sprite: {fileID: -7262426346943394924, guid: 30fe534543c40ac41b38faa4557217c8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
-  damage: 0
+  damageMin: 0
+  damageMax: 0
   projectileSpeed: 10
   projectileLifetime: 1
   projectileArea: 0
@@ -111,6 +112,8 @@ MonoBehaviour:
   targetStats: {fileID: 0}
   distance: 0
   closestDistance: 999
+  bindToPlayer: 0
+  DPS: 0
 --- !u!96 &5026661436412594363
 TrailRenderer:
   serializedVersion: 3
@@ -197,7 +200,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.15294118, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 0.34509805, b: 0.050980393, a: 0.48235294}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
