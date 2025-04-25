@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1392870963746331635}
   - component: {fileID: 6810987166796925014}
   - component: {fileID: 3467591044221890192}
+  - component: {fileID: -9186152151402383121}
   m_Layer: 0
   m_Name: AOE
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -50
   m_Sprite: {fileID: -886924206574900244, guid: 2a48fdd06b93ba94692f19970db7327d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.22352941}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,11 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
-  damageMin: 5
-  damageMax: 5
+  damageMin: 10
+  damageMax: 10
   projectileSpeed: 0
   projectileLifetime: 10
-  projectileArea: 0
+  projectileArea: 1
   enemiesPassedThrough: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}
@@ -113,3 +114,25 @@ MonoBehaviour:
   closestDistance: 999
   bindToPlayer: 0
   DPS: 0
+--- !u!95 &-9186152151402383121
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197686042926581397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 693d872ad25172e4f97be075f721ef70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
