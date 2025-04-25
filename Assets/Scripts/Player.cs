@@ -265,21 +265,25 @@ public class Player : MonoBehaviour
         if (level < playerForms[0].formChangeLevel)
         {
             playerForms[0].formObject.SetActive(true);
+            spriteRenderer = playerForms[0].formObject.GetComponent<SpriteRenderer>();
             playerForm = 1;
         }
         else if (level >= playerForms[0].formChangeLevel && level < playerForms[1].formChangeLevel)
         {
             playerForms[1].formObject.SetActive(true);
+            spriteRenderer = playerForms[1].formObject.GetComponent<SpriteRenderer>();
             playerForm = 2;
         }
         else if (level >= playerForms[1].formChangeLevel && level < playerForms[2].formChangeLevel)
         {
             playerForms[2].formObject.SetActive(true);
+            spriteRenderer = playerForms[2].formObject.GetComponent<SpriteRenderer>();
             playerForm = 3;
         }
         else if (level >= playerForms[3].formChangeLevel)
         {
             playerForms[3].formObject.SetActive(true);
+            spriteRenderer = playerForms[3].formObject.GetComponent<SpriteRenderer>();
             playerForm = 4;
         }
     }

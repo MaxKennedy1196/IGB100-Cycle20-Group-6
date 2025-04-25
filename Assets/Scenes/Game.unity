@@ -11001,13 +11001,13 @@ MonoBehaviour:
   playerForm: 0
   playerForms:
   - formObject: {fileID: 1582586949}
-    formChangeLevel: 1
+    formChangeLevel: 2
   - formObject: {fileID: 1497277802}
-    formChangeLevel: 5
-  - formObject: {fileID: 800150631}
     formChangeLevel: 10
-  - formObject: {fileID: 2096892325}
+  - formObject: {fileID: 800150631}
     formChangeLevel: 15
+  - formObject: {fileID: 2096892325}
+    formChangeLevel: 20
   upgradeMenu: {fileID: 1860949416}
   moveSpeed: 5
   damageMult: 1
@@ -20972,7 +20972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1860949412
 RectTransform:
   m_ObjectHideFlags: 0
