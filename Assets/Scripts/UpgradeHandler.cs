@@ -11,13 +11,21 @@ public class UpgradeMenu : MonoBehaviour
     public GameManager Manager;
     //UI Elements for the upgrade menu
     public Button[] upgradeButtons;
-    public TMP_Text upgrade1Name;
-    public TMP_Text upgrade1Description;
-    public TMP_Text upgrade2Name;
-    public TMP_Text upgrade2Description;
-    public TMP_Text upgrade3Name;
-    public TMP_Text upgrade3Description;
 
+    [Header("Upgrade 1")]
+    public TMP_Text upgrade1Name;
+    public TMP_Text upgrade1Tier;
+    public TMP_Text upgrade1Description;
+
+    [Header("Upgrade 2")]
+    public TMP_Text upgrade2Name;
+    public TMP_Text upgrade2Tier;
+    public TMP_Text upgrade2Description;
+
+    [Header("Upgrade 3")]
+    public TMP_Text upgrade3Name;
+    public TMP_Text upgrade3Tier;
+    public TMP_Text upgrade3Description;
 
     //A variety of lists to compile upgrades and attacks from throughout the program
     private List<AttackStats> playerAttacks;
@@ -108,10 +116,15 @@ public class UpgradeMenu : MonoBehaviour
     {
         //Hard-coded now cause I cbf to make a struct for this, TMP text can't be in an array for some reason (?)
         upgrade1Name.SetText(upgrades[0].upgradeValues.UpgradeName);
+        upgrade1Tier.SetText(upgrades[0].upgradeValues.UpgradeTier);
         upgrade1Description.SetText(upgrades[0].upgradeValues.UpgradeText);
+
         upgrade2Name.SetText(upgrades[1].upgradeValues.UpgradeName);
+        upgrade2Tier.SetText(upgrades[1].upgradeValues.UpgradeTier);
         upgrade2Description.SetText(upgrades[1].upgradeValues.UpgradeText);
+
         upgrade3Name.SetText(upgrades[2].upgradeValues.UpgradeName);
+        upgrade3Tier.SetText(upgrades[2].upgradeValues.UpgradeTier);
         upgrade3Description.SetText(upgrades[2].upgradeValues.UpgradeText);
     }
 

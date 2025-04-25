@@ -26,6 +26,8 @@ public class UpgradeEditor : Editor
             {
                 EditorGUILayout.PrefixLabel("Upgrade Name");
                 upgrade.upgradeValues.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeName);
+                EditorGUILayout.PrefixLabel("Upgrade Tier");
+                upgrade.upgradeValues.UpgradeTier = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeTier);
                 EditorGUILayout.PrefixLabel("Upgrade Text");
                 upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
                 EditorGUILayout.PrefixLabel("Movement Speed Increase");
@@ -43,6 +45,8 @@ public class UpgradeEditor : Editor
             {
                 EditorGUILayout.PrefixLabel("Attack Name");
                 upgrade.upgradeValues.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeName);
+                EditorGUILayout.PrefixLabel("Upgrade Tier");
+                upgrade.upgradeValues.UpgradeTier = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeTier);
                 EditorGUILayout.PrefixLabel("Upgrade Text");
                 upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
                 EditorGUILayout.PrefixLabel("Attack Projectile");
@@ -55,6 +59,10 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.DamageChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.DamageChangeAmount);
                 EditorGUILayout.PrefixLabel("Range Increase");
                 upgrade.upgradeValues.RangeChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.RangeChangeAmount);
+                EditorGUILayout.PrefixLabel("Lifetime Increase");
+                upgrade.upgradeValues.AttackLifetimeChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.AttackLifetimeChangeAmount);
+                EditorGUILayout.PrefixLabel("Passthrough Increase");
+                upgrade.upgradeValues.AttackPassthroughChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.AttackPassthroughChangeAmount);
 
                 //Code for if/when projectile count upgrades are added
                 //EditorGUILayout.PrefixLabel("Projectile Count Increase");
@@ -66,6 +74,8 @@ public class UpgradeEditor : Editor
             {
                 EditorGUILayout.PrefixLabel("New Attack Name");
                 upgrade.upgradeValues.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeName);
+                EditorGUILayout.PrefixLabel("Upgrade Tier");
+                upgrade.upgradeValues.UpgradeTier = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeTier);
                 EditorGUILayout.PrefixLabel("Upgrade Text");
                 upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
                 EditorGUILayout.PrefixLabel("New Attack");

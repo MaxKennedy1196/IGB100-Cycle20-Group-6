@@ -24,7 +24,7 @@ public class Upgrade : ScriptableObject
     {
         //General upgrade variables
         public string UpgradeName;
-        //public string UpgradeTier; //Text that displays the upgrade's tier
+        public string UpgradeTier; //Text that displays the upgrade's tier
         public string UpgradeText; //Text that explains to the user what the upgrade does (+2 damage etc.)
 
         //Player upgrade variables
@@ -36,9 +36,13 @@ public class Upgrade : ScriptableObject
         //Attack upgrade variables
         public Projectile attackProjectile;
         public AttackStats attackStats;
+
         public float AttackRateChangeAmount;
         public float DamageChangeAmount;
         public float RangeChangeAmount;
+        public float AttackLifetimeChangeAmount;
+        public int AttackPassthroughChangeAmount;
+
         public int ProjectileCountChangeAmount;
 
         //New attack variables
@@ -65,8 +69,10 @@ public class Upgrade : ScriptableObject
             case UpgradeType.Attack:
                 //upgradeValues.attack.attackCooldown -= upgradeValues.AttackRateChangeAmount; //Need to figure out how to make sure this targets the right variable without messing with the attackStats cooldown
                 upgradeValues.attackProjectile.damageMin += upgradeValues.DamageChangeAmount;
-                upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount; //This implementation doesn't work as scriptable objects don't reset at the start of each scene load
-                upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Need to check if range is an upgrade we want
+                upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount;
+                upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Only use for miasma
+                upgradeValues.attackProjectile.projectileLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime, best to only use for Miasma
+                upgradeValues.attackProjectile.enemiesPassedThrough += upgradeValues.AttackPassthroughChangeAmount; //Increases projectile passthrough
                 upgradeValues.attackStats.upgradeTier++; //Upgrades the attack's tier so the next available upgrade is accessed when necessary
                 break;
 
