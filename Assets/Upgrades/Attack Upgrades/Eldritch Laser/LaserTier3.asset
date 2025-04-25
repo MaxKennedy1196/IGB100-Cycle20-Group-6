@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserTier3
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  upgradeType: 0
+  upgradeType: 1
   upgradeValues:
     UpgradeName: 
     UpgradeText: 
@@ -21,9 +21,10 @@ MonoBehaviour:
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
-    attack: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    attackStats: {fileID: 0}
     AttackRateChangeAmount: 0
     DamageChangeAmount: 0
     RangeChangeAmount: 0
     ProjectileCountChangeAmount: 0
-    NewAttack: {fileID: 0}
+    NewAttackStats: {fileID: 0}
