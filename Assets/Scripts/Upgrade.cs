@@ -67,7 +67,7 @@ public class Upgrade : ScriptableObject
                 upgradeValues.attackProjectile.damageMin += upgradeValues.DamageChangeAmount;
                 upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount; //This implementation doesn't work as scriptable objects don't reset at the start of each scene load
                 upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Need to check if range is an upgrade we want
-                //upgradeValues.attack.upgradeTier++;
+                upgradeValues.attackStats.upgradeTier++; //Upgrades the attack's tier so the next available upgrade is accessed when necessary
                 break;
 
             //Adding the new attack to the player's attacks

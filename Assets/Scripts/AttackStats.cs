@@ -24,8 +24,8 @@ public class AttackStats : ScriptableObject
     [Header("Upgrades")]
     public Upgrade[] upgrades;
 
-    [HideInInspector] public int upgradeTier = 0;
-    [HideInInspector] public bool upgradeMaxed = false;
+    public int upgradeTier = 0;
+    public bool upgradeMaxed = false;
 
     public enum TargetingType
     {

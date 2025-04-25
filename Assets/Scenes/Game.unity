@@ -10866,6 +10866,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: 55dffdf6819664c44a8e713e97ade191, type: 2}
   - {fileID: 11400000, guid: be822ea97889c964e9b4443270a90f48, type: 2}
+  - {fileID: 11400000, guid: b4f42eaa9e8c3fc4cba7aa8cf8e50f6a, type: 2}
 --- !u!1 &978301392
 GameObject:
   m_ObjectHideFlags: 0
@@ -20655,6 +20656,7 @@ MonoBehaviour:
   lockedAttacks:
   - {fileID: 11400000, guid: 14a1840a0079c5f499a4e6187a06c6da, type: 2}
   - {fileID: 11400000, guid: 6c9900ae2d55a144a9f6fe32042d2206, type: 2}
+  upgrades: []
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
   laser2: {fileID: 11400000, guid: be822ea97889c964e9b4443270a90f48, type: 2}
