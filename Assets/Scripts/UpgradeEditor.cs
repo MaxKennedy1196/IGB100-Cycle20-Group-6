@@ -81,6 +81,18 @@ public class UpgradeEditor : Editor
                 EditorGUILayout.PrefixLabel("New Attack");
                 upgrade.upgradeValues.NewAttackStats = (AttackStats)EditorGUILayout.ObjectField(upgrade.upgradeValues.NewAttackStats, typeof(AttackStats), true);
             }
+
+            else if (upgrade.upgradeType == Upgrade.UpgradeType.HealthUp)
+            {
+                EditorGUILayout.PrefixLabel("Upgrade Name");
+                upgrade.upgradeValues.UpgradeName = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeName);
+                EditorGUILayout.PrefixLabel("Upgrade Tier");
+                upgrade.upgradeValues.UpgradeTier = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeTier);
+                EditorGUILayout.PrefixLabel("Upgrade Text");
+                upgrade.upgradeValues.UpgradeText = EditorGUILayout.TextField(upgrade.upgradeValues.UpgradeText);
+                EditorGUILayout.PrefixLabel("Health Increase");
+                upgrade.upgradeValues.HealthIncrease = EditorGUILayout.IntField(upgrade.upgradeValues.HealthIncrease);
+            }
         }
     }
 }

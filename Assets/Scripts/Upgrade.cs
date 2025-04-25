@@ -5,8 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[CreateAssetMenu(fileName = "New Upgrade", menuName = "Upgrade")]
-public class Upgrade : ScriptableObject
+//[CreateAssetMenu(fileName = "New Upgrade", menuName = "Upgrade")]
+public class Upgrade : MonoBehaviour
 {
     public Player player;
 
@@ -14,7 +14,8 @@ public class Upgrade : ScriptableObject
     {
         Player,
         Attack,
-        NewAttack
+        NewAttack, 
+        HealthUp
     }
 
     public UpgradeType upgradeType;
@@ -42,11 +43,13 @@ public class Upgrade : ScriptableObject
         public float RangeChangeAmount;
         public float AttackLifetimeChangeAmount;
         public int AttackPassthroughChangeAmount;
-
         public int ProjectileCountChangeAmount;
 
         //New attack variables
         public AttackStats NewAttackStats;
+
+        //Health up variables
+        public int HealthIncrease;
     }
 
     [SerializeField] public UpgradeTierValues upgradeValues;
@@ -63,11 +66,12 @@ public class Upgrade : ScriptableObject
                 player.moveSpeed += upgradeValues.MoveSpeedChange;
                 player.maxHealth += upgradeValues.MaxHealthChange;
                 player.maxHunger += upgradeValues.MaxHungerChange;
+                player.experienceMult += upgradeValues.XPGainChange;
                 break;
 
             //Upgrading attack values
             case UpgradeType.Attack:
-                //upgradeValues.attack.attackCooldown -= upgradeValues.AttackRateChangeAmount; //Need to figure out how to make sure this targets the right variable without messing with the attackStats cooldown
+                upgradeValues.attackStats.attackCooldown -= upgradeValues.AttackRateChangeAmount;
                 upgradeValues.attackProjectile.damageMin += upgradeValues.DamageChangeAmount;
                 upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount;
                 upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Only use for miasma

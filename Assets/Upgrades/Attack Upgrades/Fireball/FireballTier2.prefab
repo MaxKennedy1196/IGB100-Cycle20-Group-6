@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6444732968558014919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3320729813156623499}
+  - component: {fileID: 1713457837157502949}
+  m_Layer: 0
+  m_Name: FireballTier2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3320729813156623499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444732968558014919}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713457837157502949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444732968558014919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  upgradeType: 1
+  upgradeValues:
+    UpgradeName: Fireball
+    UpgradeTier: Tier 2
+    UpgradeText: +2 Seconds Projectile Lifetime; +3 Damage
+    MoveSpeedChange: 0
+    MaxHealthChange: 0
+    MaxHungerChange: 0
+    XPGainChange: 0
+    attackProjectile: {fileID: 5084040750013431489, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
+    attackStats: {fileID: 11400000, guid: ddb5522c806c6c846b01aa527bced1f4, type: 2}
+    AttackRateChangeAmount: 0
+    DamageChangeAmount: 3
+    RangeChangeAmount: 0
+    AttackLifetimeChangeAmount: 2
+    AttackPassthroughChangeAmount: 0
+    ProjectileCountChangeAmount: 0
+    NewAttackStats: {fileID: 0}

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8401693258491343959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5230161871517769350}
+  - component: {fileID: 5138012835958324929}
+  m_Layer: 0
+  m_Name: MaxHealthAndHungerIncrease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5230161871517769350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401693258491343959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5138012835958324929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401693258491343959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  upgradeType: 0
+  upgradeValues:
+    UpgradeName: Max Health and Hunger Upgrade
+    UpgradeTier: Tier 2
+    UpgradeText: +25 Maximum Health; + 50 Maximum Hunger
+    MoveSpeedChange: 0
+    MaxHealthChange: 25
+    MaxHungerChange: 50
+    XPGainChange: 0
+    attackProjectile: {fileID: 0}
+    attackStats: {fileID: 0}
+    AttackRateChangeAmount: 0
+    DamageChangeAmount: 0
+    RangeChangeAmount: 0
+    AttackLifetimeChangeAmount: 0
+    AttackPassthroughChangeAmount: 0
+    ProjectileCountChangeAmount: 0
+    NewAttackStats: {fileID: 0}

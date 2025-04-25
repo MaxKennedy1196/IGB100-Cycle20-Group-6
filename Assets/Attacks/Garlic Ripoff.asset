@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
   m_Name: Garlic Ripoff
   m_EditorClassIdentifier: 
+  baseCooldown: 12.5
   attackCooldown: 12.5
   attackTimer: 10.424023
   attackLifetime: 10
@@ -25,6 +26,9 @@ MonoBehaviour:
   attackProjectile: {fileID: 9197686042926581397, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
   targetingType: 2
   DPS: 1
-  upgrades: []
+  upgrades:
+  - {fileID: 8297586691873889778, guid: 19a31fcc7685c104e8fc0238c968d626, type: 3}
+  - {fileID: 5242802009518984087, guid: be4f33c9f54314847bf77a757feaf415, type: 3}
+  - {fileID: 1867788711705398463, guid: f6e7d85b60eea3740850b46911169bd2, type: 3}
   upgradeTier: 0
   upgradeMaxed: 0

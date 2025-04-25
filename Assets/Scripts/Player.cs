@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float hunger = 100f;
     public float maxHunger = 100f;
     public float experience = 0f;
+    public float experienceMult = 1.0f; //Used for experience boosting upgrades
     [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
 
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
         {
             attack.upgradeTier = 0;
             attack.upgradeMaxed = false;
+            attack.attackCooldown = attack.baseCooldown;
             attack.InitTimer();
         }
     }
@@ -133,7 +135,7 @@ public class Player : MonoBehaviour
                 projectile.target = target;//allocate projectile target
                 projectile.damageMin += attack.attackMinDamage; //Using += to account for projectiles having damage upgrade amounts added to them
                 projectile.damageMax += attack.attackMaxDamage; //Using += to account for projectiles having damage upgrade amounts added to them
-                projectile.projectileLifetime = attack.attackLifetime;
+                projectile.projectileLifetime += attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
                 projectile.projectileArea += attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
                 projectile.enemiesPassedThrough += attack.passthrough; //Using += to account for passthrough possibly being upgraded
@@ -210,7 +212,7 @@ public class Player : MonoBehaviour
 
     public void AddExperience(float amount)
     {
-        experience += amount;
+        experience += (amount * experienceMult);
         if (experience >= maxExperience)
         {
             experience = 0f;

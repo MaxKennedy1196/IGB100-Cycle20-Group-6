@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
-  damageMin: 0
-  damageMax: 0
+  damageMin: 5
+  damageMax: 5
   projectileSpeed: 0
-  projectileLifetime: 0
+  projectileLifetime: 10
   projectileArea: 0
   enemiesPassedThrough: 0
   target: {fileID: 0}

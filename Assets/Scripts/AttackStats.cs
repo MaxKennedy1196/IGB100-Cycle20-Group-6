@@ -6,7 +6,8 @@ using UnityEngine;
 public class AttackStats : ScriptableObject
 {
     [Header("Attack Variables")]
-    public      float attackCooldown;//how long the attack will take to recharge
+    public      float baseCooldown;//how long the attack will take to recharge
+    public      float attackCooldown;//how long the attack will take to recharge after being modified by upgrades
     public      float attackTimer;//how much longer before this attack is triggered again
     public      float attackLifetime;//how long the attack remains active for
     public      float attackMinDamage;//min damage attack will deal to enemies

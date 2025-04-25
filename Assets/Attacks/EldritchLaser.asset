@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
   m_Name: EldritchLaser
   m_EditorClassIdentifier: 
+  baseCooldown: 1
   attackCooldown: 1
-  attackTimer: 0.24346238
+  attackTimer: 0
   attackLifetime: 5
   attackMinDamage: 5
   attackMaxDamage: 10
@@ -26,7 +27,8 @@ MonoBehaviour:
   targetingType: 0
   DPS: 0
   upgrades:
-  - {fileID: 11400000, guid: 5fe701432c6ee7c4a9a4b09d74a2cb5d, type: 2}
-  - {fileID: 11400000, guid: 6be7c98b9055e994b89905bc3eaede0a, type: 2}
-  upgradeTier: 2
-  upgradeMaxed: 1
+  - {fileID: 3298386143137927948, guid: ea362b94ecd67b54eb1cfd6571430411, type: 3}
+  - {fileID: 8865720615017057422, guid: 8585a456ad5c4764d8d39f26e2d0c52d, type: 3}
+  - {fileID: 1447708808975933652, guid: a7ac3740119e74443902eef89d5d283f, type: 3}
+  upgradeTier: 1
+  upgradeMaxed: 0

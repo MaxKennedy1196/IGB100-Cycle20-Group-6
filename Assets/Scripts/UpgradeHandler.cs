@@ -34,12 +34,10 @@ public class UpgradeMenu : MonoBehaviour
     private List<Upgrade> playerUpgrades = new List<Upgrade>();
     private List<Upgrade> upgradePool = new List<Upgrade>();
 
-    public Upgrade[] upgrades; //Set to private when done with testing
+    private Upgrade[] upgrades;
+    public Upgrade healthUpgrade;
     [HideInInspector] public Upgrade chosenUpgrade;
     [HideInInspector] public bool upgradeSelected = false;
-
-    //public Upgrade laser2;
-    //public Upgrade laser3;
 
     //Generating upgrades when the menu is made active
     public void OnEnable()
@@ -66,7 +64,7 @@ public class UpgradeMenu : MonoBehaviour
     public void GenerateUpgrades()
     {
         //Setting the first upgrade to be a weapon the player already has if possible
-        if (upgradableAttacks.Count > 1) 
+        if (upgradableAttacks.Count > 1)
         {
             int upgradeSpot = (Random.Range(0, upgradableAttacks.Count)); //Generating a new int in between zero and the amount of upgradable attacks
             upgrades[0] = upgradableAttacks[upgradeSpot].GetNextUpgrade(); //Setting the first upgrade to the upgrade that corresponds with upgradeSpot
@@ -77,12 +75,6 @@ public class UpgradeMenu : MonoBehaviour
             upgrades[0] = upgradableAttacks[0].GetNextUpgrade();
             upgradableAttacks.RemoveAt(0);
         }
-
-        //if (upgrades[0] == null) { upgrades[0] = laser2; } //Temporary code until the while loop below is functional
-
-        //upgrades[1] = laser2;
-        //upgrades[2] = laser3;
-
         
         //Creating a pool of all the available upgrades
         upgradePool = new List<Upgrade>();
@@ -100,6 +92,10 @@ public class UpgradeMenu : MonoBehaviour
         //Adding 2 more upgrades from the available upgrade pool to the player's upgrade choices
         int i = 1;
         if (upgrades[0] == null) { i--; } //If there was no available weapon for the first upgrade, sets i to 0 to generate 3 new upgrades instead of 2
+
+        //If there are less than 3 upgrades in the upgrade pool, adding basic health up upgrades to the pool instead until there are enough upgrades to choose from
+        while (upgradePool.Count < 3 - i) { upgradePool.Add(healthUpgrade); }
+
         Upgrade nextUpgrade;
         while (i < 3)
         {
@@ -139,6 +135,10 @@ public class UpgradeMenu : MonoBehaviour
         if (chosenUpgrade.upgradeType == Upgrade.UpgradeType.NewAttack)
         {
             lockedAttacks.Remove(chosenUpgrade);
+        }
+        else if (chosenUpgrade.upgradeType == Upgrade.UpgradeType.Player)
+        {
+            Manager.player.upgrades.Remove(chosenUpgrade);
         }
 
         Time.timeScale = 1.0f;
