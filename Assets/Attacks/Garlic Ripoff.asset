@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
   m_Name: Garlic Ripoff
   m_EditorClassIdentifier: 
-  baseCooldown: 12.5
-  attackCooldown: 12.5
-  attackTimer: 10.424023
+  baseCooldown: 20
+  attackCooldown: 20
+  attackTimer: 1.9642426
   attackLifetime: 10
   attackMinDamage: 8
   attackMaxDamage: 10
