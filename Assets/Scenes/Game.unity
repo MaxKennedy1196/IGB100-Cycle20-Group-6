@@ -10957,7 +10957,7 @@ MonoBehaviour:
   moveSpeed: 5
   damageMult: 1
   AttackStatsList:
-  - {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
+  - {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
   maxWeapons: 3
   target: {fileID: 0}
   distance: 0
