@@ -2266,6 +2266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -12731,6 +12732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -14547,6 +14549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -17633,6 +17636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -18087,6 +18091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -19350,6 +19355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -19708,6 +19714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
@@ -20895,6 +20902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724d2ddcf3b0c5848a59dbfc2c258860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 900793208}
   enemyRate: 5
   enemyTimer: 0
   Enemy: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}

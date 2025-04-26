@@ -124,6 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  Manager: {fileID: 0}
+  player: {fileID: 0}
+  yPos: 0
+  orderPos: 0
 --- !u!1 &9035768490693059860
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +181,7 @@ MonoBehaviour:
   attackRange: 0
   hungerProvided: 0
   spriteRenderer: {fileID: 0}
-  deathEffect: {fileID: 0}
-  expDrop: {fileID: 8598268474157666394, guid: b481544366bce39479528d411ce1598f, type: 3}
-  foodDrop: {fileID: 262546321903551133, guid: c6cec1f9ee6a9a447945ddf9d6cd35ec, type: 3}
+  deathEffect: {fileID: 6431131020874670037, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
+  deathEffectSound: {fileID: -6066875806542553465, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
+  deathSound: {fileID: 8300000, guid: f8791c2346f076c4aaaa6e8f7413378b, type: 3}
+  deathSound2: {fileID: 8300000, guid: b600ad2198ef8e34aa2e7295a7bc56fb, type: 3}

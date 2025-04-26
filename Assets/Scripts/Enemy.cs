@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public GameObject deathEffect;
+    public AudioSource deathEffectSound;
+    public AudioClip deathSound;
+    public AudioClip deathSound2;
     
     float distance = 0f;
 
@@ -108,6 +111,15 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        int deathEffectRandomiser = Random.Range(0, 1000); //Random second death sound as an easter egg
+
+        if (deathEffectRandomiser == 666)
+        {
+            deathEffectSound.clip = deathSound2;
+            deathEffectSound.volume = 0.35f;
+        }
+        else { deathEffectSound.clip = deathSound; }
+
         //Create a death effect at the location of the enemy when they die
         Instantiate(deathEffect, transform.position, transform.rotation);
         Manager.enemyList.Remove(gameObject);

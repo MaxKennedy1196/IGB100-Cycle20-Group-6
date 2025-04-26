@@ -17,6 +17,6 @@ MonoBehaviour:
   moveSpeed: 2
   attackRange: 2
   hungerProvided: 15
-  foodSpawnChance: 80
-  xpSpawnChance: 50
+  foodSpawnChance: 50
+  xpSpawnChance: 100
   deathEffect: {fileID: 6431131020874670037, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
