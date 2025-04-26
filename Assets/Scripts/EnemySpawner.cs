@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time > enemyTimer)
         {
             Instantiate(Enemy, transform.position, Quaternion.identity);
-            enemyTimer = Time.time + enemyRate - (player.level * 0.2f); //Decreases enemy spawn rate by 0.2 per player level
+            enemyTimer = Time.time + enemyRate;
         }
     }
 }

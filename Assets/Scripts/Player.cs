@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
 
     public List<Upgrade> upgrades;
 
+    public EnemySpawner[] spawners;
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -220,6 +222,7 @@ public class Player : MonoBehaviour
             experience = 0f;
             maxExperience = levelUpAmounts[level];
             level++;
+            foreach (EnemySpawner spawner in spawners) { spawner.enemyRate -= 0.2f; }
             Debug.Log("Upgrade Selection Menu");
             StartCoroutine(UpgradeMenu());
 

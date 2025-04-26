@@ -10969,6 +10969,15 @@ MonoBehaviour:
   - {fileID: 8109121091684473944, guid: 462aac1429ce4d046b958d77a809c983, type: 3}
   - {fileID: 8601375904609786377, guid: f4873b895417ddd41b2b226e4af8c773, type: 3}
   - {fileID: 800178092088586831, guid: 5cfc1f37c281e364695305a74927288b, type: 3}
+  spawners:
+  - {fileID: 1752214177}
+  - {fileID: 1655983746}
+  - {fileID: 1071925639}
+  - {fileID: 1720645737}
+  - {fileID: 151993990}
+  - {fileID: 1289895398}
+  - {fileID: 1854338735}
+  - {fileID: 1625416189}
 --- !u!1 &978301392
 GameObject:
   m_ObjectHideFlags: 0
