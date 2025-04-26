@@ -7099,7 +7099,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 1400
   m_TargetDisplay: 0
 --- !u!224 &672099851
 RectTransform:
