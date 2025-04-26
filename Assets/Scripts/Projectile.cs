@@ -52,8 +52,6 @@ public class Projectile : MonoBehaviour
         }
             
 
-
-
         foreach(GameObject enemy in Manager.enemyList)//target acquisition;
         { 
             distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
