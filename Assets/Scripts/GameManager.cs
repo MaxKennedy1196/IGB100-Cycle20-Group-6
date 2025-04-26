@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 //Script used to handle game elements and player upgrades
 public class GameManager : MonoBehaviour
@@ -43,5 +44,13 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
 
+    }
+
+    public void GameWin()
+    {
+        if (player.level == 20)
+        {
+            SceneManager.LoadScene("You Win");
+        }
     }
 }

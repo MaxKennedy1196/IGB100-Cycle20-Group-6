@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
             lastCheckedLevel = currentLevel;
         }
 
+
     }
 
     private void attacks()
@@ -228,6 +229,8 @@ public class Player : MonoBehaviour
 
             if (playerForm < 4) { NextForm(); }
             //call powerup cards funtion here
+
+            Manager.GameWin();
         }
     }
     
