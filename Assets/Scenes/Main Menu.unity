@@ -1655,8 +1655,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Instructions:\nuse WASD to move your character\nAvoid touching enemies
-    \npick up food to avoid starvation\npick up xp to level up\nconsume and transcend"
+  m_text: 'Instructions:
+
+    Use WASD to move your character.
+
+    Avoid touching
+    enemies.
+
+    Pick up food to avoid starvation.
+
+    Pick up xp to level up.
+
+    Consume
+    and transcend.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

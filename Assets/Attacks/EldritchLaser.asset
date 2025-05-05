@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCooldown: 1
   attackCooldown: 1
-  attackTimer: 0
+  attackTimer: 0.93540317
   attackLifetime: 5
   attackMinDamage: 5
   attackMaxDamage: 10
@@ -22,7 +22,7 @@ MonoBehaviour:
   attackArea: 1
   passthrough: 1
   projectileCount: 0
-  attackEffect: {fileID: 0}
+  attackEffect: {fileID: 8190172420676854023, guid: 3a5a5042882b95947b53778aebccec34, type: 3}
   attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
   targetingType: 0
   DPS: 0
@@ -30,5 +30,5 @@ MonoBehaviour:
   - {fileID: 3298386143137927948, guid: ea362b94ecd67b54eb1cfd6571430411, type: 3}
   - {fileID: 8865720615017057422, guid: 8585a456ad5c4764d8d39f26e2d0c52d, type: 3}
   - {fileID: 1447708808975933652, guid: a7ac3740119e74443902eef89d5d283f, type: 3}
-  upgradeTier: 1
+  upgradeTier: 0
   upgradeMaxed: 0

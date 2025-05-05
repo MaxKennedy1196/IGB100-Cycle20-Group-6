@@ -51,8 +51,8 @@ public class Projectile : MonoBehaviour
             transform.position = target.position;
         }
             
-
-        foreach(GameObject enemy in Manager.enemyList)//target acquisition;
+        GameObject[] enemyArray = Manager.enemyList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
+        foreach(GameObject enemy in enemyArray)//target acquisition;
         { 
             distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
 

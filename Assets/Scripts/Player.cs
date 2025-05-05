@@ -99,7 +99,8 @@ public class Player : MonoBehaviour
 
     private void attacks()
     {
-        foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
+        AttackStats[] AttackArray = AttackStatsList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
+        foreach(AttackStats attack in AttackArray)//go through each attck on the player
         {
             attack.DecreaseTimer();//decrease attack timer on each attack on the player
 
@@ -109,7 +110,7 @@ public class Player : MonoBehaviour
 
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
-                
+                Instantiate(attack.attackEffect, projectileObject.transform.position, projectileObject.transform.rotation);
 
                 if(attack.targetingType == AttackStats.TargetingType.Closest)
                 {
