@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     public float damageMult = 1.0f;
 
-    private float hungerDecayRate = 5f;
+    private float hungerTimer;
     float starvationDamge = 2.5f;
 
     public List<AttackStats> AttackStatsList; //A list of all the players weapons
@@ -199,7 +199,13 @@ public class Player : MonoBehaviour
 
     private void hungerDecay()
     {
-        hunger -= hungerDecayRate * Time.deltaTime;
+        hungerTimer += Time.deltaTime;
+
+        if (hungerTimer >= 2f)
+        {
+            hunger -= 10f;
+            hungerTimer = 0f;
+        }
 
         if (hunger <= 0)
         {
