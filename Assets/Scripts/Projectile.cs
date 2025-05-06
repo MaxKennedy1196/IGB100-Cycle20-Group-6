@@ -34,8 +34,12 @@ public class Projectile : MonoBehaviour
     {
         Destroy(this.gameObject, projectileLifetime);
 
-        Vector2 direction = target.position - transform.position;//Point towards target
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);//Point towards target
+        if(target != null)
+        {
+            Vector2 direction = target.position - transform.position;//Point towards target
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);//Point towards target
+        }
+            
 
     }
 

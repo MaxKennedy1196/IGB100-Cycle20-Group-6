@@ -110,7 +110,8 @@ public class Player : MonoBehaviour
 
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
-                Instantiate(attack.attackEffect, projectileObject.transform.position, projectileObject.transform.rotation);
+                if(attack.attackEffect != null)
+                    Instantiate(attack.attackEffect, projectileObject.transform.position, projectileObject.transform.rotation);
 
                 if(attack.targetingType == AttackStats.TargetingType.Closest)
                 {

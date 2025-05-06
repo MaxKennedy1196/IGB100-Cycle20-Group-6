@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> enemyList = new List<GameObject>();
     public Player player;
+    public GameObject playerCamera;
 
     public GameObject expDrop;
     public GameObject foodDrop;

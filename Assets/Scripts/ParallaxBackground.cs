@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class ParallaxBackground : MonoBehaviour
 {
     public GameObject playerCamera;
+    public GameManager Manager;
 
     public int tilesX = 5;
     public int tilesY = 5;
@@ -18,6 +19,9 @@ public class ParallaxBackground : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
+
+
         tiles = new Transform[tilesX, tilesY];
 
         int childIndex = 0;
@@ -39,7 +43,7 @@ public class ParallaxBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 camPos = playerCamera.transform.position;
+        Vector3 camPos = Manager.playerCamera.transform.position;
 
         for (int x = 0; x < tilesX; x++)
         {

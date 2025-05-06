@@ -3660,6 +3660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 853131075}
+  Manager: {fileID: 0}
   tilesX: 20
   tilesY: 20
   tileWidth: 2.5
@@ -10109,6 +10110,7 @@ MonoBehaviour:
   volumeLevel: 0
   enemyList: []
   player: {fileID: 969109444}
+  playerCamera: {fileID: 853131075}
   expDrop: {fileID: 8598268474157666394, guid: b481544366bce39479528d411ce1598f, type: 3}
   foodDrop: {fileID: 262546321903551133, guid: c6cec1f9ee6a9a447945ddf9d6cd35ec, type: 3}
 --- !u!4 &900793209
