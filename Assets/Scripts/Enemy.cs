@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     public AudioSource deathEffectSound;
     public AudioClip deathSound;
     public AudioClip deathSound2;
+
+    public DamageNumber damageNumber;
     
     float distance = 0f;
 
@@ -154,6 +156,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        damageNumber.gameObject.SetActive(true);
+        damageNumber.damageAmount = damage;
         if (health <= 0) { Die(); }
     }
 
