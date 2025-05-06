@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 3b806de0223273c438d57ccd6d3dac30
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8232722886459220203
+    second: hunger_bar_low-Sheet_0
+  - first:
+      213: -9056652769166629967
+    second: hunger_bar_low-Sheet_1
+  - first:
+      213: -5387277612965597398
+    second: hunger_bar_low-Sheet_2
+  - first:
+      213: 8293782771889868111
+    second: hunger_bar_low-Sheet_3
+  - first:
+      213: -7538551177251977525
+    second: hunger_bar_low-Sheet_4
+  - first:
+      213: 630291260975410880
+    second: hunger_bar_low-Sheet_5
+  - first:
+      213: 8101903192489627634
+    second: hunger_bar_low-Sheet_6
+  - first:
+      213: 4474337818480466375
+    second: hunger_bar_low-Sheet_7
+  - first:
+      213: 7970472323870830919
+    second: hunger_bar_low-Sheet_8
+  - first:
+      213: -4972609892988343402
+    second: hunger_bar_low-Sheet_9
+  - first:
+      213: 4723182939232227070
+    second: hunger_bar_low-Sheet_10
+  - first:
+      213: -1105094857600063370
+    second: hunger_bar_low-Sheet_11
+  - first:
+      213: -5262562744798056388
+    second: hunger_bar_low-Sheet_12
+  - first:
+      213: -1947844206165773561
+    second: hunger_bar_low-Sheet_13
+  - first:
+      213: -2087363137324555350
+    second: hunger_bar_low-Sheet_14
+  - first:
+      213: 2589601323580599156
+    second: hunger_bar_low-Sheet_15
+  - first:
+      213: -268470323832067652
+    second: hunger_bar_low-Sheet_16
+  - first:
+      213: -7520946119429150597
+    second: hunger_bar_low-Sheet_17
+  - first:
+      213: -5039655600410528307
+    second: hunger_bar_low-Sheet_18
+  - first:
+      213: -7011245434989064971
+    second: hunger_bar_low-Sheet_19
+  - first:
+      213: 7700171068594248106
+    second: hunger_bar_low-Sheet_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 89
+        width: 446
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f9e52572e7fbd80800000000000000
+      internalID: -8232722886459220203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 144
+        width: 41
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3e3c76a4e405280800000000000000
+      internalID: -9056652769166629967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 143
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f65c4dd8b8c35b0800000000000000
+      internalID: -5387277612965597398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 145
+        width: 37
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d00ca1d7f691370800000000000000
+      internalID: 8293782771889868111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 147
+        width: 81
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc60bce25afa16790800000000000000
+      internalID: -7538551177251977525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 103
+        width: 114
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cee87bff8e3fb800800000000000000
+      internalID: 630291260975410880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 146
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ff82f0270ebf6070800000000000000
+      internalID: 8101903192489627634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 140
+        width: 62
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9df933a8a081e30800000000000000
+      internalID: 4474337818480466375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 144
+        width: 81
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7413764695ecc9e60800000000000000
+      internalID: 7970472323870830919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 130
+        width: 151
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b26d9f5adbdfab0800000000000000
+      internalID: -4972609892988343402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 89
+        width: 180
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe4f16dbdd1c8140800000000000000
+      internalID: 4723182939232227070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 137
+        width: 30
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67823a1051ae9a0f0800000000000000
+      internalID: -1105094857600063370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 99
+        width: 152
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c307b1cd01f97f6b0800000000000000
+      internalID: -5262562744798056388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 126
+        width: 44
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703bfadb30ed7f4e0800000000000000
+      internalID: -1947844206165773561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 131
+        width: 50
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3668239423803e0800000000000000
+      internalID: -2087363137324555350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 87
+        width: 76
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b27e9feac10f320800000000000000
+      internalID: 2589601323580599156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 103
+        width: 48
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb96143b9a3364cf0800000000000000
+      internalID: -268470323832067652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 95
+        width: 115
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b78a2902a5b30a790800000000000000
+      internalID: -7520946119429150597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 86
+        width: 74
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5f833ceeb8f0ab0800000000000000
+      internalID: -5039655600410528307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 101
+        width: 48
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fcc56e8c6d03be90800000000000000
+      internalID: -7011245434989064971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunger_bar_low-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 100
+        width: 49
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9dc452ac08cda60800000000000000
+      internalID: 7700171068594248106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
