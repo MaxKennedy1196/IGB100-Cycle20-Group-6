@@ -57,6 +57,7 @@ MonoBehaviour:
   deathEffectSound: {fileID: -6066875806542553465, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
   deathSound: {fileID: 8300000, guid: f8791c2346f076c4aaaa6e8f7413378b, type: 3}
   deathSound2: {fileID: 8300000, guid: b600ad2198ef8e34aa2e7295a7bc56fb, type: 3}
+  damageNumber: {fileID: 0}
 --- !u!1 &6926248459398954593
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,8 +87,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3499995313293462760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2089972969577747650, guid: 5372a7b76e6974e4c8fd372bb29b57ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

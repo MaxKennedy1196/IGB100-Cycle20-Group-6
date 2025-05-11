@@ -73,10 +73,12 @@ public class Player : MonoBehaviour
 
         foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
         {
+            attack.ResetAttack();
             attack.upgradeTier = 0;
             attack.upgradeMaxed = false;
             attack.attackCooldown = attack.baseCooldown;
             attack.InitTimer();
+            
         }
     }
 

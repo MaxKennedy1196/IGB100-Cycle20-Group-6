@@ -5,10 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Attack", menuName = "AttackStats")]
 public class AttackStats : ScriptableObject
 {
+    [Header("Initial Attack Variables")]
+    public      float baseCooldown;
+    public      float baseLifetime;//how long the attack remains active for
+    public      float baseMinDamage;//min damage attack will deal to enemies
+    public      float baseMaxDamage;//max damage attack will deal to enemies
+    public      float baseSpeed;//speed of projectile
+    public      float baseArea;//what distance the projectile must be from an enemy before it can damage it
+    public      int   basePassthrough;// how many enemies this projectile can pass through before being deleted
+
     [Header("Attack Variables")]
-    public      float baseCooldown;//how long the attack will take to recharge
-    public      float attackCooldown;//how long the attack will take to recharge after being modified by upgrades
     public      float attackTimer;//how much longer before this attack is triggered again
+    public      float attackCooldown;//how long the attack will take to recharge after being modified by upgrades
     public      float attackLifetime;//how long the attack remains active for
     public      float attackMinDamage;//min damage attack will deal to enemies
     public      float attackMaxDamage;//max damage attack will deal to enemies
@@ -16,7 +24,7 @@ public class AttackStats : ScriptableObject
     public      float attackArea;//what distance the projectile must be from an enemy before it can damage it
     
     public int passthrough;// how many enemies this projectile can pass through before being deleted
-    [HideInInspector] public int projectileCount; //How many projectiles the attack fires; no logic for this implemented yet, may be removed
+    //[HideInInspector] public int projectileCount; //How many projectiles the attack fires; no logic for this implemented yet, may be removed
     public GameObject attackEffect;//effect to be played when attack is triggered
     public GameObject attackProjectile;//projectile to be fired when attack is triggered
     public TargetingType targetingType;// What type of targetting does this attack use
@@ -33,6 +41,17 @@ public class AttackStats : ScriptableObject
         Closest,
         Random,
         Player
+    }
+
+    public void ResetAttack()
+    {
+        attackCooldown = baseCooldown;
+        attackLifetime = baseLifetime;
+        attackMinDamage = baseMinDamage;
+        attackMaxDamage = baseMaxDamage;
+        attackSpeed = baseSpeed;
+        attackArea = baseArea;
+        passthrough = basePassthrough;
     }
 
     public void DecreaseTimer()//decreases the attack timer over time

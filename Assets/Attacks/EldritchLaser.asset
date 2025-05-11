@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: EldritchLaser
   m_EditorClassIdentifier: 
   baseCooldown: 1
+  baseLifetime: 5
+  baseMinDamage: 5
+  baseMaxDamage: 10
+  baseSpeed: 10
+  baseArea: 1
+  basePassthrough: 0
+  attackTimer: 0.9823348
   attackCooldown: 1
-  attackTimer: 0.93540317
   attackLifetime: 5
   attackMinDamage: 5
   attackMaxDamage: 10
   attackSpeed: 10
   attackArea: 1
-  passthrough: 1
-  projectileCount: 0
+  passthrough: 0
   attackEffect: {fileID: 8190172420676854023, guid: 3a5a5042882b95947b53778aebccec34, type: 3}
   attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
   targetingType: 0

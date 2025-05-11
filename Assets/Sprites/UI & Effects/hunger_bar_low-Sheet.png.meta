@@ -634,7 +634,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hunger_bar_low-Sheet_0: -8232722886459220203
+      hunger_bar_low-Sheet_1: -9056652769166629967
+      hunger_bar_low-Sheet_10: 4723182939232227070
+      hunger_bar_low-Sheet_11: -1105094857600063370
+      hunger_bar_low-Sheet_12: -5262562744798056388
+      hunger_bar_low-Sheet_13: -1947844206165773561
+      hunger_bar_low-Sheet_14: -2087363137324555350
+      hunger_bar_low-Sheet_15: 2589601323580599156
+      hunger_bar_low-Sheet_16: -268470323832067652
+      hunger_bar_low-Sheet_17: -7520946119429150597
+      hunger_bar_low-Sheet_18: -5039655600410528307
+      hunger_bar_low-Sheet_19: -7011245434989064971
+      hunger_bar_low-Sheet_2: -5387277612965597398
+      hunger_bar_low-Sheet_20: 7700171068594248106
+      hunger_bar_low-Sheet_3: 8293782771889868111
+      hunger_bar_low-Sheet_4: -7538551177251977525
+      hunger_bar_low-Sheet_5: 630291260975410880
+      hunger_bar_low-Sheet_6: 8101903192489627634
+      hunger_bar_low-Sheet_7: 4474337818480466375
+      hunger_bar_low-Sheet_8: 7970472323870830919
+      hunger_bar_low-Sheet_9: -4972609892988343402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
