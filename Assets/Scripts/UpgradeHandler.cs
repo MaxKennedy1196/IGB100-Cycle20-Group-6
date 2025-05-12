@@ -39,6 +39,8 @@ public class UpgradeMenu : MonoBehaviour
     [HideInInspector] public Upgrade chosenUpgrade;
     [HideInInspector] public bool upgradeSelected = false;
 
+    public int[] newAttackLevels; //Array of levels where the player is guaranteed to be offered a new attack if there are any available
+
     //Generating upgrades when the menu is made active
     public void OnEnable()
     {
@@ -63,17 +65,36 @@ public class UpgradeMenu : MonoBehaviour
     //Generates three upgrade choices for the player
     public void GenerateUpgrades()
     {
-        //Setting the first upgrade to be a weapon the player already has if possible
-        if (upgradableAttacks.Count > 1)
+        bool newAttackOption = false;
+
+        //If the player is at a level where they are guaranteed the option of a new attack, giving them one
+        foreach (int level in newAttackLevels)
         {
-            int upgradeSpot = (Random.Range(0, upgradableAttacks.Count)); //Generating a new int in between zero and the amount of upgradable attacks
-            upgrades[0] = upgradableAttacks[upgradeSpot].GetNextUpgrade(); //Setting the first upgrade to the upgrade that corresponds with upgradeSpot
-            upgradableAttacks.RemoveAt(upgradeSpot); //Removing the first upgrade from the upgradableAttacks list so it doesn't accidentally get used again later
+            if (level == Manager.player.level)
+            {
+                newAttackOption = true;
+            }
         }
-        else if (upgradableAttacks.Count == 1) 
-        { 
-            upgrades[0] = upgradableAttacks[0].GetNextUpgrade();
-            upgradableAttacks.RemoveAt(0);
+        if (newAttackOption && lockedAttacks.Count != 0)
+        {
+            int upgradeSpot = (Random.Range(0, lockedAttacks.Count)); //Generating a new int between zero and the amount of locked attacks
+            upgrades[0] = lockedAttacks[upgradeSpot];
+        }
+
+        else
+        {
+            //Setting the first upgrade to be a weapon the player already has if possible
+            if (upgradableAttacks.Count > 1)
+            {
+                int upgradeSpot = (Random.Range(0, upgradableAttacks.Count)); //Generating a new int in between zero and the amount of upgradable attacks
+                upgrades[0] = upgradableAttacks[upgradeSpot].GetNextUpgrade(); //Setting the first upgrade to the upgrade that corresponds with upgradeSpot
+                upgradableAttacks.RemoveAt(upgradeSpot); //Removing the first upgrade from the upgradableAttacks list so it doesn't accidentally get used again later
+            }
+            else if (upgradableAttacks.Count == 1)
+            {
+                upgrades[0] = upgradableAttacks[0].GetNextUpgrade();
+                upgradableAttacks.RemoveAt(0);
+            }
         }
         
         //Creating a pool of all the available upgrades
@@ -82,8 +103,8 @@ public class UpgradeMenu : MonoBehaviour
         if (upgradableAttacks != null && upgradableAttacks.Count > 0) { foreach (AttackStats attack in upgradableAttacks) { upgradePool.Add(attack.GetNextUpgrade()); } }
 
 
-        //If the player doesn't have their max weapon amount yet new weapons are added to the upgrade pool
-        if (Manager.player.AttackStatsList.Count < Manager.player.maxWeapons)
+        //If the player doesn't have their max weapon amount and they're not currently at a level where they're guaranteed a new weapon, new weapons are added to the upgrade pool
+        if (Manager.player.AttackStatsList.Count < Manager.player.maxWeapons && !newAttackOption)
         {
             //Add new weapons
             foreach (Upgrade newAttack in lockedAttacks) { upgradePool.Add(newAttack); }
