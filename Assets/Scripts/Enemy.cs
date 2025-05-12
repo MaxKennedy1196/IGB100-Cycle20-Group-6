@@ -175,7 +175,7 @@ public class Enemy : MonoBehaviour
 
         health -= damage;
         damageNumber.gameObject.SetActive(true);
-        damageNumber.damageAmount = damage;
+        damageNumber.CreatePopUp(transform.position, ((int)damage).ToString());
         if (health <= 0) { Die(); }
         
     }

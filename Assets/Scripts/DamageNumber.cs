@@ -4,29 +4,22 @@ using TMPro;
 
 public class DamageNumber : MonoBehaviour
 {
-    public RectTransform container;
-    public TMP_Text damageNum;
-    public Vector3 offset;
-    private Enemy enemy;
-    private Transform trackedTransform;
-    public float damageAmount;
 
-    // Start is called before the first frame update
-    public void OnEnable()
+    public static DamageNumber Instance;
+    public GameObject popupPrefab;
+
+    private void Awake()
     {
-        enemy = GetComponentInParent<Enemy>();
-        trackedTransform = transform.parent;
+        Instance = this;
     }
 
-    void Update()
+    public void CreatePopUp(Vector3 position, string text)
     {
-        //Move the health bar
-        Vector3 world = trackedTransform.position + offset;
-        container.anchoredPosition = Camera.main.WorldToScreenPoint(world);
-    }
+        var popup = Instantiate(popupPrefab, position, Quaternion.identity);
+        var temp = popup.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        temp.text = text;
 
-    void ShowDamage()
-    {
-        damageNum.SetText(damageAmount.ToString());
+
+        Destroy(popup, 1f);
     }
 }
