@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject expDrop;
     public GameObject foodDrop;
+
+    public List<GameObject> goreList;
     
 
     // Awake Checks - Singleton setup

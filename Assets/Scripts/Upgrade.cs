@@ -72,11 +72,11 @@ public class Upgrade : MonoBehaviour
             //Upgrading attack values
             case UpgradeType.Attack:
                 upgradeValues.attackStats.attackCooldown -= upgradeValues.AttackRateChangeAmount;
-                upgradeValues.attackProjectile.damageMin += upgradeValues.DamageChangeAmount;
-                upgradeValues.attackProjectile.damageMax += upgradeValues.DamageChangeAmount;
-                upgradeValues.attackProjectile.projectileArea += upgradeValues.RangeChangeAmount; //Only use for miasma
-                upgradeValues.attackProjectile.projectileLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime, best to only use for Miasma
-                upgradeValues.attackProjectile.enemiesPassedThrough += upgradeValues.AttackPassthroughChangeAmount; //Increases projectile passthrough
+                upgradeValues.attackStats.attackMinDamage += upgradeValues.DamageChangeAmount;
+                upgradeValues.attackStats.attackMaxDamage += upgradeValues.DamageChangeAmount;
+                upgradeValues.attackStats.attackArea += upgradeValues.RangeChangeAmount; //Only use for miasma
+                upgradeValues.attackStats.attackLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime, best to only use for Miasma
+                upgradeValues.attackStats.passthrough += upgradeValues.AttackPassthroughChangeAmount; //Increases projectile passthrough
                 upgradeValues.attackStats.upgradeTier++; //Upgrades the attack's tier so the next available upgrade is accessed when necessary
                 break;
 

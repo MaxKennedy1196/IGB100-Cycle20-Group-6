@@ -13,7 +13,8 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed;
     public float projectileLifetime;
     public float projectileArea;
-    public int enemiesPassedThrough;
+    [HideInInspector] public int enemiesPassedThrough;
+    //[HideInInspector] public int upgradedPassThrough;
     
     public Transform target;
     public Enemy targetStats;
@@ -27,6 +28,7 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
+        //enemiesPassedThrough += upgradedPassThrough;
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
     }
 

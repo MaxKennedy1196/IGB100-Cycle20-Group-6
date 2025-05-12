@@ -15,13 +15,13 @@ public class AttackStats : ScriptableObject
     public      int   basePassthrough;// how many enemies this projectile can pass through before being deleted
 
     [Header("Attack Variables")]
-    public      float attackTimer;//how much longer before this attack is triggered again
-    public      float attackCooldown;//how long the attack will take to recharge after being modified by upgrades
-    public      float attackLifetime;//how long the attack remains active for
-    public      float attackMinDamage;//min damage attack will deal to enemies
-    public      float attackMaxDamage;//max damage attack will deal to enemies
-    public      float attackSpeed;//speed of projectile
-    public      float attackArea;//what distance the projectile must be from an enemy before it can damage it
+    public float attackTimer;//how much longer before this attack is triggered again
+    public float attackCooldown;//how long the attack will take to recharge after being modified by upgrades
+    public float attackLifetime;//how long the attack remains active for
+    public float attackMinDamage;//min damage attack will deal to enemies
+    public float attackMaxDamage;//max damage attack will deal to enemies
+    public float attackSpeed;//speed of projectile
+    public float attackArea;//what distance the projectile must be from an enemy before it can damage it
     
     public int passthrough;// how many enemies this projectile can pass through before being deleted
     //[HideInInspector] public int projectileCount; //How many projectiles the attack fires; no logic for this implemented yet, may be removed

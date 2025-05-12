@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
     {
         int deathEffectRandomiser = Random.Range(0, 1000); //Random second death sound as an easter egg
 
-        if (deathEffectRandomiser == 666)
+        if (deathEffectRandomiser == 666)//Asher if you see this Xav thinks that using 666 here is clever
         {
             deathEffectSound.clip = deathSound2;
             deathEffectSound.volume = 0.35f;
@@ -155,6 +155,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        int randomGore = Random.Range(0,Manager.goreList.Count);
+        Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
+        print("BLOOOD");
+
         health -= damage;
         damageNumber.gameObject.SetActive(true);
         damageNumber.damageAmount = damage;
