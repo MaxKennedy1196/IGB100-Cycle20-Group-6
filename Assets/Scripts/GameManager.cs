@@ -18,9 +18,15 @@ public class GameManager : MonoBehaviour
     public GameObject playerCamera;
 
     public GameObject expDrop;
+    public GameObject hpDrop;
     public GameObject foodDrop;
 
     public List<GameObject> goreList;
+    public GameObject dmgEffect;
+
+    public GameObject farmerPrefab;
+    public GameObject blacksmithPrefab;
+    public GameObject clericPrefab;
     
 
     // Awake Checks - Singleton setup

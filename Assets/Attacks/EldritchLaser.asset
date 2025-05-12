@@ -18,15 +18,15 @@ MonoBehaviour:
   baseMaxDamage: 10
   baseSpeed: 10
   baseArea: 1
-  basePassthrough: 0
-  attackTimer: 0.9823348
+  basePassthrough: 1
+  attackTimer: 0.20503463
   attackCooldown: 1
   attackLifetime: 5
   attackMinDamage: 5
   attackMaxDamage: 10
   attackSpeed: 10
   attackArea: 1
-  passthrough: 0
+  passthrough: 1
   attackEffect: {fileID: 8190172420676854023, guid: 3a5a5042882b95947b53778aebccec34, type: 3}
   attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
   targetingType: 0

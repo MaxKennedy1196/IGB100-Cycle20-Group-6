@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     //float damageTime;
     public SpriteRenderer spriteRenderer;
 
+    //public GameObject dmgEffect;
     public GameObject deathEffect;
     public AudioSource deathEffectSound;
     public AudioClip deathSound;
@@ -30,9 +31,11 @@ public class Enemy : MonoBehaviour
 
     float xpSpawnChance;
     float foodSpawnChance;
+    float hpSpawnChance;
 
     float foodSpawn;
     float xpSpawn;
+    float hpSpawn;
 
     Vector2 spawnOffset;
     Vector2 spawnPosition;
@@ -54,6 +57,7 @@ public class Enemy : MonoBehaviour
 
         xpSpawnChance = stats.xpSpawnChance;
         foodSpawnChance = stats.foodSpawnChance;
+        hpSpawnChance = stats.healthSpawnChance;
 
         deathEffect = stats.deathEffect;
 
@@ -138,6 +142,16 @@ public class Enemy : MonoBehaviour
             Instantiate(Manager.expDrop, spawnPosition, Quaternion.identity);
         }
 
+        hpSpawn = Random.Range(0f,100f);
+        
+        if(hpSpawn <= hpSpawnChance)
+        {
+            spawnOffset = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
+            spawnPosition = transform.position;
+            spawnPosition += spawnOffset;
+            Instantiate(Manager.hpDrop, spawnPosition, Quaternion.identity);
+        }
+
         foodSpawn = Random.Range(0f,100f);
 
         if(foodSpawn <= foodSpawnChance)
@@ -163,6 +177,7 @@ public class Enemy : MonoBehaviour
         damageNumber.gameObject.SetActive(true);
         damageNumber.damageAmount = damage;
         if (health <= 0) { Die(); }
+        
     }
 
     /*void OnTriggerStay(Collider other)

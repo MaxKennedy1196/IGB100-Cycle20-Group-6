@@ -233,7 +233,7 @@ public class Player : MonoBehaviour
             experience = 0f;
             maxExperience = levelUpAmounts[level];
             level++;
-            foreach (EnemySpawner spawner in spawners) { spawner.enemyRate -= 0.2f; }
+            //foreach (EnemySpawner spawner in spawners) { spawner.enemyRate -= 0.2f; }
             Debug.Log("Upgrade Selection Menu");
             StartCoroutine(UpgradeMenu());
 
@@ -250,6 +250,15 @@ public class Player : MonoBehaviour
         if (hunger >= maxHunger)
         {
             hunger = maxHunger;
+        }
+    }
+
+    public void AddHealth(float amount)
+    {
+        health += amount;
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
         }
     }
 

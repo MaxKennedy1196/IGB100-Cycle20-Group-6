@@ -65,8 +65,11 @@ public class Projectile : MonoBehaviour
             if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
             {
                 targetStats = enemy.GetComponent<Enemy>();
-                damageToEnemy = Random.Range(damageMin,damageMax);
-
+                if(DPS == false)
+                {
+                    Instantiate(Manager.dmgEffect, transform.position, transform.rotation);
+                    damageToEnemy = Random.Range(damageMin,damageMax);
+                }
                 if(DPS == true)
                 {
                     damageToEnemy = damageToEnemy * Time.deltaTime;

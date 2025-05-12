@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 445810768430824057}
   - component: {fileID: 7275620268785195629}
   - component: {fileID: 5904731763605796148}
+  - component: {fileID: 7073759455998395776}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.030712308}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7845747831551217296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +111,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7073759455998395776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074510576230267687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  Manager: {fileID: 0}
+  player: {fileID: 0}
+  yPos: 0
+  orderPos: 0
 --- !u!1 &8750004662365371541
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,8 +155,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.77, y: 0, z: 0}
-  m_LocalScale: {x: 2.25, y: 2.25, z: 2.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 445810768430824057}
   m_Father: {fileID: 0}

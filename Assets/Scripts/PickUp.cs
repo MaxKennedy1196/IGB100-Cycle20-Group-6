@@ -45,6 +45,13 @@ public class PickUp : MonoBehaviour
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
                 Destroy(this.gameObject);
             }
+
+            if(pickupType == PickupType.HP)
+            {
+                player.AddHealth(Value);
+                AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+                Destroy(this.gameObject);
+            }
                 
         }
     }
