@@ -17,6 +17,15 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            togglePause();
+        }
+    }
+
+
     // Update is called once per frame
     public void togglePause()
     {
