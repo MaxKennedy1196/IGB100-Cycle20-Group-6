@@ -65,7 +65,9 @@ public class Upgrade : MonoBehaviour
             case UpgradeType.Player:
                 player.moveSpeed += upgradeValues.MoveSpeedChange;
                 player.maxHealth += upgradeValues.MaxHealthChange;
+                player.health += upgradeValues.MaxHealthChange;
                 player.maxHunger += upgradeValues.MaxHungerChange;
+                player.hunger += upgradeValues.MaxHungerChange;
                 player.experienceMult += upgradeValues.XPGainChange;
                 break;
 
@@ -74,8 +76,8 @@ public class Upgrade : MonoBehaviour
                 upgradeValues.attackStats.attackCooldown -= upgradeValues.AttackRateChangeAmount;
                 upgradeValues.attackStats.attackMinDamage += upgradeValues.DamageChangeAmount;
                 upgradeValues.attackStats.attackMaxDamage += upgradeValues.DamageChangeAmount;
-                upgradeValues.attackStats.attackArea += upgradeValues.RangeChangeAmount; //Only use for miasma
-                upgradeValues.attackStats.attackLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime, best to only use for Miasma
+                upgradeValues.attackStats.attackArea += upgradeValues.RangeChangeAmount; //Only used for miasma
+                upgradeValues.attackStats.attackLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime
                 upgradeValues.attackStats.passthrough += upgradeValues.AttackPassthroughChangeAmount; //Increases projectile passthrough
                 upgradeValues.attackStats.upgradeTier++; //Upgrades the attack's tier so the next available upgrade is accessed when necessary
                 break;

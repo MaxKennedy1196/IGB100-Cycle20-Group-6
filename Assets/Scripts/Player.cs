@@ -153,6 +153,7 @@ public class Player : MonoBehaviour
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
                 projectile.projectileArea = attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
+                projectile.projectileScale = attack.attackArea - attack.baseArea; //Modifying the projectile's scale
                 projectile.enemiesPassedThrough = attack.passthrough; //Using += to account for passthrough possibly being upgraded
 
 

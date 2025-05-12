@@ -108,6 +108,7 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileLifetime: 1
   projectileArea: 0
+  projectileScale: 1
   enemiesPassedThrough: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}

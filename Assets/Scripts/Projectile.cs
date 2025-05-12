@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed;
     public float projectileLifetime;
     public float projectileArea;
+    [HideInInspector] public float projectileScale;
     [HideInInspector] public int enemiesPassedThrough;
     //[HideInInspector] public int upgradedPassThrough;
     
@@ -30,6 +31,7 @@ public class Projectile : MonoBehaviour
     {
         //enemiesPassedThrough += upgradedPassThrough;
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
+        transform.localScale += new Vector3(projectileScale, projectileScale); //Modifies the projectile scale, doesn't work cause it only triggers when the projectile is awake, may not work with upgrades (?)
     }
 
     public void Start()
@@ -41,8 +43,6 @@ public class Projectile : MonoBehaviour
             Vector2 direction = target.position - transform.position;//Point towards target
             transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);//Point towards target
         }
-            
-
     }
 
     public void Update()

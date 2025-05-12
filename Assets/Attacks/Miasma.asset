@@ -19,11 +19,11 @@ MonoBehaviour:
   baseSpeed: 0
   baseArea: 2.5
   basePassthrough: 999999999
-  attackTimer: 1.9642426
+  attackTimer: 15.445263
   attackCooldown: 20
   attackLifetime: 10
-  attackMinDamage: 8
-  attackMaxDamage: 10
+  attackMinDamage: 13
+  attackMaxDamage: 15
   attackSpeed: 0
   attackArea: 2.5
   passthrough: 999999999
