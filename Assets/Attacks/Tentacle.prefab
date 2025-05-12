@@ -83,6 +83,7 @@ LineRenderer:
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -99,14 +100,14 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.122019716
-        value: 0.15219456
-        inSlope: -0.40912503
-        outSlope: -0.40912503
+        time: 0.58507055
+        value: 0.37514073
+        inSlope: -2.1771019
+        outSlope: -2.1771019
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.34911257
-        outWeight: 0.20527908
+        outWeight: 0.19388048
       - serializedVersion: 3
         time: 1
         value: 0
@@ -297,3 +298,6 @@ MonoBehaviour:
   Manager: {fileID: 0}
   player: {fileID: 0}
   lineRenderer: {fileID: 6208868028212793624}
+  segmentPoses: []
+  segmentV: []
+  targetDir: {fileID: 0}
