@@ -47,10 +47,10 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: XP and Move Speed Increase
+    UpgradeName: XP and Move                 Speed Up
     UpgradeTier: Tier 2
-    UpgradeText: +15% XP gain; + 5 Movement Speed
-    MoveSpeedChange: 5
+    UpgradeText: +15% XP gain; + 1 Movement Speed
+    MoveSpeedChange: 1
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0.15
@@ -63,3 +63,4 @@ MonoBehaviour:
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
     NewAttackStats: {fileID: 0}
+    HealthIncrease: 0

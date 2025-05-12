@@ -47,7 +47,7 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Max Health and Hunger Upgrade
+    UpgradeName: Max Health and             Hunger Upgrade
     UpgradeTier: Tier 2
     UpgradeText: +25 Maximum Health; + 50 Maximum Hunger
     MoveSpeedChange: 0
@@ -63,3 +63,4 @@ MonoBehaviour:
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
     NewAttackStats: {fileID: 0}
+    HealthIncrease: 0
