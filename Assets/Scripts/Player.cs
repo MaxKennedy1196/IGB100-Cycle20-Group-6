@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
 
     public EnemySpawner[] spawners;
 
+    public Transform mouseTarget;
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -125,6 +127,11 @@ public class Player : MonoBehaviour
                     acquireRandomEnemy();
                 }
 
+                if(attack.targetingType == AttackStats.TargetingType.Mouse_Pointer)
+                {
+                    target = mouseTarget.transform;
+                }
+
                 if(attack.targetingType == AttackStats.TargetingType.Player)
                 {
                     target = gameObject.transform;
@@ -141,11 +148,11 @@ public class Player : MonoBehaviour
                 }             
                     
                 projectile.target = target;//allocate projectile target
-                projectile.damageMin += attack.attackMinDamage; //Using += to account for projectiles having damage upgrade amounts added to them
-                projectile.damageMax += attack.attackMaxDamage; //Using += to account for projectiles having damage upgrade amounts added to them
-                projectile.projectileLifetime += attack.attackLifetime;
+                projectile.damageMin = attack.attackMinDamage; //Using += to account for projectiles having damage upgrade amounts added to them
+                projectile.damageMax = attack.attackMaxDamage; //Using += to account for projectiles having damage upgrade amounts added to them
+                projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
-                projectile.projectileArea += attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
+                projectile.projectileArea = attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
                 projectile.enemiesPassedThrough = attack.passthrough; //Using += to account for passthrough possibly being upgraded
 
 

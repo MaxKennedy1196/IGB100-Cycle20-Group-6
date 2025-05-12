@@ -171,7 +171,7 @@ public class Enemy : MonoBehaviour
     {
         int randomGore = Random.Range(0,Manager.goreList.Count);
         Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
-        print("BLOOOD");
+        //print("BLOOOD");
 
         health -= damage;
         damageNumber.gameObject.SetActive(true);

@@ -208,8 +208,7 @@ MonoBehaviour:
   damage: 0
   attackRange: 0
   hungerProvided: 0
-  spriteRenderer: {fileID: 7900023099259281348}
-  dmgEffect: {fileID: 8193029549275621769, guid: cee75a2a50e11404ebaf110a78011410, type: 3}
+  spriteRenderer: {fileID: 0}
   deathEffect: {fileID: 6431131020874670037, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
   deathEffectSound: {fileID: -6066875806542553465, guid: 970397d2dfa529f4bb62ffa3621e0467, type: 3}
   deathSound: {fileID: 8300000, guid: f8791c2346f076c4aaaa6e8f7413378b, type: 3}
@@ -381,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 6926248459398954593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.35, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
-  m_Name: Fireball Ripoff
+  m_Name: Flesh Gnawer
   m_EditorClassIdentifier: 
   baseCooldown: 3
   baseLifetime: 5
@@ -35,5 +35,5 @@ MonoBehaviour:
   - {fileID: 1713457837157502949, guid: d268d2afb99077745ac434fb52ec26d3, type: 3}
   - {fileID: 8075534601963854661, guid: be28beadaf06b4943886bf1df92c90a9, type: 3}
   - {fileID: 1409552242452127435, guid: f8bd1330ffa016544802f660d08415e4, type: 3}
-  upgradeTier: 3
-  upgradeMaxed: 1
+  upgradeTier: 0
+  upgradeMaxed: 0

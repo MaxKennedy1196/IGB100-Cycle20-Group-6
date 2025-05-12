@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9069d2130d1c34c83e7d3c6f0425cb, type: 3}
-  m_Name: EldritchLaser
+  m_Name: Tentacle
   m_EditorClassIdentifier: 
   baseCooldown: 1
-  baseLifetime: 5
-  baseMinDamage: 5
-  baseMaxDamage: 10
+  baseLifetime: 0.5
+  baseMinDamage: 15
+  baseMaxDamage: 20
   baseSpeed: 10
-  baseArea: 1
+  baseArea: 2
   basePassthrough: 1
-  attackTimer: 0.20710118
-  attackCooldown: 0.5
-  attackLifetime: 5
-  attackMinDamage: 10
-  attackMaxDamage: 15
+  attackTimer: 0.00918733
+  attackCooldown: 1
+  attackLifetime: 0.5
+  attackMinDamage: 15
+  attackMaxDamage: 20
   attackSpeed: 10
-  attackArea: 1
-  passthrough: 2
-  attackEffect: {fileID: 8190172420676854023, guid: 3a5a5042882b95947b53778aebccec34, type: 3}
-  attackProjectile: {fileID: 9197686042926581397, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
-  targetingType: 0
+  attackArea: 2
+  passthrough: 1
+  attackEffect: {fileID: 0}
+  attackProjectile: {fileID: 7956543480637033017, guid: 7a7cea4c01cf4304bb0181b9ac9e152b, type: 3}
+  targetingType: 3
   DPS: 0
   upgrades:
   - {fileID: 8865720615017057422, guid: 8585a456ad5c4764d8d39f26e2d0c52d, type: 3}
   - {fileID: 3298386143137927948, guid: ea362b94ecd67b54eb1cfd6571430411, type: 3}
   - {fileID: 1447708808975933652, guid: a7ac3740119e74443902eef89d5d283f, type: 3}
-  upgradeTier: 3
-  upgradeMaxed: 1
+  upgradeTier: 0
+  upgradeMaxed: 0

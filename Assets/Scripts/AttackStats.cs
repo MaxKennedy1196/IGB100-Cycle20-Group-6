@@ -40,7 +40,8 @@ public class AttackStats : ScriptableObject
     {
         Closest,
         Random,
-        Player
+        Player,
+        Mouse_Pointer
     }
 
     public void ResetAttack()
