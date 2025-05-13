@@ -53,7 +53,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _TwirlOffsetSpeed: {r: 0.1, g: 0, b: 0, a: 0}
-    - _XPColour1: {r: 0.5704758, g: 0.8113207, b: 0.35973647, a: 0}
-    - _XPColour2: {r: 0, g: 0.38993698, b: 0.04235491, a: 0}
+    - _XPColour1: {r: 1, g: 0.96188563, b: 0.6367924, a: 0}
+    - _XPColour2: {r: 1, g: 0.35402888, b: 0.004716992, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
