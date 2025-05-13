@@ -15,7 +15,11 @@ public class LayerRandomiser : MonoBehaviour
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();// Get renderer
+
+        if(spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();// Get renderer
+        }
 
         
     }

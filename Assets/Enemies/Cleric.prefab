@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5941639432574743415}
   - component: {fileID: 5687455585302193783}
   - component: {fileID: 6355161867917724662}
-  - component: {fileID: 1883052217322009390}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2721071470757460090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.06, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5985922568018806686, guid: 3a7a65b6366a439479869493a58e89ec, type: 3}
+  m_Sprite: {fileID: -5985922568018806686, guid: 4e0008934f7461a438c9632fe2345989, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 2721071470757460090}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2cf8bc0b49ac914cac69f068480a2c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,23 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1883052217322009390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721071470757460090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  Manager: {fileID: 0}
-  player: {fileID: 0}
-  yPos: 0
-  orderPos: 0
 --- !u!1 &5952590059048057509
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +121,7 @@ GameObject:
   - component: {fileID: 5416238678971495977}
   - component: {fileID: 4759413945032478386}
   - component: {fileID: 5336723354904219993}
+  - component: {fileID: 6692505504175898325}
   m_Layer: 0
   m_Name: Cleric
   m_TagString: Enemy
@@ -200,3 +183,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPrefab: {fileID: 4149927606301548552, guid: 35444756136c08f4eb4184e2aa54c350, type: 3}
+--- !u!114 &6692505504175898325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952590059048057509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 5687455585302193783}
+  Manager: {fileID: 0}
+  player: {fileID: 0}
+  yPos: 0
+  orderPos: 0

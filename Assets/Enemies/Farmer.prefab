@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7621620216275538407}
   - component: {fileID: 3095370283671062113}
   - component: {fileID: 4394944008335147291}
-  - component: {fileID: 8190374711394449478}
   m_Layer: 0
   m_Name: FarmerGraphics
   m_TagString: Untagged
@@ -111,23 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8190374711394449478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4965591576535819958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  Manager: {fileID: 0}
-  player: {fileID: 0}
-  yPos: 0
-  orderPos: 0
 --- !u!1 &9035768490693059860
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +121,7 @@ GameObject:
   - component: {fileID: 1803875199367730532}
   - component: {fileID: 8353878201000602174}
   - component: {fileID: 5240088292477467239}
+  - component: {fileID: 3010412479184167605}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Enemy
@@ -200,3 +183,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPrefab: {fileID: 4149927606301548552, guid: 35444756136c08f4eb4184e2aa54c350, type: 3}
+--- !u!114 &3010412479184167605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035768490693059860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3095370283671062113}
+  Manager: {fileID: 0}
+  player: {fileID: 0}
+  yPos: 0
+  orderPos: 0

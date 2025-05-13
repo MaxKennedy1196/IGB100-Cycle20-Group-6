@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3499995313293462760}
   - component: {fileID: 6230349514997652218}
   - component: {fileID: 5650496783597562079}
+  - component: {fileID: 2361675000702465458}
   m_Layer: 0
   m_Name: Blacksmith
   m_TagString: Enemy
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 840245626220944628}
   m_Father: {fileID: 0}
@@ -72,6 +73,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPrefab: {fileID: 4149927606301548552, guid: 35444756136c08f4eb4184e2aa54c350, type: 3}
+--- !u!114 &2361675000702465458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544446638716725403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 7900023099259281348}
+  Manager: {fileID: 0}
+  player: {fileID: 0}
+  yPos: 0
+  orderPos: 0
 --- !u!1 &6926248459398954593
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +101,6 @@ GameObject:
   - component: {fileID: 840245626220944628}
   - component: {fileID: 7900023099259281348}
   - component: {fileID: 6261952971472295192}
-  - component: {fileID: 1818609392274790279}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -100,8 +117,8 @@ Transform:
   m_GameObject: {fileID: 6926248459398954593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.35, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3499995313293462760}
@@ -150,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2089972969577747650, guid: 5372a7b76e6974e4c8fd372bb29b57ff, type: 3}
+  m_Sprite: {fileID: -6226529558549011853, guid: 7779610332aa3fe4a8c45cff2374f278, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +188,7 @@ Animator:
   m_GameObject: {fileID: 6926248459398954593}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c16647acaefe7804ba6cc916abf51170, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,20 +200,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1818609392274790279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926248459398954593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b2ed9698a8a2340a44809965abb195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  Manager: {fileID: 0}
-  player: {fileID: 0}
-  yPos: 0
-  orderPos: 0

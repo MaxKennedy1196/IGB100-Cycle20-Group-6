@@ -21685,6 +21685,7 @@ MonoBehaviour:
   lockedAttacks:
   - {fileID: 896425263761719869, guid: 3fb5d0432cc98f646912d7ce4af937c0, type: 3}
   - {fileID: 8471791566986657959, guid: 78f7b3642369c354b9c94fb091397463, type: 3}
+  - {fileID: 8471791566986657959, guid: c88a44c5743352243875b560606f4a9f, type: 3}
   healthUpgrade: {fileID: 1933774655310854455, guid: d2cbad92dd773964690a1ecc91a84a33, type: 3}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
