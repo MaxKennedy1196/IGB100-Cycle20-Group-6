@@ -24,10 +24,26 @@ public class GameManager : MonoBehaviour
     public List<GameObject> goreList;
     public GameObject dmgEffect;
 
+    [Header("Enemies")]
+
     public GameObject farmerPrefab;
     public GameObject blacksmithPrefab;
     public GameObject clericPrefab;
+
+    [Header("Background Sprites")]
+
+    public GameObject skullPrefab;
+    public GameObject spinePrefab;
     
+    int skullQuantity = 75;
+    int spineQuantity = 75;
+
+    Vector2 RandVector = new Vector2();
+
+    
+    float SpawnRangeMin = -250f;
+    float SpawnRangeMax = 250f;
+
 
     // Awake Checks - Singleton setup
     void Awake()
@@ -48,6 +64,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player
+
+        for(int i = 0; i< skullQuantity; i++ )
+        {
+            RandVector = new Vector2(Random.Range(SpawnRangeMin,SpawnRangeMax),Random.Range(SpawnRangeMin,SpawnRangeMax));
+            Instantiate(skullPrefab,RandVector,Quaternion.identity);
+        }
+
+        for(int i = 0; i< spineQuantity; i++ )
+        {
+            RandVector = new Vector2(Random.Range(SpawnRangeMin,SpawnRangeMax),Random.Range(SpawnRangeMin,SpawnRangeMax));
+            Instantiate(spinePrefab,RandVector,Quaternion.identity);
+        }
+
     }
 
     public void Update()

@@ -10336,6 +10336,8 @@ MonoBehaviour:
   farmerPrefab: {fileID: 9035768490693059860, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
   blacksmithPrefab: {fileID: 5544446638716725403, guid: 5a1c9fe835887254e8ab82080e4bca92, type: 3}
   clericPrefab: {fileID: 5952590059048057509, guid: 2a11e69c3ed0ca84fabdfe244c5e8569, type: 3}
+  skullPrefab: {fileID: 1324354961726488902, guid: bab7a1c8b65e1ec4e8924d178276e34e, type: 3}
+  spinePrefab: {fileID: 5906640786423310043, guid: 799e20706e105e34aa99e993901de07c, type: 3}
 --- !u!4 &900793209
 Transform:
   m_ObjectHideFlags: 0
@@ -21683,12 +21685,12 @@ MonoBehaviour:
   upgrade3Description: {fileID: 614899136}
   lockedAttacks:
   - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
-  - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
-  - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
-  healthUpgrade: {fileID: 1933774655310854455, guid: d2cbad92dd773964690a1ecc91a84a33, type: 3}
+  - {fileID: 896425263761719869, guid: 3fb5d0432cc98f646912d7ce4af937c0, type: 3}
+  - {fileID: 8471791566986657959, guid: 78f7b3642369c354b9c94fb091397463, type: 3}
+  healthUpgrade: {fileID: 0}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
-  newAttackLevels: 
+  newAttackLevels: 000000000000000000000000
 --- !u!222 &1860949417
 CanvasRenderer:
   m_ObjectHideFlags: 0
