@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4833471386123767698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6244487555800623338}
+  - component: {fileID: 4295444027480044523}
+  m_Layer: 0
+  m_Name: TentacleTier5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6244487555800623338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833471386123767698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4295444027480044523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833471386123767698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  upgradeType: 1
+  upgradeValues:
+    UpgradeName: Tentacle
+    UpgradeTier: Tier 5
+    UpgradeText: +1 Projectile Passthrough
+    MoveSpeedChange: 0
+    MaxHealthChange: 0
+    MaxHungerChange: 0
+    XPGainChange: 0
+    attackProjectile: {fileID: 6441343763223628207, guid: 7a7cea4c01cf4304bb0181b9ac9e152b, type: 3}
+    attackStats: {fileID: 11400000, guid: 44cb8aaa978a24945b23f7edc43e80f8, type: 2}
+    AttackRateChangeAmount: 0
+    DamageChangeAmount: 0
+    RangeChangeAmount: 0
+    AttackLifetimeChangeAmount: 0
+    AttackPassthroughChangeAmount: 1
+    ProjectileCountChangeAmount: 0
+    NewAttackStats: {fileID: 0}
+    HealthIncrease: 0

@@ -16523,7 +16523,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 32767
+  m_SortingOrder: 1000
   m_Sprite: {fileID: -2148941124079211112, guid: 6784c3825c975df4ba7a9f133ebab783, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21690,7 +21690,7 @@ MonoBehaviour:
   healthUpgrade: {fileID: 0}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
-  newAttackLevels: 000000000000000000000000
+  newAttackLevels: 020000000300000004000000
 --- !u!222 &1860949417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23081,7 +23081,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9999
+  m_SortingOrder: 1000
   m_Sprite: {fileID: -8004401573025272503, guid: 767f99c4caeb6514091e6fceb9985541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
