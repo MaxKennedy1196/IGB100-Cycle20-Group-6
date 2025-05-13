@@ -27,8 +27,16 @@ public class Projectile : MonoBehaviour
     public bool DPS = false;
     float damageToEnemy = 0f;
 
+    public bool returnOnDeath = false;
+
+    public float TimeAlive = 0f;
+
+    public bool returning;
+    public Player player;
+
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
         //enemiesPassedThrough += upgradedPassThrough;
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
         transform.localScale += new Vector3(projectileScale, projectileScale); //Modifies the projectile scale, doesn't work cause it only triggers when the projectile is awake, may not work with upgrades (?)
@@ -36,7 +44,10 @@ public class Projectile : MonoBehaviour
 
     public void Start()
     {
-        Destroy(this.gameObject, projectileLifetime);
+        if(returnOnDeath == false)
+        {
+            Destroy(this.gameObject, projectileLifetime);
+        }
 
         if(target != null)
         {
@@ -47,6 +58,13 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
+        TimeAlive += Time.deltaTime;
+
+        if(TimeAlive >= projectileLifetime)
+        {
+            returning = true;
+        }
+
         if(bindToPlayer == false)
         {
             transform.position += transform.up * Time.deltaTime * projectileSpeed;
@@ -56,33 +74,62 @@ public class Projectile : MonoBehaviour
         {
             transform.position = target.position;
         }
+
+        if(returning == false)
+        {
             
-        GameObject[] enemyArray = Manager.enemyList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
-        foreach(GameObject enemy in enemyArray)//target acquisition;
-        { 
-            distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
+            GameObject[] enemyArray = Manager.enemyList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
+            foreach(GameObject enemy in enemyArray)//target acquisition;
+            { 
+                distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
 
-            if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
-            {
-                targetStats = enemy.GetComponent<Enemy>();
-                if(DPS == false)
+                if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
                 {
-                    Instantiate(Manager.dmgEffect, transform.position, transform.rotation);
-                    damageToEnemy = Random.Range(damageMin,damageMax);
-                }
-                if(DPS == true)
-                {
-                    damageToEnemy = damageToEnemy * Time.deltaTime;
-                }
+                    targetStats = enemy.GetComponent<Enemy>();
+                    if(DPS == false)
+                    {
+                        Instantiate(Manager.dmgEffect, transform.position, transform.rotation);
+                        damageToEnemy = Random.Range(damageMin,damageMax);
+                    }
+                    if(DPS == true)
+                    {
+                        damageToEnemy = damageToEnemy * Time.deltaTime;
+                    }
 
-                targetStats.TakeDamage(damageToEnemy);
-                enemiesPassedThrough -= 1;
-                if(enemiesPassedThrough <= 0)
-                {
-                    Destroy(this.gameObject);
+                    targetStats.TakeDamage(damageToEnemy);
+                    enemiesPassedThrough -= 1;
+                    if(enemiesPassedThrough <= 0)
+                    {
+                        if(returnOnDeath == false)
+                        {   
+                            Destroy(this.gameObject);
+                        }
+                        if(returnOnDeath == true)
+                        {   
+                            returning = true;
+                        }
+
+                    }
                 }
             }
         }
+
+        if(returning == true)
+        {
+            target = player.transform;
+            Vector2 direction = target.position - transform.position;//Point towards target
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);//Point towards target
+            transform.position += transform.up * Time.deltaTime * projectileSpeed;
+
+            float playerdistance = Vector3.Distance(transform.position, player.transform.position);
+
+            if(playerdistance <= 0.5)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        
 
     }
 }

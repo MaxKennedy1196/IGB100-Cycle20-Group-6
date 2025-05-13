@@ -30,6 +30,8 @@ public class AttackStats : ScriptableObject
     public TargetingType targetingType;// What type of targetting does this attack use
     public bool DPS;
 
+    public bool returnOnDeath;
+
     [Header("Upgrades")]
     public Upgrade[] upgrades;
 
