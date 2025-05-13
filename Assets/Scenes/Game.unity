@@ -11185,8 +11185,7 @@ MonoBehaviour:
   damageMult: 1
   AttackStatsList:
   - {fileID: 11400000, guid: 44cb8aaa978a24945b23f7edc43e80f8, type: 2}
-  - {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
-  maxWeapons: 3
+  maxWeapons: 4
   target: {fileID: 0}
   distance: 0
   closestDistance: 999
@@ -21683,9 +21682,9 @@ MonoBehaviour:
   upgrade3Tier: {fileID: 118218860}
   upgrade3Description: {fileID: 614899136}
   lockedAttacks:
-  - {fileID: 896425263761719869, guid: 3fb5d0432cc98f646912d7ce4af937c0, type: 3}
-  - {fileID: 8471791566986657959, guid: 78f7b3642369c354b9c94fb091397463, type: 3}
-  - {fileID: 8471791566986657959, guid: c88a44c5743352243875b560606f4a9f, type: 3}
+  - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
+  - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
+  - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
   healthUpgrade: {fileID: 1933774655310854455, guid: d2cbad92dd773964690a1ecc91a84a33, type: 3}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
@@ -21835,7 +21834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0.8980392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -58,14 +58,6 @@ public class EnemySpawner : MonoBehaviour
             farmerSpawnRate = 2.5f;
             blacksmithSpawnRate = 12f;
             clecricSpawnRate = 10f;
-
-            if(Time.time > blacksmithspawnTimer)
-            {
-                Instantiate(Manager.blacksmithPrefab, transform.position, Quaternion.identity);
-                blacksmithspawnTimer = Time.time + blacksmithSpawnRate + Random.Range(-1f,1f);
-            }
-
-            
         }
         if(player.level >= 3)
         {
@@ -85,8 +77,14 @@ public class EnemySpawner : MonoBehaviour
         if(player.level >= 5)
         {
             farmerSpawnRate = 1.75f;
-            blacksmithSpawnRate = 10f;
+            blacksmithSpawnRate = 12f;
             clecricSpawnRate = 7f;
+
+            if(Time.time > blacksmithspawnTimer)
+            {
+                Instantiate(Manager.blacksmithPrefab, transform.position, Quaternion.identity);
+                blacksmithspawnTimer = Time.time + blacksmithSpawnRate + Random.Range(-1f,1f);
+            }
         }
         if(player.level >= 6)
         {
@@ -99,11 +97,7 @@ public class EnemySpawner : MonoBehaviour
             farmerSpawnRate = 1.25f;
             blacksmithSpawnRate = 6f;
             clecricSpawnRate = 5f;
-            if(Time.time > clericspawnTimer)
-            {
-                Instantiate(Manager.clericPrefab, transform.position, Quaternion.identity);
-                clericspawnTimer = Time.time + clecricSpawnRate + Random.Range(-1f,1f);
-            }
+            
 
         }
         if(player.level >= 8)
@@ -117,6 +111,12 @@ public class EnemySpawner : MonoBehaviour
             farmerSpawnRate = 1.25f;
             blacksmithSpawnRate = 4f;
             clecricSpawnRate = 3f;
+
+            if(Time.time > clericspawnTimer)
+            {
+                Instantiate(Manager.clericPrefab, transform.position, Quaternion.identity);
+                clericspawnTimer = Time.time + clecricSpawnRate + Random.Range(-1f,1f);
+            }
         }
         if(player.level >= 10)
         {
