@@ -211,9 +211,9 @@ public class Player : MonoBehaviour
     {
         hungerTimer += Time.deltaTime;
 
-        if (hungerTimer >= 2f)
+        if (hungerTimer >= 1.5f)
         {
-            hunger -= 10f;
+            hunger -= 5f;
             hungerTimer = 0f;
         }
 
