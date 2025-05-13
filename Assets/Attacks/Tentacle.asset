@@ -19,7 +19,7 @@ MonoBehaviour:
   baseSpeed: 15
   baseArea: 2
   basePassthrough: 1
-  attackTimer: 0.687689
+  attackTimer: 0.65999585
   attackCooldown: 1
   attackLifetime: 0.5
   attackMinDamage: 15
@@ -31,6 +31,7 @@ MonoBehaviour:
   attackProjectile: {fileID: 7235707365303384596, guid: 7a7cea4c01cf4304bb0181b9ac9e152b, type: 3}
   targetingType: 3
   DPS: 0
+  returnOnDeath: 1
   upgrades:
   - {fileID: 5837654501621686704, guid: c6671c4b844c79448beb96ae6ccf980e, type: 3}
   - {fileID: 7085028901246678769, guid: cb8ca5401ef97494783717b74f8b9a56, type: 3}

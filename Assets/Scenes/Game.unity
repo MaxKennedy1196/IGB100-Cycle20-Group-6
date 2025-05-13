@@ -11185,6 +11185,7 @@ MonoBehaviour:
   damageMult: 1
   AttackStatsList:
   - {fileID: 11400000, guid: 44cb8aaa978a24945b23f7edc43e80f8, type: 2}
+  - {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
   maxWeapons: 3
   target: {fileID: 0}
   distance: 0

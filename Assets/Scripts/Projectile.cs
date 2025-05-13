@@ -56,8 +56,12 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    float DPSTimer = 0f;
+
     public void Update()
     {
+        DPSTimer += Time.deltaTime;
+
         TimeAlive += Time.deltaTime;
 
         if(TimeAlive >= projectileLifetime)
@@ -90,13 +94,19 @@ public class Projectile : MonoBehaviour
                     {
                         Instantiate(Manager.dmgEffect, transform.position, transform.rotation);
                         damageToEnemy = Random.Range(damageMin,damageMax);
+                        targetStats.TakeDamage(damageToEnemy);
                     }
                     if(DPS == true)
-                    {
-                        damageToEnemy = damageToEnemy * Time.deltaTime;
+                    {   
+                        if(DPSTimer >= 0.25f)
+                        {
+                            damageToEnemy = Random.Range(damageMin,damageMax);
+                            targetStats.TakeDamage(damageToEnemy);
+                            DPSTimer = 0f;
+                        }
                     }
 
-                    targetStats.TakeDamage(damageToEnemy);
+                    
                     enemiesPassedThrough -= 1;
                     if(enemiesPassedThrough <= 0)
                     {
