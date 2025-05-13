@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7396697677515055218
+--- !u!1 &6453240704536266827
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1753510877173229011}
-  - component: {fileID: 8865720615017057422}
+  - component: {fileID: 7801845020450350988}
+  - component: {fileID: 6995503578215559817}
   m_Layer: 0
   m_Name: EldritchLaserTier2
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1753510877173229011
+--- !u!4 &7801845020450350988
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396697677515055218}
+  m_GameObject: {fileID: 6453240704536266827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8865720615017057422
+--- !u!114 &6995503578215559817
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396697677515055218}
+  m_GameObject: {fileID: 6453240704536266827}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
@@ -48,7 +48,7 @@ MonoBehaviour:
   upgradeType: 1
   upgradeValues:
     UpgradeName: Eldritch Laser
-    UpgradeTier: Tier 3
+    UpgradeTier: Tier 2
     UpgradeText: -50% Attack Cooldown
     MoveSpeedChange: 0
     MaxHealthChange: 0
@@ -63,3 +63,4 @@ MonoBehaviour:
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
     NewAttackStats: {fileID: 0}
+    HealthIncrease: 0
