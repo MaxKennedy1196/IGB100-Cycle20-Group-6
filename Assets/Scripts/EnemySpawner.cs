@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawningOn)
+        if(spawningOn && Manager.enemyList.Count < 250)
         {
             SpawnEnemy();
         }
