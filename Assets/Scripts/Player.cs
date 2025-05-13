@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public float experienceMult = 1.0f; //Used for experience boosting upgrades
     [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
+    public Animator hungeranimator;
 
     //Level logic
     public int level = 0; //Tracks the player's level
@@ -90,6 +91,7 @@ public class Player : MonoBehaviour
         attacks();
         movement();
         hungerDecay();
+        hungry();
 
         int currentLevel = Mathf.FloorToInt(level);
         if (currentLevel != lastCheckedLevel)
@@ -221,6 +223,18 @@ public class Player : MonoBehaviour
         {
             hunger = 0;
             takeDamage(starvationDamge);
+        }
+    }
+
+    private void hungry()
+    {
+        if (hunger <= 20)
+        {
+            hungeranimator.SetBool("Hungry", true);
+        }
+        else
+        {
+            hungeranimator.SetBool("Hungry", false);
         }
     }
 
