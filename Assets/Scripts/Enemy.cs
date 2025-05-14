@@ -5,28 +5,31 @@ using UnityEngine;
 //Abstract enemy parent class to be inherited from for child enemy types 
 public class Enemy : MonoBehaviour
 {
-    public GameManager Manager;
-    public Player player;
+    GameManager Manager;
+    Player player;
 
     public EnemyStats stats;
 
-    public float health;
-    public float damage;
-    float moveSpeed;
-    public float attackRange;
-    public float hungerProvided;
-    //public float damageRate = 1.0f;
-    //float damageTime;
+    [HideInInspector] public float health;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float moveSpeed;
+    [HideInInspector] public float attackRange;
+    [HideInInspector] public float hungerProvided;
+
     public SpriteRenderer spriteRenderer;
 
-    //public GameObject dmgEffect;
+    [Header("Death/Damage Effects")]
     public GameObject deathEffect;
     public AudioSource deathEffectSound;
     public AudioClip deathSound;
     public AudioClip deathSound2;
-
     public DamageNumber damageNumber;
-    
+
+    [Header("Cleric Variables")]
+    public GameObject enemyAttack; //AOE if the enemy is a cleric, leave null otherwise
+    public float aoeCooldown; //Sets how often the cleric enemy can leave an AOE on the ground
+    float aoeTimer; //Tracks when the next AOE can be used
+
     float distance = 0f;
 
     float xpSpawnChance;
@@ -40,7 +43,6 @@ public class Enemy : MonoBehaviour
     Vector2 spawnOffset;
     Vector2 spawnPosition;
     
-
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -101,13 +103,17 @@ public class Enemy : MonoBehaviour
 
             transform.position = moveVector;
         }
-            
     }
 
     public void Attack()
     {
+        if (enemyAttack != null && Time.time > aoeTimer) //If the enemy has an attack and their attack timer is less than the current time, letting them attack
+        {
+            Instantiate(enemyAttack, transform.position, transform.rotation);
+            aoeTimer = Time.time + aoeCooldown;
+        }
         
-        if(distance <= attackRange)
+        if(distance <= attackRange) //Needs to be changed if we want the cleric to not attack normally
         {
             player.takeDamage(damage);
         }

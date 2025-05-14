@@ -198,9 +198,10 @@ public class Player : MonoBehaviour
         transform.Translate(moveVector * moveSpeed * Time.deltaTime);//move player
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(float damage, bool aoeDamage=false)
     {
-        health -= damage * Time.deltaTime;
+        if (aoeDamage) { health -= damage; }
+        else { health -= damage * Time.deltaTime; }
 
         if (health <= 0)
         {

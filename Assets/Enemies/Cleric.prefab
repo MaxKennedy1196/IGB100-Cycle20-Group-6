@@ -170,6 +170,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: f8791c2346f076c4aaaa6e8f7413378b, type: 3}
   deathSound2: {fileID: 8300000, guid: b600ad2198ef8e34aa2e7295a7bc56fb, type: 3}
   damageNumber: {fileID: 5336723354904219993}
+  enemyAttack: {fileID: 4677992827490441515, guid: cee92d12611a8704f8a77059b237316e, type: 3}
+  aoeCooldown: 15
 --- !u!114 &5336723354904219993
 MonoBehaviour:
   m_ObjectHideFlags: 0
