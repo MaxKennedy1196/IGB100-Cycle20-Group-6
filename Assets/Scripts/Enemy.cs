@@ -64,6 +64,8 @@ public class Enemy : MonoBehaviour
         deathEffect = stats.deathEffect;
 
         moveSpeed += Random.Range(-0.5f,0.5f);// for randomisation of move speed to ensure enemies dont clump together
+
+        aoeTimer = Time.time + aoeCooldown;
     }
 
 
