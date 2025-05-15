@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed;
     public float projectileLifetime;
     public float projectileArea;
-    [HideInInspector] public float projectileScale;
+    public float projectileScale;
     [HideInInspector] public int enemiesPassedThrough;
     //[HideInInspector] public int upgradedPassThrough;
     
@@ -34,17 +35,19 @@ public class Projectile : MonoBehaviour
     public bool returning;
     public Player player;
 
+    List<GameObject> inRangeEnemies;
+
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
-        //enemiesPassedThrough += upgradedPassThrough;
-        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
-        transform.localScale += new Vector3(projectileScale, projectileScale); //Modifies the projectile scale, doesn't work cause it only triggers when the projectile is awake, may not work with upgrades (?)
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); //Find Player
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); //Find Game Manager
     }
 
     public void Start()
     {
-        if(returnOnDeath == false)
+        transform.localScale += new Vector3(projectileScale, projectileScale, projectileScale);
+
+        if (returnOnDeath == false)
         {
             Destroy(this.gameObject, projectileLifetime);
         }
@@ -81,6 +84,21 @@ public class Projectile : MonoBehaviour
 
         if(returning == false)
         {
+            /* Not functional yet, aiming to make DPS attacks function against all enemies within range
+            List<GameObject> inRangeEnemies = new();
+
+            GameObject[] enemyArray = Manager.enemyList.ToArray();
+            foreach (GameObject enemy in enemyArray)
+            {
+                distance = Vector3.Distance(transform.position, enemy.transform.position); //Distance between instance transform and given enemy within enemy list
+
+                if (distance <= projectileArea)
+                {
+                    inRangeEnemies.Add(enemy);
+                }
+            }
+
+            */
             
             GameObject[] enemyArray = Manager.enemyList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
             foreach(GameObject enemy in enemyArray)//target acquisition;
@@ -105,8 +123,8 @@ public class Projectile : MonoBehaviour
                             DPSTimer = 0f;
                         }
                     }
-
-                    
+                
+                
                     enemiesPassedThrough -= 1;
                     if(enemiesPassedThrough <= 0)
                     {

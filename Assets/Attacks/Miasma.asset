@@ -19,13 +19,13 @@ MonoBehaviour:
   baseSpeed: 0
   baseArea: 2.5
   basePassthrough: 999999999
-  attackTimer: 0.27734333
+  attackTimer: 6.1690574
   attackCooldown: 20
   attackLifetime: 10
-  attackMinDamage: 7
-  attackMaxDamage: 10
+  attackMinDamage: 2
+  attackMaxDamage: 5
   attackSpeed: 0
-  attackArea: 3.5
+  attackArea: 2.5
   passthrough: 999999999
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
@@ -36,5 +36,5 @@ MonoBehaviour:
   - {fileID: 8297586691873889778, guid: 19a31fcc7685c104e8fc0238c968d626, type: 3}
   - {fileID: 5242802009518984087, guid: be4f33c9f54314847bf77a757feaf415, type: 3}
   - {fileID: 1867788711705398463, guid: f6e7d85b60eea3740850b46911169bd2, type: 3}
-  upgradeTier: 2
-  upgradeMaxed: 1
+  upgradeTier: 0
+  upgradeMaxed: 0

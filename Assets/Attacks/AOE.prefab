@@ -107,7 +107,7 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileLifetime: 0
   projectileArea: 0
-  projectileScale: 1
+  projectileScale: 0
   enemiesPassedThrough: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}
@@ -115,6 +115,10 @@ MonoBehaviour:
   closestDistance: 999
   bindToPlayer: 1
   DPS: 0
+  returnOnDeath: 0
+  TimeAlive: 0
+  returning: 0
+  player: {fileID: 0}
 --- !u!95 &-9186152151402383121
 Animator:
   serializedVersion: 7

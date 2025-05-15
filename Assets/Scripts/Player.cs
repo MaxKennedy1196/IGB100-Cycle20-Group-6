@@ -47,7 +47,8 @@ public class Player : MonoBehaviour
     private float hungerTimer;
     float starvationDamge = 2.5f;
 
-    public List<AttackStats> AttackStatsList; //A list of all the players weapons
+    public List<AttackStats> AttackStatsList; //A list of all the players current weapons
+    public AttackStats[] allAttacks; //Array of all the possible attacks to ensure upgrades reset on start
     public int maxWeapons; //Defines the maximum number of weapons the player can have
 
     public Transform target;
@@ -74,14 +75,13 @@ public class Player : MonoBehaviour
         maxExperience = levelUpAmounts[0];
         NextForm();
 
-        foreach(AttackStats attack in AttackStatsList)//go through each attck on the player
+        foreach(AttackStats attack in allAttacks)//go through each attck on the player
         {
             attack.ResetAttack();
             attack.upgradeTier = 0;
             attack.upgradeMaxed = false;
             attack.attackCooldown = attack.baseCooldown;
             attack.InitTimer();
-            
         }
     }
 
@@ -112,8 +112,6 @@ public class Player : MonoBehaviour
 
             if(attack.attackTimer <= 0)//if attack timer is less than 0
             {
-                //Need to add logic for multiple projectiles if we are going to allow the projectile count to be upgraded
-
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
                 if(attack.attackEffect != null)
@@ -154,7 +152,7 @@ public class Player : MonoBehaviour
                 projectile.damageMax = attack.attackMaxDamage; //Using += to account for projectiles having damage upgrade amounts added to them
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
-                projectile.projectileArea = attack.attackArea; //Using += to account for projectiles having area upgrade amounts added to them
+                projectile.projectileArea = attack.attackArea;
                 projectile.projectileScale = attack.attackArea - attack.baseArea; //Modifying the projectile's scale
                 projectile.enemiesPassedThrough = attack.passthrough; //Using += to account for passthrough possibly being upgraded
                 projectile.returnOnDeath = attack.returnOnDeath;
