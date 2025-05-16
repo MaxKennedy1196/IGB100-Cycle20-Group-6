@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5985922568018806686, guid: 4e0008934f7461a438c9632fe2345989, type: 3}
+  m_Sprite: {fileID: -6846038438663660446, guid: b4fefadd28877b0498abb9173d699009, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96, y: 0.96}
+  m_Size: {x: 1.0208334, y: 1.1666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -157,11 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd31a617c5e2b848b5bcb0daa5bd762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
-  player: {fileID: 0}
   stats: {fileID: 11400000, guid: c8e79c54a2979474ea83d9a6605c1bfb, type: 2}
   health: 0
   damage: 0
+  moveSpeed: 0
   attackRange: 0
   hungerProvided: 0
   spriteRenderer: {fileID: 0}
