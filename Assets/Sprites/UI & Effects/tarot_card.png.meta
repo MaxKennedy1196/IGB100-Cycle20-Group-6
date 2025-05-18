@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tarot_card_0: 4615520389147572513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

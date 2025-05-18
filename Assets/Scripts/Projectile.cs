@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     public float projectileScale;
     [HideInInspector] public int enemiesPassedThrough;
     //[HideInInspector] public int upgradedPassThrough;
-    
+
     public Transform target;
     public Enemy targetStats;
 
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject, projectileLifetime);
         }
 
-        if(target != null)
+        if (target != null)
         {
             Vector2 direction = target.position - transform.position;//Point towards target
             transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);//Point towards target
@@ -67,24 +67,24 @@ public class Projectile : MonoBehaviour
 
         TimeAlive += Time.deltaTime;
 
-        if(TimeAlive >= projectileLifetime)
+        if (TimeAlive >= projectileLifetime)
         {
             returning = true;
         }
 
-        if(bindToPlayer == false)
+        if (bindToPlayer == false)
         {
             transform.position += transform.up * Time.deltaTime * projectileSpeed;
         }
 
-        if(bindToPlayer == true)
+        if (bindToPlayer == true)
         {
             transform.position = target.position;
         }
 
-        if(returning == false)
+        if (returning == false)
         {
-            /* Not functional yet, aiming to make DPS attacks function against all enemies within range
+            //Not functional yet, aiming to make DPS attacks function against all enemies within range
             List<GameObject> inRangeEnemies = new();
 
             GameObject[] enemyArray = Manager.enemyList.ToArray();
@@ -98,51 +98,45 @@ public class Projectile : MonoBehaviour
                 }
             }
 
-            */
-            
-            GameObject[] enemyArray = Manager.enemyList.ToArray();// fixed the error we were getting not sure if this will kneecap performance?
-            foreach(GameObject enemy in enemyArray)//target acquisition;
-            { 
-                distance = Vector3.Distance(transform.position, enemy.transform.position);//distance between instance transform and given enemy within enemy list
-
-                if(distance <= projectileArea)//if this particular enemy is closer than all previous ones make it the new minimum distance
+            if (DPS) //New implementation for dps attacks so they hit all enemies within range, rather than just one at random
+            {
+                if (DPSTimer >= 0.25f)
                 {
-                    targetStats = enemy.GetComponent<Enemy>();
-                    if(DPS == false)
+                    foreach (GameObject damageEnemy in inRangeEnemies)
                     {
-                        Instantiate(Manager.dmgEffect, transform.position, transform.rotation);
-                        damageToEnemy = Random.Range(damageMin,damageMax);
+                        targetStats = damageEnemy.GetComponent<Enemy>();
+                        damageToEnemy = Random.Range(damageMin, damageMax);
                         targetStats.TakeDamage(damageToEnemy);
                     }
-                    if(DPS == true)
-                    {   
-                        if(DPSTimer >= 0.25f)
-                        {
-                            damageToEnemy = Random.Range(damageMin,damageMax);
-                            targetStats.TakeDamage(damageToEnemy);
-                            DPSTimer = 0f;
-                        }
-                    }
-                
-                
-                    enemiesPassedThrough -= 1;
-                    if(enemiesPassedThrough <= 0)
-                    {
-                        if(returnOnDeath == false)
-                        {   
-                            Destroy(this.gameObject);
-                        }
-                        if(returnOnDeath == true)
-                        {   
-                            returning = true;
-                        }
 
-                    }
+                    DPSTimer = 0f;
+                }
+            }
+
+            else
+            {
+                int targetPosition = Random.Range(0, inRangeEnemies.Count); //Picking a random enemy from the enemies within attack range
+                targetStats = inRangeEnemies[targetPosition].GetComponent<Enemy>(); //Setting target stats to the randomly chosen enemy
+                Instantiate(Manager.dmgEffect, transform.position, transform.rotation); //Creating the attack effect
+                damageToEnemy = Random.Range(damageMin, damageMax); //Randomising the damage amount and dealing damage
+                targetStats.TakeDamage(damageToEnemy);
+            }
+
+            enemiesPassedThrough -= 1;
+            if (enemiesPassedThrough <= 0)
+            {
+                if (returnOnDeath == false)
+                {
+                    Destroy(this.gameObject);
+                }
+                if (returnOnDeath == true)
+                {
+                    returning = true;
                 }
             }
         }
 
-        if(returning == true)
+        else //Code for if projectile is returning (used for tentacle)
         {
             target = player.transform;
             Vector2 direction = target.position - transform.position;//Point towards target
@@ -151,13 +145,10 @@ public class Projectile : MonoBehaviour
 
             float playerdistance = Vector3.Distance(transform.position, player.transform.position);
 
-            if(playerdistance <= 0.5)
+            if (playerdistance <= 0.5)
             {
                 Destroy(this.gameObject);
             }
         }
-
-        
-
     }
 }
