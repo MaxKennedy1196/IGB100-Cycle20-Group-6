@@ -63,6 +63,8 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.AttackLifetimeChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.AttackLifetimeChangeAmount);
                 EditorGUILayout.PrefixLabel("Passthrough Increase");
                 upgrade.upgradeValues.AttackPassthroughChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.AttackPassthroughChangeAmount);
+                EditorGUILayout.PrefixLabel("Crit Chance Increase");
+                upgrade.upgradeValues.CritChanceChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.CritChanceChangeAmount);
 
                 //Code for if/when projectile count upgrades are added
                 //EditorGUILayout.PrefixLabel("Projectile Count Increase");

@@ -44,6 +44,7 @@ public class Upgrade : MonoBehaviour
         public float AttackLifetimeChangeAmount;
         public int AttackPassthroughChangeAmount;
         public int ProjectileCountChangeAmount;
+        public int CritChanceChangeAmount;
 
         //New attack variables
         public AttackStats NewAttackStats;
@@ -79,6 +80,7 @@ public class Upgrade : MonoBehaviour
                 upgradeValues.attackStats.attackArea += upgradeValues.RangeChangeAmount; //Only used for miasma
                 upgradeValues.attackStats.attackLifetime += upgradeValues.AttackLifetimeChangeAmount; //Increases projectile lifetime
                 upgradeValues.attackStats.passthrough += upgradeValues.AttackPassthroughChangeAmount; //Increases projectile passthrough
+                upgradeValues.attackStats.currentCritChance -= upgradeValues.CritChanceChangeAmount; //Decrease crit chance ceiling to make crits more likely
                 upgradeValues.attackStats.upgradeTier++; //Upgrades the attack's tier so the next available upgrade is accessed when necessary
                 break;
 

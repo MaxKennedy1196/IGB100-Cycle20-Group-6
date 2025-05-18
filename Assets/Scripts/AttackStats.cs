@@ -13,6 +13,7 @@ public class AttackStats : ScriptableObject
     public      float baseSpeed;//speed of projectile
     public      float baseArea;//what distance the projectile must be from an enemy before it can damage it
     public      int   basePassthrough;// how many enemies this projectile can pass through before being deleted
+    public      int   baseCritChance; //The base crit chance of this attack
 
     [Header("Attack Variables")]
     public float attackTimer;//how much longer before this attack is triggered again
@@ -22,6 +23,7 @@ public class AttackStats : ScriptableObject
     public float attackMaxDamage;//max damage attack will deal to enemies
     public float attackSpeed;//speed of projectile
     public float attackArea;//what distance the projectile must be from an enemy before it can damage it
+    public int currentCritChance; //The current crit chance of this attack
     
     public int passthrough;// how many enemies this projectile can pass through before being deleted
     //[HideInInspector] public int projectileCount; //How many projectiles the attack fires; no logic for this implemented yet, may be removed
@@ -55,6 +57,7 @@ public class AttackStats : ScriptableObject
         attackSpeed = baseSpeed;
         attackArea = baseArea;
         passthrough = basePassthrough;
+        currentCritChance = baseCritChance;
     }
 
     public void DecreaseTimer()//decreases the attack timer over time

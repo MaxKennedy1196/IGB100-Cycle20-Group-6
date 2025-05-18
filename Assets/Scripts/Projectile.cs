@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
     public float projectileArea;
     public float projectileScale;
     [HideInInspector] public int enemiesPassedThrough;
+    [HideInInspector] public int critChance;
+    private bool crit = false;
     //[HideInInspector] public int upgradedPassThrough;
 
     public Transform target;
@@ -84,8 +86,7 @@ public class Projectile : MonoBehaviour
 
         if (returning == false)
         {
-            //Not functional yet, aiming to make DPS attacks function against all enemies within range
-            List<GameObject> inRangeEnemies = new();
+            List<GameObject> inRangeEnemies = new(); //A new list of all the enemies within range of the attack, could potentially facilitate proper closest vs random targeting
 
             GameObject[] enemyArray = Manager.enemyList.ToArray();
             foreach (GameObject enemy in enemyArray)
@@ -106,7 +107,7 @@ public class Projectile : MonoBehaviour
                     {
                         targetStats = damageEnemy.GetComponent<Enemy>();
                         damageToEnemy = Random.Range(damageMin, damageMax);
-                        targetStats.TakeDamage(damageToEnemy);
+                        targetStats.TakeDamage(damageToEnemy, crit);
                     }
 
                     DPSTimer = 0f;
@@ -119,7 +120,7 @@ public class Projectile : MonoBehaviour
                 targetStats = inRangeEnemies[targetPosition].GetComponent<Enemy>(); //Setting target stats to the randomly chosen enemy
                 Instantiate(Manager.dmgEffect, transform.position, transform.rotation); //Creating the attack effect
                 damageToEnemy = Random.Range(damageMin, damageMax); //Randomising the damage amount and dealing damage
-                targetStats.TakeDamage(damageToEnemy);
+                targetStats.TakeDamage(damageToEnemy, crit);
             }
 
             enemiesPassedThrough -= 1;
@@ -150,5 +151,13 @@ public class Projectile : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    public void GetCrit() //Crit randomisation
+    {
+        int critRandomiser = Random.Range(0, critChance+1);
+        Debug.Log($"Crit chance is {critChance}, crit randomiser is {critRandomiser}");
+        if (critRandomiser == 1) { crit = true; }
+        else { crit = false; }
     }
 }

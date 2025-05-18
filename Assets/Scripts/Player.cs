@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
             {
                 GameObject projectileObject = Instantiate(attack.attackProjectile, transform.position, transform.rotation);//instantiate projectile
                 Projectile projectile = projectileObject.GetComponent<Projectile>();// get projectile script
+
                 if(attack.attackEffect != null)
                     Instantiate(attack.attackEffect, projectileObject.transform.position, projectileObject.transform.rotation);
 
@@ -156,6 +157,9 @@ public class Player : MonoBehaviour
                 projectile.projectileScale = attack.attackArea - attack.baseArea; //Modifying the projectile's scale
                 projectile.enemiesPassedThrough = attack.passthrough; //Using += to account for passthrough possibly being upgraded
                 projectile.returnOnDeath = attack.returnOnDeath;
+                projectile.critChance = attack.currentCritChance;
+
+                projectile.GetCrit();
 
                 attack.ResetTimer();
                 

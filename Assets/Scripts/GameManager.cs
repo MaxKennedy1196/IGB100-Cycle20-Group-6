@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public GameObject playerCamera;
 
+    public float critMult = 2f;
+
     public GameObject expDrop;
     public GameObject hpDrop;
     public GameObject foodDrop;

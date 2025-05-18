@@ -19,18 +19,21 @@ MonoBehaviour:
   baseSpeed: 7
   baseArea: 1
   basePassthrough: 2
-  attackTimer: 2.1969001
-  attackCooldown: 2.5
+  baseCritChance: 100
+  attackTimer: 0
+  attackCooldown: 3
   attackLifetime: 5
   attackMinDamage: 25
   attackMaxDamage: 30
   attackSpeed: 7
   attackArea: 1
+  currentCritChance: 0
   passthrough: 2
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
   targetingType: 1
   DPS: 0
+  returnOnDeath: 0
   upgrades:
   - {fileID: 1713457837157502949, guid: d268d2afb99077745ac434fb52ec26d3, type: 3}
   - {fileID: 8075534601963854661, guid: be28beadaf06b4943886bf1df92c90a9, type: 3}

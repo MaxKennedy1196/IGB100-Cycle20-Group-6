@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
     {
         int deathEffectRandomiser = Random.Range(0, 1000); //Random second death sound as an easter egg
 
-        if (deathEffectRandomiser == 666)//Asher if you see this Xav thinks that using 666 here is clever
+        if (deathEffectRandomiser == 666)//Asher if you see this Xav thinks that using 666 here is clever //Xav I do see this and I completely agree
         {
             deathEffectSound.clip = deathSound2;
             deathEffectSound.volume = 0.35f;
@@ -175,15 +175,15 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool crit)
     {
         int randomGore = Random.Range(0,Manager.goreList.Count);
         Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
-        //print("BLOOOD");
 
+        if (crit) { damage *= Manager.critMult; } //Multiplying damage by the current critical multiplier (defaults to 2x)
         health -= damage;
         damageNumber.gameObject.SetActive(true);
-        damageNumber.CreatePopUp(transform.position, ((int)damage).ToString());
+        damageNumber.CreatePopUp(transform.position, ((int)damage).ToString(), crit);
         if (health <= 0) { Die(); }
         
     }

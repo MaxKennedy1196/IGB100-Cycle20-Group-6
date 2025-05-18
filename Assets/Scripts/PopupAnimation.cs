@@ -11,6 +11,7 @@ public class PopupAnimation : MonoBehaviour
     private TextMeshProUGUI tmp;
     private float time = 0;
     private Vector3 origin;
+    [HideInInspector] public bool critNum;
 
     private void Awake()
     {
@@ -20,9 +21,21 @@ public class PopupAnimation : MonoBehaviour
 
     private void Update()
     {
-        tmp.color = new Color(1, 1, 1, opacityCurve.Evaluate(time));
-        transform.localScale = Vector3.one * scaleCurve.Evaluate(time);
-        transform.position = origin + new Vector3(0, 1 + heightCurve.Evaluate(time), 0);
-        time += Time.deltaTime;
+        if (critNum) //Damage num showing if the player has hit a critical attack
+        {
+            //Add slight screen shake (?)
+            tmp.color = new Color(1, 0, 0, opacityCurve.Evaluate(time)); //Red text for a crit
+            transform.localScale = 1.5f * (Vector3.one * scaleCurve.Evaluate(time)); //Double size damage number for crits
+            transform.position = origin + new Vector3(0, 1 + heightCurve.Evaluate(time), 0);
+            time += Time.deltaTime;
+        }
+
+        else
+        {
+            tmp.color = new Color(1, 1, 1, opacityCurve.Evaluate(time));
+            transform.localScale = Vector3.one * scaleCurve.Evaluate(time);
+            transform.position = origin + new Vector3(0, 1 + heightCurve.Evaluate(time), 0);
+            time += Time.deltaTime;
+        }
     }
 }
