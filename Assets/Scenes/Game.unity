@@ -8456,7 +8456,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.6
+  m_Radius: 0.4
 --- !u!1 &761362139
 GameObject:
   m_ObjectHideFlags: 0
@@ -10485,6 +10485,7 @@ MonoBehaviour:
   expDrop: {fileID: 8598268474157666394, guid: b481544366bce39479528d411ce1598f, type: 3}
   hpDrop: {fileID: 8750004662365371541, guid: f77f26239f1ea90478442a050e21d641, type: 3}
   foodDrop: {fileID: 262546321903551133, guid: c6cec1f9ee6a9a447945ddf9d6cd35ec, type: 3}
+  enemyGoreSounds: []
   goreList:
   - {fileID: 8948633773406822761, guid: 9550fea9cd8ff2c4bba84025a91ba646, type: 3}
   - {fileID: 2332204576900603686, guid: ab8aa4e25d95a7d46aae8520c2872ea4, type: 3}

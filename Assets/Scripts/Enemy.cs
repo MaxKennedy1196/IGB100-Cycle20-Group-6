@@ -178,7 +178,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage, bool crit)
     {
         int randomGore = Random.Range(0,Manager.goreList.Count);
+        int randomSound = Random.Range(0, Manager.enemyGoreSounds.Count);
         Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
+        Instantiate(Manager.enemyGoreSounds[randomSound],transform.position,transform.rotation);
 
         if (crit) { damage *= Manager.critMult; } //Multiplying damage by the current critical multiplier (defaults to 2x)
         health -= damage;

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject hpDrop;
     public GameObject foodDrop;
 
+    public List<AudioClip> enemyGoreSounds;
     public List<GameObject> goreList;
     public GameObject dmgEffect;
 
