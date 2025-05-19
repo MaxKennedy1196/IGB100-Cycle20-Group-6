@@ -8,6 +8,12 @@ public class PickUp : MonoBehaviour
     public Transform playerTransform;
     float pickupDistance = 1.5f;
     float distance = 0f;
+    
+    // item magnet stuff
+    Rigidbody2D rb;
+    bool hasTarget;
+    Vector3 targetPosition;
+    float moveSpeed = 5f;
 
     public PickupType pickupType;// What type of targetting does this attack use
 
@@ -17,7 +23,11 @@ public class PickUp : MonoBehaviour
         HP,
         Food
     }
-    
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,4 +66,19 @@ public class PickUp : MonoBehaviour
         }
     }
 
+
+    private void FixedUpdate()
+    {
+        if (hasTarget)
+        {
+            Vector2 targetDirection = (targetPosition - transform.position).normalized;
+            rb.linearVelocity = new Vector2(targetDirection.x, targetDirection.y) * moveSpeed;
+        }
+    }
+
+    public void SetTarget(Vector3 position)
+    {
+        targetPosition = position;
+        hasTarget = true;
+    }
 }
