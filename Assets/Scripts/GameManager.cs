@@ -37,9 +37,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject skullPrefab;
     public GameObject spinePrefab;
+    public GameObject treePrefab;
     
     int skullQuantity = 75;
     int spineQuantity = 75;
+    int treeQuantity = 75;
 
     Vector2 RandVector = new Vector2();
 
@@ -80,6 +82,11 @@ public class GameManager : MonoBehaviour
             Instantiate(spinePrefab,RandVector,Quaternion.identity);
         }
 
+        for (int i = 0; i < treeQuantity; i++)
+        {
+            RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
+            Instantiate(treePrefab, RandVector, Quaternion.identity);
+        }
     }
 
     public void Update()

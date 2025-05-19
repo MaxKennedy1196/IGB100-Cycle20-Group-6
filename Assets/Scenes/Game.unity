@@ -10520,6 +10520,7 @@ MonoBehaviour:
   clericPrefab: {fileID: 5952590059048057509, guid: 2a11e69c3ed0ca84fabdfe244c5e8569, type: 3}
   skullPrefab: {fileID: 1324354961726488902, guid: bab7a1c8b65e1ec4e8924d178276e34e, type: 3}
   spinePrefab: {fileID: 5906640786423310043, guid: 799e20706e105e34aa99e993901de07c, type: 3}
+  treePrefab: {fileID: 1324354961726488902, guid: 26fd0caffa7d6744da7b879a72d2e911, type: 3}
 --- !u!4 &900793209
 Transform:
   m_ObjectHideFlags: 0
