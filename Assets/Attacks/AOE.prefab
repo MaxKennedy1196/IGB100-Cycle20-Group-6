@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -50
-  m_Sprite: {fileID: -886924206574900244, guid: 2a48fdd06b93ba94692f19970db7327d, type: 3}
+  m_Sprite: {fileID: -2317470847174618571, guid: aaa3057f4c83dc34c89d30a51e2e34c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   projectileArea: 0
   projectileScale: 0
   enemiesPassedThrough: 0
+  critChance: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}
   distance: 0
