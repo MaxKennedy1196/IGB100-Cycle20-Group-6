@@ -2880,13 +2880,16 @@ MonoBehaviour:
 
     Use WASD keys to move your character.
 
-    Enemies will deal damage
-    to you if you touch them.
+    Aim your tentacles at
+    enemies with your mouse cursor.
+
+    Enemies will deal damage to you if you touch
+    them.
 
     Pick up food to avoid starvation.
 
-    Collect
-    xp orbs dropped by enemies to level up.
+    Collect xp orbs dropped by
+    enemies to level up.
 
     Consume your prey and transcend.'
   m_isRightToLeft: 0
