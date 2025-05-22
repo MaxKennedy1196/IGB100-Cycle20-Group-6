@@ -63,6 +63,13 @@ public class Player : MonoBehaviour
 
     public Transform mouseTarget;
 
+    [Header("Death Effect Variables")]
+    public AnimationCurve zoomCurve;
+    public GameObject deathEffect;
+    public AnimationCurve fadeCurve;
+    public CanvasGroup fadeOut;
+    public GameObject[] hideUI;
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -207,7 +214,8 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadScene("Game Over");
+            StartCoroutine(DeathEffect());
+            //SceneManager.LoadScene("Game Over");
             //Destroy(this.gameObject);
         }
     }
@@ -340,5 +348,39 @@ public class Player : MonoBehaviour
             spriteRenderer = playerForms[3].formObject.GetComponent<SpriteRenderer>();
             playerForm = 4;
         }
+    }
+
+    private IEnumerator DeathEffect()
+    {
+        foreach (GameObject hideObject in hideUI) { hideObject.SetActive(false); }
+
+        GameObject[] enemies = Manager.enemyList.ToArray();
+        foreach (GameObject enemy in enemies) { enemy.SetActive(false); } //Setting all enemies to disappear
+
+        float zoomTime = 0.0f;
+        Camera camera = Camera.main;
+
+        while (zoomTime < 3.0f) //Zooming in on the player for dramatic effect
+        {
+            camera.orthographicSize = zoomCurve.Evaluate(zoomTime);
+            zoomTime += Time.deltaTime;
+            yield return null;
+        }
+        Instantiate(deathEffect);
+        //Add blood splat and set player sprite renderer to false, disable attacking
+
+        float fadeTime = 0.0f;
+
+        while (fadeTime < 3.0f)
+        {
+            fadeOut.alpha = 1 - (fadeCurve.Evaluate(fadeTime));
+            fadeTime += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeOut.alpha = 1.0f;
+        SceneManager.LoadScene("Game Over"); //Need to add fade to black here too, same as in main menu
+
+        yield return null;
     }
 }

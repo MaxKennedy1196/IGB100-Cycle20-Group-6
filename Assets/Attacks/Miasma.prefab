@@ -107,6 +107,7 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileLifetime: 0
   projectileArea: 0
+  scale: 1
   scaleCurve:
     serializedVersion: 2
     m_Curve:

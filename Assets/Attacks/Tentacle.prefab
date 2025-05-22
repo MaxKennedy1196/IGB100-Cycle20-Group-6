@@ -170,8 +170,14 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileLifetime: 1
   projectileArea: 0
-  projectileScale: 1
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   enemiesPassedThrough: 0
+  critChance: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}
   distance: 0

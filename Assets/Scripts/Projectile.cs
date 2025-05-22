@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     public float projectileLifetime;
     public float projectileArea;
     float projectileScale;
+    public bool scale = false;
     public AnimationCurve scaleCurve;
     float curveTime = 0.0f;
     [HideInInspector] public int enemiesPassedThrough;
@@ -71,7 +72,7 @@ public class Projectile : MonoBehaviour
     public void Update()
     {
         //Scale pulsing effect for Miasma
-        if (scaleCurve != null)
+        if (scale)
         {
             if (curveTime > 4.0f) { curveTime = 0.0f; }
             transform.localScale = projectileScale * scaleCurve.Evaluate(curveTime) * Vector3.one;
