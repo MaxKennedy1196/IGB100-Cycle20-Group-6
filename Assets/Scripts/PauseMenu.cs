@@ -3,12 +3,11 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    [HideInInspector] public GameManager Manager;
     public GameObject pauseMenu;
     public GameObject pauseButton;
 
     public bool isPaused;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !Manager.upgradeMenuOpen)
         {
             togglePause();
         }
@@ -37,6 +36,11 @@ public class PauseMenu : MonoBehaviour
         {
             PauseGame();
         }
+
+        //if (!Manager.upgradeMenuOpen) //Handling to disable the pause functionality when the upgrade menu is open
+        //{
+
+        //}
     }
 
     public void PauseGame()

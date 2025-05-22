@@ -182,7 +182,7 @@ public class Enemy : MonoBehaviour
         Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
         Instantiate(Manager.enemyGoreSounds[randomSound],transform.position,transform.rotation);
 
-        if (crit) { damage *= Manager.critMult; } //Multiplying damage by the current critical multiplier (defaults to 2x)
+        if (crit) { damage *= Manager.player.critMult; } //Multiplying damage by the current critical multiplier (defaults to 2x)
         health -= damage;
         damageNumber.gameObject.SetActive(true);
         damageNumber.CreatePopUp(transform.position, ((int)damage).ToString(), crit);

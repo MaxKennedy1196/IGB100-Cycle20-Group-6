@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     public Player player;
     public GameObject playerCamera;
 
-    public float critMult = 2f;
-
     public GameObject expDrop;
     public GameObject hpDrop;
     public GameObject foodDrop;
@@ -38,7 +36,10 @@ public class GameManager : MonoBehaviour
     public GameObject skullPrefab;
     public GameObject spinePrefab;
     public GameObject treePrefab;
-    
+
+    public PauseMenu pauseMenu;
+    public bool upgradeMenuOpen = false;
+
     int skullQuantity = 75;
     int spineQuantity = 75;
     int treeQuantity = 75;
@@ -91,7 +92,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape) && !upgradeMenuOpen)
+        {
+            pauseMenu.togglePause();
+        }
     }
 
     public void GameWin()

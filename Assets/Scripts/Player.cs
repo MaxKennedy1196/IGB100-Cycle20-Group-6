@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public float maxHunger = 100f;
     public float experience = 0f;
     public float experienceMult = 1.0f; //Used for experience boosting upgrades
+    public float critMult = 2.0f; //Used for crit multiplier upgrades
     [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
     public Animator hungeranimator;

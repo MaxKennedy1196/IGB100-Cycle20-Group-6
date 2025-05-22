@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class UpgradeMenu : MonoBehaviour
 {   
     public GameManager Manager;
+    public GameObject pauseButton; //GameObject reference for the pause menu button
     //UI Elements for the upgrade menu
     public Button[] upgradeButtons;
 
@@ -44,6 +45,8 @@ public class UpgradeMenu : MonoBehaviour
     //Generating upgrades when the menu is made active
     public void OnEnable()
     {
+        Manager.upgradeMenuOpen = true;
+        pauseButton.SetActive(false); //Hiding the pause menu button while the upgrade menu is open as it is non-functional
         playerAttacks = Manager.player.AttackStatsList;
         playerUpgrades = Manager.player.upgrades;
         upgradableAttacks.Clear();
@@ -162,6 +165,8 @@ public class UpgradeMenu : MonoBehaviour
             Manager.player.upgrades.Remove(chosenUpgrade);
         }
 
+        Manager.upgradeMenuOpen = false;
+        pauseButton.SetActive(true); //Makes the pause button visible again upon resuming the game
         Time.timeScale = 1.0f;
         upgradeSelected = true;
         this.gameObject.SetActive(false);
