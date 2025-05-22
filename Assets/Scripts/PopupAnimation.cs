@@ -24,8 +24,8 @@ public class PopupAnimation : MonoBehaviour
         if (critNum) //Damage num showing if the player has hit a critical attack
         {
             //Add slight screen shake (?)
-            tmp.color = new Color(1, 0, 0, opacityCurve.Evaluate(time)); //Red text for a crit
-            transform.localScale = 1.5f * (Vector3.one * scaleCurve.Evaluate(time)); //Double size damage number for crits
+            tmp.color = new Color(1, 1, 0, opacityCurve.Evaluate(time)); //Yellow text for a crit
+            transform.localScale = 2.0f * (Vector3.one * scaleCurve.Evaluate(time)); //Double size damage number for crits
             transform.position = origin + new Vector3(0, 1 + heightCurve.Evaluate(time), 0);
             time += Time.deltaTime;
         }

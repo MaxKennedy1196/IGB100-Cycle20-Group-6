@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3467591044221890192}
   - component: {fileID: -9186152151402383121}
   m_Layer: 0
-  m_Name: AOE
+  m_Name: Miasma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +107,39 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileLifetime: 0
   projectileArea: 0
-  projectileScale: 0
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.95
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 2
+      value: 1.05
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 4
+      value: 0.95
+      inSlope: 0.0012788129
+      outSlope: 0.0012788129
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20317018
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   enemiesPassedThrough: 0
   critChance: 0
   target: {fileID: 0}
