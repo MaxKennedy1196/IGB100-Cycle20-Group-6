@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     //public GameObject tentacleObject;
 
-    public List<GameObject> enemyList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> enemyList = new List<GameObject>();
     public Player player;
     public GameObject playerCamera;
 
@@ -37,8 +37,12 @@ public class GameManager : MonoBehaviour
     public GameObject spinePrefab;
     public GameObject treePrefab;
 
+    [Header("UI")]
     public PauseMenu pauseMenu;
     public bool upgradeMenuOpen = false;
+
+    [Header("Screen Fading")]
+    public SceneFade screenFade;
 
     int skullQuantity = 75;
     int spineQuantity = 75;
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        screenFade.ActivateFade();
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player
 
         for(int i = 0; i< skullQuantity; i++ )

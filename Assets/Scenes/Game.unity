@@ -2140,6 +2140,7 @@ GameObject:
   - component: {fileID: 130613879}
   - component: {fileID: 130613878}
   - component: {fileID: 130613877}
+  - component: {fileID: 130613880}
   m_Layer: 5
   m_Name: FullFade
   m_TagString: Untagged
@@ -2216,6 +2217,46 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &130613880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130613875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a288b4ecbe4ea743a17819ea4bc3a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 2
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  endWait: 0
+  music: {fileID: 0}
+  fade: {fileID: 130613879}
 --- !u!1 &133391242
 GameObject:
   m_ObjectHideFlags: 0
@@ -7465,13 +7506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 0}
-  menuMusic: {fileID: 0}
-  fade:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &672778216
 GameObject:
   m_ObjectHideFlags: 0
@@ -10630,6 +10664,7 @@ MonoBehaviour:
   treePrefab: {fileID: 1324354961726488902, guid: 26fd0caffa7d6744da7b879a72d2e911, type: 3}
   pauseMenu: {fileID: 672099852}
   upgradeMenuOpen: 0
+  screenFade: {fileID: 130613880}
 --- !u!4 &900793209
 Transform:
   m_ObjectHideFlags: 0
