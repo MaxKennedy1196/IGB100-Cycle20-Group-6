@@ -36,7 +36,7 @@ public class UpgradeMenu : MonoBehaviour
     private List<Upgrade> upgradePool = new List<Upgrade>();
 
     private Upgrade[] upgrades;
-    public Upgrade healthUpgrade;
+    public Upgrade healthUpgrade; //Default upgrade if the player has unlocked almost all the upgrades
     [HideInInspector] public Upgrade chosenUpgrade;
     [HideInInspector] public bool upgradeSelected = false;
 
@@ -47,6 +47,7 @@ public class UpgradeMenu : MonoBehaviour
     {
         Manager.upgradeMenuOpen = true;
         pauseButton.SetActive(false); //Hiding the pause menu button while the upgrade menu is open as it is non-functional
+
         playerAttacks = Manager.player.AttackStatsList;
         playerUpgrades = Manager.player.upgrades;
         upgradableAttacks.Clear();

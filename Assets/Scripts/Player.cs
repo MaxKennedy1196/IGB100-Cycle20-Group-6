@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     public GameObject deathEffect;
     public AnimationCurve fadeCurve;
     public CanvasGroup playerFade;
-    public CanvasGroup screenFade;
+    public SceneFade screenFade;
     public GameObject[] hideUI;
     private bool dying = false;
 
@@ -377,16 +377,9 @@ public class Player : MonoBehaviour
         foreach (Form form in playerForms) { form.formObject.SetActive(false); }
         deathEffect.SetActive(true);
 
-        zoomTime = 0.0f;
-        while (zoomTime < 1.5f)
-        {
-            screenFade.alpha = fadeCurve.Evaluate(zoomTime);
-            zoomTime += Time.deltaTime;
-            yield return null;
-        }
-
-        playerFade.alpha = 1.0f;
-        SceneManager.LoadScene("Game Over");
-        yield return null;
+        screenFade.fadeCurve = fadeCurve;
+        screenFade.ActivateFade();
+        yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
+        SceneManager.LoadScene(2);
     }
 }

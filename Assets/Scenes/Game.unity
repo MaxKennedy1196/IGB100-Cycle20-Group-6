@@ -7506,6 +7506,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 0}
+  startFadeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  endFadeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &672778216
 GameObject:
   m_ObjectHideFlags: 0
@@ -11581,7 +11593,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.5
+      time: 2
       value: 1
       inSlope: 0
       outSlope: 0
@@ -11593,7 +11605,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   playerFade: {fileID: 1143100800}
-  screenFade: {fileID: 130613879}
+  screenFade: {fileID: 130613880}
   hideUI:
   - {fileID: 1517375102}
   - {fileID: 428222262}
@@ -22055,7 +22067,7 @@ MonoBehaviour:
   - {fileID: 6676589602759517457, guid: c88a44c5743352243875b560606f4a9f, type: 3}
   - {fileID: 896425263761719869, guid: 3fb5d0432cc98f646912d7ce4af937c0, type: 3}
   - {fileID: 8471791566986657959, guid: 78f7b3642369c354b9c94fb091397463, type: 3}
-  healthUpgrade: {fileID: 0}
+  healthUpgrade: {fileID: 1933774655310854455, guid: d2cbad92dd773964690a1ecc91a84a33, type: 3}
   chosenUpgrade: {fileID: 0}
   upgradeSelected: 0
   newAttackLevels: 020000000300000004000000
