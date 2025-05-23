@@ -67,8 +67,10 @@ public class Player : MonoBehaviour
     public AnimationCurve zoomCurve;
     public GameObject deathEffect;
     public AnimationCurve fadeCurve;
-    public CanvasGroup fadeOut;
+    public CanvasGroup playerFade;
+    public CanvasGroup screenFade;
     public GameObject[] hideUI;
+    private bool dying = false;
 
     void Awake()
     {
@@ -96,6 +98,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dying)
+        {
+            return;  
+        }
+
         attacks();
         movement();
         hungerDecay();
@@ -107,8 +114,6 @@ public class Player : MonoBehaviour
             NextForm();
             lastCheckedLevel = currentLevel;
         }
-
-
     }
 
     private void attacks()
@@ -352,35 +357,36 @@ public class Player : MonoBehaviour
 
     private IEnumerator DeathEffect()
     {
+        dying = true;
         foreach (GameObject hideObject in hideUI) { hideObject.SetActive(false); }
 
         GameObject[] enemies = Manager.enemyList.ToArray();
-        foreach (GameObject enemy in enemies) { enemy.SetActive(false); } //Setting all enemies to disappear
-
+        
         float zoomTime = 0.0f;
         Camera camera = Camera.main;
 
-        while (zoomTime < 3.0f) //Zooming in on the player for dramatic effect
+        while (zoomTime < 3f) //Zooming in on the player for dramatic effect
         {
             camera.orthographicSize = zoomCurve.Evaluate(zoomTime);
+            playerFade.alpha = fadeCurve.Evaluate(zoomTime);
+            zoomTime += Time.deltaTime;
+            if (zoomTime > 1.5f) { foreach (GameObject enemy in enemies) { Destroy(enemy); } } //Destroy all enemies
+            yield return null;
+        }
+
+        foreach (Form form in playerForms) { form.formObject.SetActive(false); }
+        deathEffect.SetActive(true);
+
+        zoomTime = 0.0f;
+        while (zoomTime < 1.5f)
+        {
+            screenFade.alpha = fadeCurve.Evaluate(zoomTime);
             zoomTime += Time.deltaTime;
             yield return null;
         }
-        Instantiate(deathEffect);
-        //Add blood splat and set player sprite renderer to false, disable attacking
 
-        float fadeTime = 0.0f;
-
-        while (fadeTime < 3.0f)
-        {
-            fadeOut.alpha = 1 - (fadeCurve.Evaluate(fadeTime));
-            fadeTime += Time.deltaTime;
-            yield return null;
-        }
-
-        fadeOut.alpha = 1.0f;
-        SceneManager.LoadScene("Game Over"); //Need to add fade to black here too, same as in main menu
-
+        playerFade.alpha = 1.0f;
+        SceneManager.LoadScene("Game Over");
         yield return null;
     }
 }
