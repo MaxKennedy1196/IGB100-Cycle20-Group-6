@@ -16,29 +16,30 @@ public class mainMenu : MonoBehaviour
     {
         fadeOut.fadeCurve = startFadeCurve;
         fadeOut.ActivateFade();
-        loadSceneOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
-        loadSceneOperation.allowSceneActivation = false;
+        //loadSceneOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+        //loadSceneOperation.allowSceneActivation = false;
     }
     
     public void PlayGame()
     {
-        StartCoroutine(LoadGame());
+        StartCoroutine(LoadNewScene(1));
+        //StartCoroutine(LoadGame());
     }
 
     // Update is called once per frame
     public void QuitGame()
     {
-        Application.Quit();
+        StartCoroutine(FadeAndQuit());
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(LoadNewScene(0));
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadNewScene(1));
     }
 
     public IEnumerator LoadGame()
@@ -46,6 +47,22 @@ public class mainMenu : MonoBehaviour
         fadeOut.fadeCurve = endFadeCurve;
         fadeOut.ActivateFade(); //Activating the screen fade and waiting out it's duration then activating the game scene
         yield return new WaitForSeconds(fadeOut.fadeDuration + fadeOut.endWait);
-        loadSceneOperation.allowSceneActivation = true;
+        //loadSceneOperation.allowSceneActivation = true;
+    }
+
+    private IEnumerator LoadNewScene(int sceneNum)
+    {
+        fadeOut.fadeCurve = endFadeCurve;
+        fadeOut.ActivateFade(); //Activating the screen fade and waiting out it's duration then activating the game scene
+        yield return new WaitForSeconds(fadeOut.fadeDuration + fadeOut.endWait);
+        SceneManager.LoadScene(sceneNum);
+    }
+
+    private IEnumerator FadeAndQuit()
+    {
+        fadeOut.fadeCurve = endFadeCurve;
+        fadeOut.ActivateFade();
+        yield return new WaitForSeconds(fadeOut.fadeDuration + fadeOut.endWait);
+        Application.Quit();
     }
 }
