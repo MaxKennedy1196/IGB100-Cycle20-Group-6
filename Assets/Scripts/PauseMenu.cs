@@ -1,5 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,6 +11,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseButton;
 
     public bool isPaused;
+
+    public SceneFade fade;
+    public float fadeDuration;
+    public AnimationCurve fadeCurve;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,11 +43,6 @@ public class PauseMenu : MonoBehaviour
         {
             PauseGame();
         }
-
-        //if (!Manager.upgradeMenuOpen) //Handling to disable the pause functionality when the upgrade menu is open
-        //{
-
-        //}
     }
 
     public void PauseGame()
@@ -55,5 +57,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }
