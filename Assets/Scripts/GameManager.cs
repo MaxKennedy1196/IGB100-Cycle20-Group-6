@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 //Script used to handle game elements and player upgrades
 public class GameManager : MonoBehaviour
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Screen Fading")]
     public SceneFade screenFade;
+    public AnimationCurve startCurve;
+    public AnimationCurve endCurve;
 
     int skullQuantity = 75;
     int spineQuantity = 75;
@@ -73,9 +76,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //Fade in the game scene
+        screenFade.fadeCurve = startCurve;
         screenFade.ActivateFade();
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//Get reference to Player
 
         for(int i = 0; i< skullQuantity; i++ )
         {
@@ -106,9 +111,14 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
-        if (player.level == 20)
-        {
-            SceneManager.LoadScene("You Win");
-        }
+        StartCoroutine(Win());
+    }
+
+    private IEnumerator Win()
+    {
+        screenFade.fadeCurve = endCurve;
+        screenFade.ActivateFade();
+        yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
+        SceneManager.LoadScene(3);
     }
 }

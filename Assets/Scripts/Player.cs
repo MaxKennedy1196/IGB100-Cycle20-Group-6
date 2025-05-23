@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     //Level logic
     public int level = 0; //Tracks the player's level
+    public int winLevel = 20; //The level the player wins the game at
     public float[] levelUpAmounts; //Contains the experience amounts required to progress to the next level
 
     [Serializable]
@@ -271,14 +272,14 @@ public class Player : MonoBehaviour
             experience = 0f;
             maxExperience = levelUpAmounts[level];
             level++;
-            //foreach (EnemySpawner spawner in spawners) { spawner.enemyRate -= 0.2f; }
-            Debug.Log("Upgrade Selection Menu");
-            StartCoroutine(UpgradeMenu());
+            Debug.Log($"{level}");
+            if (level == winLevel) { Manager.GameWin(); }
+            else
+            {
+                StartCoroutine(UpgradeMenu());
 
-            if (playerForm < 4) { NextForm(); }
-            //call powerup cards funtion here
-
-            Manager.GameWin();
+                if (playerForm < 4) { NextForm(); }
+            }
         }
     }
     
