@@ -10144,7 +10144,7 @@ GameObject:
   - component: {fileID: 858384986}
   - component: {fileID: 858384988}
   m_Layer: 5
-  m_Name: hungerBar
+  m_Name: hungerBarBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10406,7 +10406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 969109444}
   healthBar: {fileID: 876841019}
-  healthAnimator: {fileID: 0}
+  healthAnimator: {fileID: 1683834910}
 --- !u!1 &878945592
 GameObject:
   m_ObjectHideFlags: 0
@@ -12653,11 +12653,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 876841018}
-  m_Father: {fileID: 1683834907}
+  - {fileID: 1957420855}
+  m_Father: {fileID: 2103910653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -650, y: 74.999985}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016827041
@@ -19846,7 +19847,7 @@ GameObject:
   - component: {fileID: 1683834908}
   - component: {fileID: 1683834910}
   m_Layer: 5
-  m_Name: healthBar
+  m_Name: healthBarBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19863,9 +19864,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1016827040}
-  - {fileID: 1957420855}
+  m_Children: []
   m_Father: {fileID: 2103910653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -19893,7 +19892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1054164364992640250, guid: 0e45fca82d6ce18448daaeef3748ab52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64d58632fe54c23469e115ac09779d86, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19921,7 +19920,7 @@ Animator:
   m_GameObject: {fileID: 1683834906}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b6eaed6797a0b049bee91fd0b0ba188, type: 2}
+  m_Controller: {fileID: 9100000, guid: c0c1cf61b59782644abf01110fa943e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -23577,11 +23576,11 @@ Transform:
   m_GameObject: {fileID: 1957420854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150, y: 0, z: 0}
+  m_LocalPosition: {x: 150, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1683834907}
+  m_Father: {fileID: 1016827040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1957420856
 Animator:
@@ -26390,6 +26389,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1016827040}
   - {fileID: 1683834907}
   - {fileID: 1947000100}
   - {fileID: 858384985}
