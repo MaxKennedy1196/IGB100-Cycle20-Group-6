@@ -10348,10 +10348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264e322ca3f46bc49a13d03e74c70022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WASD: {fileID: 0}
-  TentacleInstructions: {fileID: 0}
-  player: {fileID: 0}
-  Manager: {fileID: 0}
 --- !u!4 &1528421103
 Transform:
   m_ObjectHideFlags: 0
