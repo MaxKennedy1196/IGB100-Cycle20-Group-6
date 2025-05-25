@@ -33,6 +33,8 @@ public class TutorialManager : MonoBehaviour
             case 2: CheckHungerPickup(); break;
             case 3: CheckXPPickup(); break;
         }
+
+        TutorialComplete();
     }
 
     void TrackMovement()
@@ -62,32 +64,42 @@ public class TutorialManager : MonoBehaviour
             hungerMessage.SetActive(true);
             step++;
         }
-        
-        
-        
     }
 
     public void CheckHungerPickup()
     {
-        player.hunger = 80;
-        if (player.hunger > 80)
+        if (!hasPickedUpHunger && step == 2)
         {
             hasPickedUpHunger = true;
+
             hungerMessage.SetActive(false);
+            xpMessage.SetActive(true);
             step++;
         }
     }
 
     public void CheckXPPickup()
     {
-        if (!hasPickedUpXP && step == 3)
+        if (step == 3)
         {
-            if (player.experience >= 10) // Assuming 10 is the required XP for this step
+            if (player.experience >= 20)
             {
                 hasPickedUpXP = true;
+
                 xpMessage.SetActive(false);
                 step++;
             }
         }   
+    }
+
+    void TutorialComplete()
+    {
+        if (hasTentacleAttacked && hasPickedUpHunger && hasPickedUpXP)
+        {
+            Manager.tutorialComplete = true;
+            Manager.screenFade.fadeCurve = Manager.startCurve;
+            Manager.screenFade.ActivateFade();
+            Destroy(gameObject);
+        }
     }
 }

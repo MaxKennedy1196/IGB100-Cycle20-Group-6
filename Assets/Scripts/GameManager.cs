@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
 
     Vector2 RandVector = new Vector2();
 
-    
+    [HideInInspector]public bool tutorialComplete = false;
+
     float SpawnRangeMin = -250f;
     float SpawnRangeMax = 250f;
 
@@ -148,5 +149,21 @@ public class GameManager : MonoBehaviour
         screenFade.ActivateFade();
         yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
         SceneManager.LoadScene(3);
+    }
+
+    private IEnumerator StartGame()
+    {
+        screenFade.fadeCurve = endCurve;
+        screenFade.ActivateFade();
+        yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
+        SceneManager.LoadScene(1);
+    }
+
+    public void TutorialComplete()
+    {
+        if (tutorialComplete)
+        {
+            StartCoroutine(StartGame());
+        }
     }
 }
