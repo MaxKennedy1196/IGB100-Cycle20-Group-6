@@ -119,15 +119,15 @@ public class Enemy : MonoBehaviour
 //
             //Vector2 positionVector = new Vector2(player.transform.position.x,player.transform.position.y );
 //
-            //Vector2 velocityVector = moveVector - positionVector;
-            //if(velocityVector.x > 0)
-            //{
-            //    spriteRenderer.flipX = false;
-            //}
-            //if(velocityVector.x < 0)
-            //{
-            //    spriteRenderer.flipX = true;
-            //}
+            Vector2 velocityVector = rb.linearVelocity;
+            if(velocityVector.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            if(velocityVector.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
 
             //transform.position = moveVector;
         }
