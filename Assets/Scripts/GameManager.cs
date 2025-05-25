@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 //Script used to handle game elements and player upgrades
 public class GameManager : MonoBehaviour
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     public GameObject skullPrefab;
     public GameObject spinePrefab;
     public GameObject treePrefab;
+    public GameObject wall1Prefab;
+    public GameObject wall2Prefab;
 
     [Header("UI")]
     public PauseMenu pauseMenu;
@@ -49,7 +52,9 @@ public class GameManager : MonoBehaviour
 
     int skullQuantity = 75;
     int spineQuantity = 75;
-    int treeQuantity = 75;
+    int treeQuantity = 100;
+    int wall1Quantity = 30;
+    int wall2Quantity = 30;
 
     Vector2 RandVector = new Vector2();
 
@@ -61,6 +66,8 @@ public class GameManager : MonoBehaviour
     public int farmerCount;
     public int blacksmithCount;
     public int clericCount;
+
+    public TextMeshProUGUI levelText;
 
 
     // Awake Checks - Singleton setup
@@ -87,22 +94,34 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//Get reference to Player
 
-        for(int i = 0; i< skullQuantity; i++ )
+        for (int i = 0; i < skullQuantity; i++)
         {
-            RandVector = new Vector2(Random.Range(SpawnRangeMin,SpawnRangeMax),Random.Range(SpawnRangeMin,SpawnRangeMax));
-            Instantiate(skullPrefab,RandVector,Quaternion.identity);
+            RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
+            Instantiate(skullPrefab, RandVector, Quaternion.identity);
         }
 
-        for(int i = 0; i< spineQuantity; i++ )
+        for (int i = 0; i < spineQuantity; i++)
         {
-            RandVector = new Vector2(Random.Range(SpawnRangeMin,SpawnRangeMax),Random.Range(SpawnRangeMin,SpawnRangeMax));
-            Instantiate(spinePrefab,RandVector,Quaternion.identity);
+            RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
+            Instantiate(spinePrefab, RandVector, Quaternion.identity);
         }
 
         for (int i = 0; i < treeQuantity; i++)
         {
             RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
             Instantiate(treePrefab, RandVector, Quaternion.identity);
+        }
+
+        for (int i = 0; i < wall1Quantity; i++)
+        {
+            RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
+            Instantiate(wall1Prefab, RandVector, Quaternion.identity);
+        }
+        
+        for (int i = 0; i < wall2Quantity; i++)
+        {
+            RandVector = new Vector2(Random.Range(SpawnRangeMin, SpawnRangeMax), Random.Range(SpawnRangeMin, SpawnRangeMax));
+            Instantiate(wall2Prefab, RandVector, Quaternion.identity);
         }
     }
 
@@ -114,6 +133,8 @@ public class GameManager : MonoBehaviour
         {
             pauseMenu.togglePause();
         }
+
+        levelText.text = "LEVEL:" + player.level;
     }
 
     public void GameWin()
