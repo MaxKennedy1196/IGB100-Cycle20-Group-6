@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public TutorialPlayer player;
+    GameManager Manager;
+    public Player player;
 
     public GameObject moveMessage;
     public GameObject attackMessage;
@@ -10,7 +11,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject xpMessage;
 
     private bool wPressed, aPressed, sPressed, dPressed;
-    private bool hasTentacleAttacked = false;
+    private bool hasTentacleAttacked = false;// I think the name of this variable is hilarious
     private bool hasPickedUpHunger = false;
     private bool hasPickedUpXP = false;
 
@@ -19,6 +20,8 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         moveMessage.SetActive(true);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player 
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager    
     }
 
     void Update()
@@ -41,7 +44,7 @@ public class TutorialManager : MonoBehaviour
 
         if (wPressed && aPressed && sPressed && dPressed)
         {
-            player.movementComplete = true;
+            //player.movementComplete = true;
             moveMessage.SetActive(false);
             attackMessage.SetActive(true);
             step++;
@@ -50,7 +53,17 @@ public class TutorialManager : MonoBehaviour
 
     public void CheckTentacleAttack()
     {
-        // check if the player has attacked with the tentacle
+
+        if (Manager.enemyCount == 0)
+        {
+            hasTentacleAttacked = true;
+
+            attackMessage.SetActive(false);
+            hungerMessage.SetActive(true);
+            step++;
+        }
+        
+        
         
     }
 
