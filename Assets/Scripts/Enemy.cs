@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 //Abstract enemy parent class to be inherited from for child enemy types 
@@ -42,12 +43,31 @@ public class Enemy : MonoBehaviour
 
     Vector2 spawnOffset;
     Vector2 spawnPosition;
-    
+
+    string Name = "";
+
+    public Rigidbody2D rb;
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
-        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>(); 
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+
+        Name = stats.Name;
+
+        if (Name == "Farmer")
+        {
+            Manager.farmerCount += 1;
+        }
+        if (Name == "Blacksmith")
+        {
+            Manager.blacksmithCount += 1;
+        }
+        if (Name == "Cleric")
+        {
+            Manager.clericCount += 1;
+        }
 
         Manager.enemyList.Add(gameObject);//add self to enemy list
 
@@ -63,9 +83,11 @@ public class Enemy : MonoBehaviour
 
         deathEffect = stats.deathEffect;
 
-        moveSpeed += Random.Range(-0.5f,0.5f);// for randomisation of move speed to ensure enemies dont clump together
+        moveSpeed += Random.Range(-0.5f, 0.5f);// for randomisation of move speed to ensure enemies dont clump together
 
         aoeTimer = Time.time + aoeCooldown;
+        
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -90,21 +112,37 @@ public class Enemy : MonoBehaviour
         // move sprite towards the target location
         if(distance >= attackRange)
         {
-            Vector2 moveVector = Vector2.MoveTowards(transform.position, player.transform.position, step);
-            Vector2 positionVector = new Vector2(player.transform.position.x,player.transform.position.y );
+            //Vector2 moveVector = Vector2.MoveTowards(transform.position, player.transform.position, step);
+//
+//
+            ////rb.AddForce(moveVector);
+//
+            //Vector2 positionVector = new Vector2(player.transform.position.x,player.transform.position.y );
+//
+            //Vector2 velocityVector = moveVector - positionVector;
+            //if(velocityVector.x > 0)
+            //{
+            //    spriteRenderer.flipX = false;
+            //}
+            //if(velocityVector.x < 0)
+            //{
+            //    spriteRenderer.flipX = true;
+            //}
 
-            Vector2 velocityVector = moveVector - positionVector;
-            if(velocityVector.x > 0)
-            {
-                spriteRenderer.flipX = false;
-            }
-            if(velocityVector.x < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-
-            transform.position = moveVector;
+            //transform.position = moveVector;
         }
+    }
+
+    void FixedUpdate()
+    {
+        // Calculate the direction towards the player
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+
+        // Calculate the new position using MoveTowards
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, transform.position + direction * moveSpeed * Time.fixedDeltaTime, moveSpeed * Time.fixedDeltaTime);
+
+        // Move the Rigidbody to the new position
+        rb.MovePosition(newPosition);
     }
 
     public void Attack()
@@ -114,8 +152,8 @@ public class Enemy : MonoBehaviour
             Instantiate(enemyAttack, transform.position, transform.rotation);
             aoeTimer = Time.time + aoeCooldown;
         }
-        
-        if(distance <= attackRange) //Needs to be changed if we want the cleric to not attack normally
+
+        if (distance <= attackRange) //Needs to be changed if we want the cleric to not attack normally
         {
             player.takeDamage(damage);
         }
@@ -133,6 +171,19 @@ public class Enemy : MonoBehaviour
             deathEffectSound.volume = 0.35f;
         }
         else { deathEffectSound.clip = deathSound; }
+
+        if (Name == "Farmer")
+        {
+            Manager.farmerCount -= 1;
+        }
+        if (Name == "Blacksmith")
+        {
+            Manager.blacksmithCount -= 1;
+        }
+        if (Name == "Cleric")
+        {
+            Manager.clericCount -= 1;
+        }
 
         //Create a death effect at the location of the enemy when they die
         Instantiate(deathEffect, transform.position, transform.rotation);

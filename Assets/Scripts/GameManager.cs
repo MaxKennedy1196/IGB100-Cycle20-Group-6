@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
     float SpawnRangeMin = -250f;
     float SpawnRangeMax = 250f;
 
+    public int enemyCount;
+    public int farmerCount;
+    public int blacksmithCount;
+    public int clericCount;
+
 
     // Awake Checks - Singleton setup
     void Awake()
@@ -103,6 +108,8 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        enemyCount = enemyList.Count;
+
         if (Input.GetKeyDown(KeyCode.Escape) && !upgradeMenuOpen)
         {
             pauseMenu.togglePause();
