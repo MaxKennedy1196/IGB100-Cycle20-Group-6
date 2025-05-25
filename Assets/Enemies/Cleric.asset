@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb888db987a2ec43a4f99829eebb9f2, type: 3}
   m_Name: Cleric
   m_EditorClassIdentifier: 
-  Name: Cleric
   health: 50
   damage: 5
   moveSpeed: 1.5

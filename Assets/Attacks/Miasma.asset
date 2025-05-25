@@ -17,17 +17,17 @@ MonoBehaviour:
   baseMinDamage: 2
   baseMaxDamage: 5
   baseSpeed: 0
-  baseArea: 4
+  baseArea: 2.5
   basePassthrough: 999999999
   baseCritChance: 100
-  attackTimer: 17.297155
+  attackTimer: 2.3845177
   attackCooldown: 20
   attackLifetime: 10
   attackMinDamage: 2
   attackMaxDamage: 5
   attackSpeed: 0
-  attackArea: 4
-  currentCritChance: 100
+  attackArea: 2.5
+  currentCritChance: 0
   passthrough: 999999999
   attackEffect: {fileID: 0}
   attackProjectile: {fileID: 9197686042926581397, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}

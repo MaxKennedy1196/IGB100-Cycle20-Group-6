@@ -111,17 +111,12 @@ MonoBehaviour:
   projectileArea: 0
   projectileScale: 1
   enemiesPassedThrough: 0
-  critChance: 0
   target: {fileID: 0}
   targetStats: {fileID: 0}
   distance: 0
   closestDistance: 999
   bindToPlayer: 0
   DPS: 0
-  returnOnDeath: 0
-  TimeAlive: 0
-  returning: 0
-  player: {fileID: 0}
 --- !u!96 &5026661436412594363
 TrailRenderer:
   serializedVersion: 3
@@ -282,7 +277,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 27377d5c4b77f7d42a0fb013118a1388, type: 3}
   m_Resource: {fileID: 8300000, guid: 27377d5c4b77f7d42a0fb013118a1388, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

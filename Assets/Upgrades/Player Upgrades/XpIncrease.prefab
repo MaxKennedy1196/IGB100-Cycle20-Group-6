@@ -47,13 +47,13 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Twisted Soul
+    UpgradeName: XP Up
     UpgradeTier: Tier 1
-    UpgradeText: +20% XP Gain
+    UpgradeText: +10% XP Gain
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
-    XPGainChange: 1.2
+    XPGainChange: 1.1
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0
@@ -62,6 +62,5 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
-    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0

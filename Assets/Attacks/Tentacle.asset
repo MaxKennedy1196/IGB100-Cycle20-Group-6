@@ -19,7 +19,7 @@ MonoBehaviour:
   baseSpeed: 15
   baseArea: 2
   basePassthrough: 1
-  baseCritChance: 20
+  baseCritChance: 1
   attackTimer: 0.96301395
   attackCooldown: 1
   attackLifetime: 0.5

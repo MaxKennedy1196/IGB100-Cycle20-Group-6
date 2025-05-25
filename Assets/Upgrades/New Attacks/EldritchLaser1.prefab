@@ -47,14 +47,13 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 2
   upgradeValues:
-    UpgradeName: Eldritch Laser
+    UpgradeName: Miasma
     UpgradeTier: Tier 1
-    UpgradeText: Fire a small burst of arcane energy towards a nearby enemy
+    UpgradeText: Creates a damaging aura around the player
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
-    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 3467591044221890192, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
     attackStats: {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
     AttackRateChangeAmount: 0
@@ -63,6 +62,5 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
-    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
     HealthIncrease: 0

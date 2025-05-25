@@ -47,7 +47,7 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Sinner's Blood
+    UpgradeName: Max Health Up
     UpgradeTier: Tier 1
     UpgradeText: +25 Maximum Health
     MoveSpeedChange: 0
@@ -62,6 +62,5 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
-    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0
