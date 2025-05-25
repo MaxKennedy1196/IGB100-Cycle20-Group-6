@@ -46,7 +46,7 @@ public class PlayerHunger : MonoBehaviour
 
         UpdateIndicators();
 
-        /*
+        
         if (player.hunger <= 20)
         {
             hungerAnimator.SetBool("Hungry", true);
@@ -55,7 +55,7 @@ public class PlayerHunger : MonoBehaviour
         {
             hungerAnimator.SetBool("Hungry", false);
         }
-        */
+        
     }
 
     void BuildIndicators()

@@ -39,6 +39,7 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance <= pickupDistance)
         {
@@ -46,6 +47,12 @@ public class PickUp : MonoBehaviour
             {
                 player.AddExperience(Value);
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    FindObjectOfType<TutorialManager>()?.CheckXPPickup();
+                }
+
                 Destroy(this.gameObject);
             }
 
@@ -53,7 +60,14 @@ public class PickUp : MonoBehaviour
             {
                 player.AddHunger(Value);
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    FindObjectOfType<TutorialManager>()?.CheckHungerPickup();
+                }
+
                 Destroy(this.gameObject);
+
             }
 
             if(pickupType == PickupType.HP)

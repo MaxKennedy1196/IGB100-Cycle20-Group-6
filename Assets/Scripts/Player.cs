@@ -14,12 +14,15 @@ public class Player : MonoBehaviour
     public float maxHunger = 100f;
     public float experience = 0f;
     public float experienceMult = 1.0f; //Used for experience boosting upgrades
+    public float critMult = 2.0f; //Used for crit multiplier upgrades
     [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
     public Animator hungeranimator;
+    public Animator animator;
 
     //Level logic
     public int level = 0; //Tracks the player's level
+    public int winLevel = 20; //The level the player wins the game at
     public float[] levelUpAmounts; //Contains the experience amounts required to progress to the next level
 
     [Serializable]
@@ -62,6 +65,21 @@ public class Player : MonoBehaviour
 
     public Transform mouseTarget;
 
+
+    float hungerDecayRate = 5f;
+    float hungerTimerLimit = 1.5f;
+
+    [Header("Death Effect Variables")]
+    public AnimationCurve zoomCurve;
+    public GameObject deathEffect;
+    public AnimationCurve fadeCurve;
+    public CanvasGroup playerFade;
+    public SceneFade screenFade;
+    public GameObject[] hideUI;
+    private bool dying = false;
+
+
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -88,6 +106,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dying)
+        {
+            return;
+        }
+
         attacks();
         movement();
         hungerDecay();
@@ -100,7 +123,10 @@ public class Player : MonoBehaviour
             lastCheckedLevel = currentLevel;
         }
 
-
+        if (hungerTimerLimit <= 0.5f)
+        {
+            hungerTimerLimit = 0.5f;
+        }
     }
 
     private void attacks()
@@ -154,7 +180,6 @@ public class Player : MonoBehaviour
                 projectile.projectileLifetime = attack.attackLifetime;
                 projectile.projectileSpeed = attack.attackSpeed;
                 projectile.projectileArea = attack.attackArea;
-                projectile.projectileScale = attack.attackArea - attack.baseArea; //Modifying the projectile's scale
                 projectile.enemiesPassedThrough = attack.passthrough; //Using += to account for passthrough possibly being upgraded
                 projectile.returnOnDeath = attack.returnOnDeath;
                 projectile.critChance = attack.currentCritChance;
@@ -199,15 +224,23 @@ public class Player : MonoBehaviour
 
         transform.Translate(moveVector * moveSpeed * Time.deltaTime);//move player
     }
+    
 
-    public void takeDamage(float damage, bool aoeDamage=false)
+    public void takeDamage(float damage, bool aoeDamage = false)
     {
         if (aoeDamage) { health -= damage; }
         else { health -= damage * Time.deltaTime; }
 
+        // get the animator component in the children of the player object
+        if (animator == null) { animator = GetComponentInChildren<Animator>(); }
+        animator.SetBool("IsHurt", true); //Set the hurt animation to true
+        StartCoroutine(ResetHurtAnimation());
+
+
         if (health <= 0)
         {
-            SceneManager.LoadScene("Game Over");
+            StartCoroutine(DeathEffect());
+            //SceneManager.LoadScene("Game Over");
             //Destroy(this.gameObject);
         }
     }
@@ -216,9 +249,9 @@ public class Player : MonoBehaviour
     {
         hungerTimer += Time.deltaTime;
 
-        if (hungerTimer >= 1.5f)
+        if (hungerTimer >= hungerTimerLimit)
         {
-            hunger -= 5f;
+            hunger -= hungerDecayRate ;
             hungerTimer = 0f;
         }
 
@@ -245,6 +278,8 @@ public class Player : MonoBehaviour
 
     public IEnumerator UpgradeMenu()
     {
+        hungerTimerLimit -= 0.125f;
+        hungerDecayRate += 1f;
         Time.timeScale = 0.0f;
         upgradeMenu.gameObject.SetActive(true);
         yield return new WaitUntil(UpgradeSelection);
@@ -258,14 +293,14 @@ public class Player : MonoBehaviour
             experience = 0f;
             maxExperience = levelUpAmounts[level];
             level++;
-            //foreach (EnemySpawner spawner in spawners) { spawner.enemyRate -= 0.2f; }
-            Debug.Log("Upgrade Selection Menu");
-            StartCoroutine(UpgradeMenu());
+            Debug.Log($"{level}");
+            if (level == winLevel) { Manager.GameWin(); }
+            else
+            {
+                StartCoroutine(UpgradeMenu());
 
-            if (playerForm < 4) { NextForm(); }
-            //call powerup cards funtion here
-
-            Manager.GameWin();
+                if (playerForm < 4) { NextForm(); }
+            }
         }
     }
     
@@ -340,5 +375,39 @@ public class Player : MonoBehaviour
             spriteRenderer = playerForms[3].formObject.GetComponent<SpriteRenderer>();
             playerForm = 4;
         }
+    }
+
+    private IEnumerator DeathEffect()
+    {
+        dying = true;
+        foreach (GameObject hideObject in hideUI) { hideObject.SetActive(false); }
+
+        GameObject[] enemies = Manager.enemyList.ToArray();
+        
+        float zoomTime = 0.0f;
+        Camera camera = Camera.main;
+
+        while (zoomTime < 3f) //Zooming in on the player for dramatic effect
+        {
+            camera.orthographicSize = zoomCurve.Evaluate(zoomTime);
+            playerFade.alpha = fadeCurve.Evaluate(zoomTime);
+            zoomTime += Time.deltaTime;
+            if (zoomTime > 1.5f) { foreach (GameObject enemy in enemies) { Destroy(enemy); } } //Destroy all enemies
+            yield return null;
+        }
+
+        foreach (Form form in playerForms) { form.formObject.SetActive(false); }
+        deathEffect.SetActive(true);
+
+        screenFade.fadeCurve = fadeCurve;
+        screenFade.ActivateFade();
+        yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
+        SceneManager.LoadScene(2);
+    }
+
+    private IEnumerator ResetHurtAnimation()
+    {
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("IsHurt", false);
     }
 }

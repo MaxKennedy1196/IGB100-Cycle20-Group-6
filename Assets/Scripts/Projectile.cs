@@ -14,7 +14,10 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed;
     public float projectileLifetime;
     public float projectileArea;
-    public float projectileScale;
+    float projectileScale;
+    public bool scale = false;
+    public AnimationCurve scaleCurve;
+    float curveTime = 0.0f;
     [HideInInspector] public int enemiesPassedThrough;
     [HideInInspector] public int critChance;
     private bool crit = false;
@@ -39,6 +42,8 @@ public class Projectile : MonoBehaviour
 
     List<GameObject> inRangeEnemies;
 
+    Vector3 scaleVector;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); //Find Player
@@ -47,7 +52,8 @@ public class Projectile : MonoBehaviour
 
     public void Start()
     {
-        transform.localScale += new Vector3(projectileScale, projectileScale, projectileScale);
+        projectileScale = projectileArea * 2;
+        scaleVector = new Vector3(projectileScale, projectileScale, projectileScale);
 
         if (returnOnDeath == false)
         {
@@ -65,6 +71,15 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
+        //Scale pulsing effect for Miasma
+        if (scale)
+        {
+            if (curveTime > 4.0f) { curveTime = 0.0f; }
+            transform.localScale = projectileScale * scaleCurve.Evaluate(curveTime) * Vector3.one;
+            projectileArea = projectileScale/2 * scaleCurve.Evaluate(curveTime);
+            curveTime += Time.deltaTime;
+        }
+
         DPSTimer += Time.deltaTime;
 
         TimeAlive += Time.deltaTime;

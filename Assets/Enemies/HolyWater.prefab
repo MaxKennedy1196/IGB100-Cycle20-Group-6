@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -997
-  m_Sprite: {fileID: -2413806693520163455, guid: ed67261f1af2d51448535eace4b4a21f, type: 3}
-  m_Color: {r: 0, g: 0.5882353, b: 1, a: 0.60784316}
+  m_Sprite: {fileID: -8691671696736731182, guid: 4a9d8970ba65c2c4997964a640d00aaa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.68, y: 0.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,9 +97,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4677992827490441515}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 693d872ad25172e4f97be075f721ef70, type: 2}
+  m_Controller: {fileID: 4946905814189184873, guid: 4a9d8970ba65c2c4997964a640d00aaa, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -141,18 +141,18 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.06466601
     - serializedVersion: 3
-      time: 1.5
-      value: 0.65
+      time: 2.1545472
+      value: 1.0012884
       inSlope: -0.000854319
-      outSlope: 0
+      outSlope: -0.0007116673
       tangentMode: 65
       weightedMode: 0
       inWeight: 0.29670262
       outWeight: 0.035119653
     - serializedVersion: 3
-      time: 8
-      value: 0.65
-      inSlope: -0
+      time: 8.93071
+      value: 0.99646604
+      inSlope: -0.0007116673
       outSlope: 0.018753612
       tangentMode: 5
       weightedMode: 0
