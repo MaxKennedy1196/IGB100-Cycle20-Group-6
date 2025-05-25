@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
 
     float hungerDecayRate = 5f;
+    float hungerTimerLimit = 1.5f;
 
     [Header("Death Effect Variables")]
     public AnimationCurve zoomCurve;
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
     {
         if (dying)
         {
-            return;  
+            return;
         }
 
         attacks();
@@ -120,6 +121,11 @@ public class Player : MonoBehaviour
         {
             NextForm();
             lastCheckedLevel = currentLevel;
+        }
+
+        if (hungerTimerLimit <= 0.5f)
+        {
+            hungerTimerLimit = 0.5f;
         }
     }
 
@@ -243,9 +249,9 @@ public class Player : MonoBehaviour
     {
         hungerTimer += Time.deltaTime;
 
-        if (hungerTimer >= 1.5f)
+        if (hungerTimer >= hungerTimerLimit)
         {
-            hunger -= hungerDecayRate;
+            hunger -= hungerDecayRate ;
             hungerTimer = 0f;
         }
 
@@ -272,6 +278,8 @@ public class Player : MonoBehaviour
 
     public IEnumerator UpgradeMenu()
     {
+        hungerTimerLimit -= 0.125f;
+        hungerDecayRate += 1f;
         Time.timeScale = 0.0f;
         upgradeMenu.gameObject.SetActive(true);
         yield return new WaitUntil(UpgradeSelection);
