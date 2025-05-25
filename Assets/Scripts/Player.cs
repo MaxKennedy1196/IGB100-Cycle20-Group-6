@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public float maxExperience;
     public SpriteRenderer spriteRenderer;
     public Animator hungeranimator;
+    public Animator animator;
 
     //Level logic
     public int level = 0; //Tracks the player's level
@@ -219,6 +220,12 @@ public class Player : MonoBehaviour
         if (aoeDamage) { health -= damage; }
         else { health -= damage * Time.deltaTime; }
 
+        // get the animator component in the children of the player object
+        if (animator == null) { animator = GetComponentInChildren<Animator>(); }
+        animator.SetBool("IsHurt", true); //Set the hurt animation to true
+        StartCoroutine(ResetHurtAnimation());
+
+
         if (health <= 0)
         {
             StartCoroutine(DeathEffect());
@@ -383,5 +390,11 @@ public class Player : MonoBehaviour
         screenFade.ActivateFade();
         yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
         SceneManager.LoadScene(2);
+    }
+
+    private IEnumerator ResetHurtAnimation()
+    {
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("IsHurt", false);
     }
 }
