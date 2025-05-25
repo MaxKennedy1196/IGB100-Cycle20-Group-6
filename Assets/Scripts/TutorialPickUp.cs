@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class TutorialPickUp : MonoBehaviour
 {
     public float Value = 10;
     public AudioClip pickUpSound;
@@ -39,6 +39,7 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var tutorialManager = FindObjectOfType<TutorialManager>();
 
         distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance <= pickupDistance)
@@ -46,6 +47,7 @@ public class PickUp : MonoBehaviour
             if(pickupType == PickupType.XP)
             {
                 player.AddExperience(Value);
+                tutorialManager?.CheckXPPickup();
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
                 Destroy(this.gameObject);
             }
@@ -53,6 +55,7 @@ public class PickUp : MonoBehaviour
             if(pickupType == PickupType.Food)
             {
                 player.AddHunger(Value);
+                tutorialManager?.CheckHungerPickup();
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
                 Destroy(this.gameObject);
             }
