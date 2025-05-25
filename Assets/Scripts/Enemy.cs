@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    Vector3 startFramePos;
+
     void Awake()
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
@@ -107,42 +109,33 @@ public class Enemy : MonoBehaviour
     //Default movement, enemy consistently moves towards player
     public void Movement()
     {
-        float step = moveSpeed * Time.deltaTime;
-
-        // move sprite towards the target location
-        if(distance >= attackRange)
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        if (direction.x < 0)
         {
-            //Vector2 moveVector = Vector2.MoveTowards(transform.position, player.transform.position, step);
-//
-//
-            ////rb.AddForce(moveVector);
-//
-            //Vector2 positionVector = new Vector2(player.transform.position.x,player.transform.position.y );
-//
-            Vector2 velocityVector = rb.linearVelocity;
-            if(velocityVector.x > 0)
-            {
-                spriteRenderer.flipX = false;
-            }
-            if(velocityVector.x < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-
-            //transform.position = moveVector;
+            spriteRenderer.flipX = false;
+        }
+        if(direction.x > 0)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 
     void FixedUpdate()
     {
-        // Calculate the direction towards the player
-        Vector3 direction = (player.transform.position - transform.position).normalized;
+        if (distance >= attackRange)
+        {
+            // Calculate the direction towards the player
+            Vector3 direction = (player.transform.position - transform.position).normalized;
 
-        // Calculate the new position using MoveTowards
-        Vector3 newPosition = Vector3.MoveTowards(transform.position, transform.position + direction * moveSpeed * Time.fixedDeltaTime, moveSpeed * Time.fixedDeltaTime);
+            // Calculate the new position using MoveTowards
+            Vector3 newPosition = Vector3.MoveTowards(transform.position, transform.position + direction * moveSpeed * Time.fixedDeltaTime, moveSpeed * Time.fixedDeltaTime);
 
-        // Move the Rigidbody to the new position
-        rb.MovePosition(newPosition);
+            // Move the Rigidbody to the new position
+            rb.MovePosition(newPosition);
+
+
+            
+        }
     }
 
     public void Attack()

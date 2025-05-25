@@ -65,6 +65,9 @@ public class Player : MonoBehaviour
 
     public Transform mouseTarget;
 
+
+    float hungerDecayRate = 5f;
+
     [Header("Death Effect Variables")]
     public AnimationCurve zoomCurve;
     public GameObject deathEffect;
@@ -73,6 +76,8 @@ public class Player : MonoBehaviour
     public SceneFade screenFade;
     public GameObject[] hideUI;
     private bool dying = false;
+
+
 
     void Awake()
     {
@@ -240,7 +245,7 @@ public class Player : MonoBehaviour
 
         if (hungerTimer >= 1.5f)
         {
-            hunger -= 5f;
+            hunger -= hungerDecayRate;
             hungerTimer = 0f;
         }
 
