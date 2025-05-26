@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
 
     bool hasTakenDMGThisFrame = false;
-    float DMGSFXTime = 0f;
+    float DMGSFXTime = 0.5f;
 
 
     void Awake()
@@ -240,7 +240,7 @@ public class Player : MonoBehaviour
     public void takeDamage(float damage, bool aoeDamage = false)
     {
         hasTakenDMGThisFrame = true;
-        
+
         if (DMGSFXTime <= 0f)
         {
             Instantiate(PlayerHurt, transform.position, transform.rotation);
