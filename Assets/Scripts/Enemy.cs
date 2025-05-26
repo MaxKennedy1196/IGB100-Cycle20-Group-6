@@ -54,6 +54,8 @@ public class Enemy : MonoBehaviour
     {
         Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
+
+
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         Name = stats.Name;

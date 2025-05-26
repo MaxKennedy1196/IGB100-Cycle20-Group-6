@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject hungerMessage;
     public GameObject xpMessage;
     public GameObject tutorialCompleteMessage;
+
+    public Transform XPSpawn;
+    public Transform FoodSpawn;
 
     private bool wPressed, aPressed, sPressed, dPressed;
     private bool hasTentacleAttacked = false;// I think the name of this variable is hilarious
@@ -29,6 +33,16 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
+        if (player.experience >= 10)
+        {
+            player.experience = 10;
+        }
+        
+        if (player.hunger <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+
         switch (step)
         {
             case 0: TrackMovement(); break;
@@ -58,11 +72,11 @@ public class TutorialManager : MonoBehaviour
 
     public void CheckTentacleAttack()
     {
-
         if (Manager.enemyCount == 0)
         {
             hasTentacleAttacked = true;
-
+            Instantiate(Manager.expDrop, XPSpawn.position, XPSpawn.rotation);
+            Instantiate(Manager.foodDrop, FoodSpawn.position, FoodSpawn.rotation);
             attackMessage.SetActive(false);
             hungerMessage.SetActive(true);
             step++;
@@ -87,19 +101,17 @@ public class TutorialManager : MonoBehaviour
 
     public void CheckXPPickup()
     {
-        if (step == 3)
+
+        if (player.experience != 0)
         {
-            if (player.experience >= 16)
-            {
-                hasPickedUpXP = true;
+            hasPickedUpXP = true;
 
-                xpMessage.SetActive(false);
-                tutorialCompleteMessage.SetActive(true);
-                step++;
+            xpMessage.SetActive(false);
+            tutorialCompleteMessage.SetActive(true);
+            step++;
 
-                StartCoroutine(WaitAndCompleteTutorial());
-            }
-        }   
+            StartCoroutine(WaitAndCompleteTutorial());
+        }  
     }
 
     void TutorialComplete()
