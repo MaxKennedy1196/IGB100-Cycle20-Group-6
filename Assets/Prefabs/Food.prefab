@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 8
-  pickUpSound: {fileID: 8300000, guid: f6db19452ffb0254d9b27a7540e12f69, type: 3}
+  pickUpSound: {fileID: 8300000, guid: 05e63ed87a3009c4fb57992019bc6d07, type: 3}
   player: {fileID: 0}
   playerTransform: {fileID: 0}
-  tutorialfood: 0
+  foodpickup: 0
   pickupType: 2
 --- !u!50 &-4485009179487104094
 Rigidbody2D:

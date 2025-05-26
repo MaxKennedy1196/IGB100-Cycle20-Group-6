@@ -109,7 +109,13 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileLifetime: 5
   projectileArea: 0
-  projectileScale: 1
+  scale: 0
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   enemiesPassedThrough: 0
   critChance: 0
   target: {fileID: 0}
@@ -279,8 +285,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 27377d5c4b77f7d42a0fb013118a1388, type: 3}
-  m_Resource: {fileID: 8300000, guid: 27377d5c4b77f7d42a0fb013118a1388, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d13deb2f2f6ba8a4e931f7bf5ddd8258, type: 3}
+  m_Resource: {fileID: 8300000, guid: d13deb2f2f6ba8a4e931f7bf5ddd8258, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
