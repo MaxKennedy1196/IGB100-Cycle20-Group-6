@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickUp : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class PickUp : MonoBehaviour
     public Transform playerTransform;
     float pickupDistance = 1.5f;
     float distance = 0f;
-    
+    private TutorialManager tutorialManager;
+    public int foodpickup = 0;
+
     // item magnet stuff
     Rigidbody2D rb;
     bool hasTarget;
@@ -34,6 +37,13 @@ public class PickUp : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player     
         playerTransform = player.GetComponent<Transform>();
+
+
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            tutorialManager = FindObjectOfType<TutorialManager>();
+        }
     }
 
     // Update is called once per frame
@@ -48,11 +58,6 @@ public class PickUp : MonoBehaviour
                 player.AddExperience(Value);
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
 
-                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
-                {
-                    FindObjectOfType<TutorialManager>()?.CheckXPPickup();
-                }
-
                 Destroy(this.gameObject);
             }
 
@@ -61,9 +66,10 @@ public class PickUp : MonoBehaviour
                 player.AddHunger(Value);
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
 
-                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
+                if (SceneManager.GetActiveScene().buildIndex == 1 && tutorialManager != null)
                 {
-                    FindObjectOfType<TutorialManager>()?.CheckHungerPickup();
+                    tutorialManager.OnFoodPickedUp();
+                    Debug.Log("Food Pickup Count: " + foodpickup);  
                 }
 
                 Destroy(this.gameObject);
@@ -74,6 +80,7 @@ public class PickUp : MonoBehaviour
             {
                 player.AddHealth(Value);
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+
                 Destroy(this.gameObject);
             }
                 

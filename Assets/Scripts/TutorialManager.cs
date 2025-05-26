@@ -4,11 +4,14 @@ public class TutorialManager : MonoBehaviour
 {
     GameManager Manager;
     public Player player;
+    public PickUp pickUpInstance;
+    private int foodpickup = 0;
 
     public GameObject moveMessage;
     public GameObject attackMessage;
     public GameObject hungerMessage;
     public GameObject xpMessage;
+    public GameObject tutorialCompleteMessage;
 
     private bool wPressed, aPressed, sPressed, dPressed;
     private bool hasTentacleAttacked = false;// I think the name of this variable is hilarious
@@ -30,7 +33,7 @@ public class TutorialManager : MonoBehaviour
         {
             case 0: TrackMovement(); break;
             case 1: CheckTentacleAttack(); break;
-            case 2: CheckHungerPickup(); break;
+            case 2: OnTutorialFoodPickedUp(); break;
             case 3: CheckXPPickup(); break;
         }
 
@@ -66,9 +69,9 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void CheckHungerPickup()
+    void OnTutorialFoodPickedUp()
     {
-        if (!hasPickedUpHunger && step == 2)
+        if (foodpickup >= 1)
         {
             hasPickedUpHunger = true;
 
@@ -76,30 +79,48 @@ public class TutorialManager : MonoBehaviour
             xpMessage.SetActive(true);
             step++;
         }
+        else
+        {
+            Debug.LogWarning("PickUp instance not found or foodpickup is less than 1.");
+        }
     }
 
     public void CheckXPPickup()
     {
         if (step == 3)
         {
-            if (player.experience >= 20)
+            if (player.experience >= 16)
             {
                 hasPickedUpXP = true;
 
                 xpMessage.SetActive(false);
+                tutorialCompleteMessage.SetActive(true);
                 step++;
+
+                StartCoroutine(WaitAndCompleteTutorial());
             }
         }   
     }
 
     void TutorialComplete()
     {
-        if (hasTentacleAttacked && hasPickedUpHunger && hasPickedUpXP)
+        if (Manager.tutorialComplete)
         {
-            Manager.tutorialComplete = true;
-            Manager.screenFade.fadeCurve = Manager.startCurve;
-            Manager.screenFade.ActivateFade();
             Destroy(gameObject);
         }
+    }
+
+    private System.Collections.IEnumerator WaitAndCompleteTutorial()
+    {
+        yield return new WaitForSeconds(3f);
+        tutorialCompleteMessage.SetActive(false);
+        Manager.tutorialComplete = true;
+        Manager.TutorialComplete();
+    }
+
+    public void OnFoodPickedUp()
+    {
+        foodpickup++;
+        Debug.Log("Food Pickup Count (from TutorialManager): " + foodpickup);
     }
 }

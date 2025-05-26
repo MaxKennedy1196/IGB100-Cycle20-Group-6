@@ -156,7 +156,8 @@ public class GameManager : MonoBehaviour
         screenFade.fadeCurve = endCurve;
         screenFade.ActivateFade();
         yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
-        SceneManager.LoadScene(1);
+        //Load scene called "Game"
+        SceneManager.LoadScene(2);
     }
 
     public void TutorialComplete()

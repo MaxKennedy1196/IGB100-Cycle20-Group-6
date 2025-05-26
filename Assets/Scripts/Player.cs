@@ -402,7 +402,7 @@ public class Player : MonoBehaviour
         screenFade.fadeCurve = fadeCurve;
         screenFade.ActivateFade();
         yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     private IEnumerator ResetHurtAnimation()

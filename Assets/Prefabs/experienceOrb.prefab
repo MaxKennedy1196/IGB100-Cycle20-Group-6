@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7012646523141752048}
   m_Layer: 0
   m_Name: experienceOrb
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   pickUpSound: {fileID: 8300000, guid: f6db19452ffb0254d9b27a7540e12f69, type: 3}
   player: {fileID: 0}
   playerTransform: {fileID: 0}
+  tutorialfood: 0
   pickupType: 0
 --- !u!50 &-1276714250369001819
 Rigidbody2D:

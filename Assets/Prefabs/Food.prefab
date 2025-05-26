@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6969323979468805988}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   pickUpSound: {fileID: 8300000, guid: f6db19452ffb0254d9b27a7540e12f69, type: 3}
   player: {fileID: 0}
   playerTransform: {fileID: 0}
+  tutorialfood: 0
   pickupType: 2
 --- !u!50 &-4485009179487104094
 Rigidbody2D:

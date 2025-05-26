@@ -47,7 +47,6 @@ public class TutorialPickUp : MonoBehaviour
             if(pickupType == PickupType.XP)
             {
                 player.AddExperience(Value);
-                tutorialManager?.CheckXPPickup();
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
                 Destroy(this.gameObject);
             }
@@ -55,7 +54,6 @@ public class TutorialPickUp : MonoBehaviour
             if(pickupType == PickupType.Food)
             {
                 player.AddHunger(Value);
-                tutorialManager?.CheckHungerPickup();
                 AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
                 Destroy(this.gameObject);
             }
