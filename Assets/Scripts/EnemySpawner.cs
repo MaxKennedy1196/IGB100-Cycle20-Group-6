@@ -21,11 +21,6 @@ public class EnemySpawner : MonoBehaviour
     private float clecricSpawnRate = 10f;
     private float clericspawnTimer;
 
-    int maxFarmers = 250;
-    int maxBlacksmiths = 100;
-    int maxClerics = 50;
-
-
 
     
     void Start()
@@ -37,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawningOn && Manager.enemyList.Count < 350)
+        if(spawningOn && Manager.enemyList.Count < 250)
         {
             SpawnEnemy();
         }
@@ -45,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if(Time.time > farmerspawnTimer && Manager.farmerCount <= maxFarmers)
+        if(Time.time > farmerspawnTimer)
         {
             Instantiate(Manager.farmerPrefab, transform.position, Quaternion.identity);
             farmerspawnTimer = Time.time + farmerSpawnRate + Random.Range(-1f,1f);
@@ -85,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
             blacksmithSpawnRate = 12f;
             clecricSpawnRate = 7f;
 
-            if(Time.time > blacksmithspawnTimer && Manager.blacksmithCount <= maxBlacksmiths)
+            if(Time.time > blacksmithspawnTimer)
             {
                 Instantiate(Manager.blacksmithPrefab, transform.position, Quaternion.identity);
                 blacksmithspawnTimer = Time.time + blacksmithSpawnRate + Random.Range(-1f,1f);
@@ -115,9 +110,9 @@ public class EnemySpawner : MonoBehaviour
         {
             farmerSpawnRate = 1.25f;
             blacksmithSpawnRate = 4f;
-            clecricSpawnRate = 4f;
+            clecricSpawnRate = 3f;
 
-            if(Time.time > clericspawnTimer && Manager.clericCount <= maxClerics)
+            if(Time.time > clericspawnTimer)
             {
                 Instantiate(Manager.clericPrefab, transform.position, Quaternion.identity);
                 clericspawnTimer = Time.time + clecricSpawnRate + Random.Range(-1f,1f);
@@ -127,31 +122,31 @@ public class EnemySpawner : MonoBehaviour
         {
             farmerSpawnRate = 1f;
             blacksmithSpawnRate = 4f;
-            clecricSpawnRate = 4f;
+            clecricSpawnRate = 2f;
         }
-        if(player.level >= 13)
+        if(player.level >= 125000)
         {
-            farmerSpawnRate = .5f;
+            farmerSpawnRate = 1f;
             blacksmithSpawnRate = 4f;
-            clecricSpawnRate = 4f;
+            clecricSpawnRate = 1f;
         }
         if(player.level >= 15)
         {
-            farmerSpawnRate = 0.25f;
+            farmerSpawnRate = 0.75f;
             blacksmithSpawnRate = 3f;
-            clecricSpawnRate = 3f;
+            clecricSpawnRate = 0.75f;
         }
         if(player.level >= 17)
         {
-            farmerSpawnRate = 0.125f;
+            farmerSpawnRate = 0.5f;
             blacksmithSpawnRate = 2f;
-            clecricSpawnRate = 2f;
+            clecricSpawnRate = 0.5f;
         }
         if(player.level >= 20)
         {
-            farmerSpawnRate = 0.125f;
+            farmerSpawnRate = 0.5f;
             blacksmithSpawnRate = 2f;
-            clecricSpawnRate = 2f;
+            clecricSpawnRate = 0.5f;
         }
     }
 }

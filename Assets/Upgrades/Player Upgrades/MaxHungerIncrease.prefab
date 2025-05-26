@@ -47,7 +47,7 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Accursed Bones
+    UpgradeName: Max Hunger Up
     UpgradeTier: Tier 1
     UpgradeText: +100 Maximum Hunger
     MoveSpeedChange: 0

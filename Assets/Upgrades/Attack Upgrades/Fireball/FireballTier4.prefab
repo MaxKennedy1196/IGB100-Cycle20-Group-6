@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2737756768760085550
+--- !u!1 &5955298670480631284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3556042944586413417}
-  - component: {fileID: 9003313361824590230}
+  - component: {fileID: 1976004147024435287}
+  - component: {fileID: 1409552242452127435}
   m_Layer: 0
-  m_Name: MoveSpeedUp
+  m_Name: FireballTier4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3556042944586413417
+--- !u!4 &1976004147024435287
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737756768760085550}
+  m_GameObject: {fileID: 5955298670480631284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,35 +32,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9003313361824590230
+--- !u!114 &1409552242452127435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737756768760085550}
+  m_GameObject: {fileID: 5955298670480631284}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4f070aad1026154aaeb6971752d9291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  upgradeType: 0
+  upgradeType: 1
   upgradeValues:
-    UpgradeName: Move Speed Up
-    UpgradeTier: Tier 1
-    UpgradeText: +2 Movement Speed
-    MoveSpeedChange: 2
+    UpgradeName: Fireball
+    UpgradeTier: Tier 4
+    UpgradeText: -50% Attack Cooldown
+    MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
-    attackProjectile: {fileID: 0}
-    attackStats: {fileID: 0}
-    AttackRateChangeAmount: 0
+    attackProjectile: {fileID: 5084040750013431489, guid: 8f52bdcf7e2e37745a2f44a48d28ebd5, type: 3}
+    attackStats: {fileID: 11400000, guid: ddb5522c806c6c846b01aa527bced1f4, type: 2}
+    AttackRateChangeAmount: 0.5
     DamageChangeAmount: 0
     RangeChangeAmount: 0
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
     NewAttackStats: {fileID: 0}
-    HealthIncrease: 0

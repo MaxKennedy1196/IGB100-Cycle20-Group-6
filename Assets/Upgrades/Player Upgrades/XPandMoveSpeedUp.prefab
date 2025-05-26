@@ -47,13 +47,13 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Haunted Spirits
+    UpgradeName: XP and Move                 Speed Up
     UpgradeTier: Tier 2
-    UpgradeText: +10% XP gain; + 1 Movement Speed
+    UpgradeText: +15% XP gain; + 1 Movement Speed
     MoveSpeedChange: 1
     MaxHealthChange: 0
     MaxHungerChange: 0
-    XPGainChange: 1.1
+    XPGainChange: 0.15
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0
@@ -62,6 +62,5 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
-    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0

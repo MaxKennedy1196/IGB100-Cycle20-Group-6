@@ -38,8 +38,6 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.MaxHungerChange = EditorGUILayout.FloatField(upgrade.upgradeValues.MaxHungerChange);
                 EditorGUILayout.PrefixLabel("XP Gain Increase");
                 upgrade.upgradeValues.XPGainChange = EditorGUILayout.FloatField(upgrade.upgradeValues.XPGainChange);
-                EditorGUILayout.PrefixLabel("Crit Multiplier Increase");
-                upgrade.upgradeValues.CritMultiplierChangeAmount = EditorGUILayout.FloatField(upgrade.upgradeValues.CritMultiplierChangeAmount);
             }
 
             //Displaying the variables for an attack upgrade
@@ -67,6 +65,10 @@ public class UpgradeEditor : Editor
                 upgrade.upgradeValues.AttackPassthroughChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.AttackPassthroughChangeAmount);
                 EditorGUILayout.PrefixLabel("Crit Chance Increase");
                 upgrade.upgradeValues.CritChanceChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.CritChanceChangeAmount);
+
+                //Code for if/when projectile count upgrades are added
+                //EditorGUILayout.PrefixLabel("Projectile Count Increase");
+                //upgrade.upgradeValues.ProjectileCountChangeAmount = EditorGUILayout.IntField(upgrade.upgradeValues.ProjectileCountChangeAmount);
             }
 
             //Displaying the variables for a new attack upgrade

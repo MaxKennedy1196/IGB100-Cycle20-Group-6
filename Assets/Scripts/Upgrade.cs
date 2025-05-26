@@ -33,7 +33,6 @@ public class Upgrade : MonoBehaviour
         public float MaxHealthChange;
         public float MaxHungerChange;
         public float XPGainChange;
-        public float CritMultiplierChangeAmount;
 
         //Attack upgrade variables
         public Projectile attackProjectile;
@@ -46,7 +45,7 @@ public class Upgrade : MonoBehaviour
         public int AttackPassthroughChangeAmount;
         public int ProjectileCountChangeAmount;
         public int CritChanceChangeAmount;
-        
+
         //New attack variables
         public AttackStats NewAttackStats;
 
@@ -59,6 +58,7 @@ public class Upgrade : MonoBehaviour
     //Applies an upgrade according to the chosen type of the upgrade
     public void ApplyUpgrade()
     {
+        
         player = GameManager.instance.player;
         switch (upgradeType)
         {
@@ -70,7 +70,6 @@ public class Upgrade : MonoBehaviour
                 player.maxHunger += upgradeValues.MaxHungerChange;
                 player.hunger += upgradeValues.MaxHungerChange;
                 player.experienceMult += upgradeValues.XPGainChange;
-                player.critMult += upgradeValues.CritMultiplierChangeAmount;
                 break;
 
             //Upgrading attack values

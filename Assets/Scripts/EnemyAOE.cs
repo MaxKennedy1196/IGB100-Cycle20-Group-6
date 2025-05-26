@@ -31,7 +31,7 @@ public class EnemyAOE : MonoBehaviour
 
     public void Update()
     {
-        spriteRenderer.color = new Color(1, 1, 1, opacityCurve.Evaluate(opacityTime));
+        spriteRenderer.color = new Color(0, 0.5f, 1, opacityCurve.Evaluate(opacityTime));
         opacityTime += Time.deltaTime;
         DPSTimer += Time.deltaTime;
 
