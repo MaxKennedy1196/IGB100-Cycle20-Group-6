@@ -33,9 +33,9 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        if (player.experience >= 10)
+        if (player.experience >= 12)
         {
-            player.experience = 10;
+            player.experience = 12;
         }
         
         if (player.hunger <= 0)
@@ -56,14 +56,21 @@ public class TutorialManager : MonoBehaviour
 
     void TrackMovement()
     {
-        if (Input.GetKeyDown(KeyCode.W)) wPressed = true;
-        if (Input.GetKeyDown(KeyCode.A)) aPressed = true;
-        if (Input.GetKeyDown(KeyCode.S)) sPressed = true;
-        if (Input.GetKeyDown(KeyCode.D)) dPressed = true;
+        // Track player movement input be or statement
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+            Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            wPressed = wPressed || Input.GetKeyDown(KeyCode.W);
+            aPressed = aPressed || Input.GetKeyDown(KeyCode.A);
+            sPressed = sPressed || Input.GetKeyDown(KeyCode.S);
+            dPressed = dPressed || Input.GetKeyDown(KeyCode.D);
+        }
 
         if (wPressed && aPressed && sPressed && dPressed)
         {
             //player.movementComplete = true;
+            StartCoroutine(WaitForSeconds(2f));
             moveMessage.SetActive(false);
             attackMessage.SetActive(true);
             step++;
@@ -77,8 +84,10 @@ public class TutorialManager : MonoBehaviour
             hasTentacleAttacked = true;
             Instantiate(Manager.expDrop, XPSpawn.position, XPSpawn.rotation);
             Instantiate(Manager.foodDrop, FoodSpawn.position, FoodSpawn.rotation);
+            StartCoroutine(WaitForSeconds(1.5f));
             attackMessage.SetActive(false);
             hungerMessage.SetActive(true);
+            StartCoroutine(WaitForSeconds(1f));
             step++;
         }
     }
@@ -89,6 +98,7 @@ public class TutorialManager : MonoBehaviour
         {
             hasPickedUpHunger = true;
 
+            StartCoroutine(WaitForSeconds(3f));
             hungerMessage.SetActive(false);
             xpMessage.SetActive(true);
             step++;
@@ -102,10 +112,11 @@ public class TutorialManager : MonoBehaviour
     public void CheckXPPickup()
     {
 
-        if (player.experience != 0)
+        if (player.experience >= 10)
         {
             hasPickedUpXP = true;
 
+            StartCoroutine(WaitForSeconds(1f));
             xpMessage.SetActive(false);
             tutorialCompleteMessage.SetActive(true);
             step++;
@@ -128,6 +139,11 @@ public class TutorialManager : MonoBehaviour
         tutorialCompleteMessage.SetActive(false);
         Manager.tutorialComplete = true;
         Manager.TutorialComplete();
+    }
+
+    private System.Collections.IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     public void OnFoodPickedUp()
