@@ -5684,6 +5684,7 @@ MonoBehaviour:
   - {fileID: 1854338735}
   - {fileID: 1625416189}
   mouseTarget: {fileID: 1527341174}
+  PlayerHurt: {fileID: 5453774734065186813, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
   zoomCurve:
     serializedVersion: 2
     m_Curve:

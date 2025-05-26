@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
 
     public Transform mouseTarget;
 
+    public GameObject PlayerHurt;
+
 
     float hungerDecayRate = 5f;
     float hungerTimerLimit = 1.5f;
@@ -78,6 +80,9 @@ public class Player : MonoBehaviour
     public GameObject[] hideUI;
     private bool dying = false;
 
+
+    bool hasTakenDMGThisFrame = false;
+    float DMGSFXTime = 0f;
 
 
     void Awake()
@@ -106,6 +111,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hasTakenDMGThisFrame = false;
+
         if (dying)
         {
             return;
@@ -127,6 +134,10 @@ public class Player : MonoBehaviour
         {
             hungerTimerLimit = 0.5f;
         }
+
+
+        DMGSFXTime -= Time.deltaTime;
+        
     }
 
     private void attacks()
@@ -228,14 +239,22 @@ public class Player : MonoBehaviour
 
     public void takeDamage(float damage, bool aoeDamage = false)
     {
+        hasTakenDMGThisFrame = true;
+        
+        if (DMGSFXTime <= 0f)
+        {
+            Instantiate(PlayerHurt, transform.position, transform.rotation);
+            DMGSFXTime = 0.5f;
+        }
+
+        
         if (aoeDamage) { health -= damage; }
         else { health -= damage * Time.deltaTime; }
 
         // get the animator component in the children of the player object
         if (animator == null) { animator = GetComponentInChildren<Animator>(); }
         animator.SetBool("IsHurt", true); //Set the hurt animation to true
-        StartCoroutine(ResetHurtAnimation());
-
+        StartCoroutine(ResetHurtAnimation());        
 
         if (health <= 0)
         {
@@ -407,6 +426,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator ResetHurtAnimation()
     {
+        
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("IsHurt", false);
     }

@@ -5936,6 +5936,8 @@ MonoBehaviour:
   hungerMessage: {fileID: 1692331065}
   xpMessage: {fileID: 2119566427}
   tutorialCompleteMessage: {fileID: 1080878174}
+  XPSpawn: {fileID: 2034868891}
+  FoodSpawn: {fileID: 2127716681}
 --- !u!1 &690574017
 GameObject:
   m_ObjectHideFlags: 0
@@ -13167,6 +13169,8 @@ Transform:
   - {fileID: 887935175}
   - {fileID: 1934994732}
   - {fileID: 712853928}
+  - {fileID: 2034868891}
+  - {fileID: 2127716681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1895229860
@@ -13257,6 +13261,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mouseTarget: {fileID: 1858609115}
+  PlayerHurt: {fileID: 5453774734065186813, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
   zoomCurve:
     serializedVersion: 2
     m_Curve:
@@ -14697,6 +14702,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023761491}
   m_CullTransparentMesh: 1
+--- !u!1 &2034868890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034868891}
+  m_Layer: 0
+  m_Name: xp Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2034868891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034868890}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1895229859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057704052
 GameObject:
   m_ObjectHideFlags: 0
@@ -15327,6 +15363,37 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &2127716680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127716681}
+  m_Layer: 0
+  m_Name: food Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2127716681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127716680}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1895229859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128125246
 GameObject:
   m_ObjectHideFlags: 0
@@ -15479,6 +15546,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b335b98b0ffaff42bf604922b74b497, type: 3}
+--- !u!1001 &5185222972444929203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119675497432080923, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453774734065186813, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
+      propertyPath: m_Name
+      value: PlayerHurt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d56cea319bc84e893a955345fecf4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -15497,3 +15621,4 @@ SceneRoots:
   - {fileID: 1706526933}
   - {fileID: 691290201}
   - {fileID: 973131286}
+  - {fileID: 5185222972444929203}
