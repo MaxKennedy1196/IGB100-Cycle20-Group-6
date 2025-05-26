@@ -47,7 +47,7 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeType: 0
   upgradeValues:
-    UpgradeName: Move Speed Up
+    UpgradeName: Malevolent Soul
     UpgradeTier: Tier 1
     UpgradeText: +2 Movement Speed
     MoveSpeedChange: 2
@@ -62,5 +62,6 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
+    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0

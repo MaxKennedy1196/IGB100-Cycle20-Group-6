@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    [HideInInspector] public GameManager Manager;
     public GameObject pauseMenu;
     public GameObject pauseButton;
 
     public bool isPaused;
 
+    public SceneFade fade;
+    public float fadeDuration;
+    public AnimationCurve fadeCurve;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +25,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !Manager.upgradeMenuOpen)
         {
             togglePause();
         }
@@ -51,5 +57,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }

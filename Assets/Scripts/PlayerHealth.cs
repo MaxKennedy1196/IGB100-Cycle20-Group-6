@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public Player player;
     public Image healthBar;
+    public Animator healthAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
@@ -21,5 +22,14 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = player.health / player.maxHealth;
+
+        if (player.health <= 30)
+        {
+            healthAnimator.SetBool("LowHealth", true);
+        }
+        else
+        {
+            healthAnimator.SetBool("LowHealth", false);
+        }
     }
 }
