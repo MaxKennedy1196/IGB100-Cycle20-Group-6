@@ -5,10 +5,13 @@ using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Cinemachine;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Player : MonoBehaviour
 {
     public GameManager Manager;
+
     public float health = 100f;
     public float maxHealth = 100f;
     public float hunger = 100f;
@@ -76,7 +79,9 @@ public class Player : MonoBehaviour
     public AnimationCurve zoomCurve;
     public GameObject deathEffect;
     public AnimationCurve fadeCurve;
+    public AnimationCurve vignetteCurve;
     public CanvasGroup playerFade;
+    public CanvasGroup playerVignette;
     public SceneFade screenFade;
     public GameObject[] hideUI;
     private bool dying = false;
@@ -406,11 +411,14 @@ public class Player : MonoBehaviour
         
         float zoomTime = 0.0f;
         Camera camera = Camera.main;
+        var brain = (camera == null) ? null : camera.GetComponent<CinemachineBrain>();
+        var vcam = (brain == null) ? null : brain.ActiveVirtualCamera as CinemachineCamera;
 
         while (zoomTime < 3f) //Zooming in on the player for dramatic effect
         {
-            camera.orthographicSize = zoomCurve.Evaluate(zoomTime);
+            vcam.Lens.OrthographicSize = zoomCurve.Evaluate(zoomTime);
             playerFade.alpha = fadeCurve.Evaluate(zoomTime);
+            playerVignette.alpha = vignetteCurve.Evaluate(zoomTime);
             zoomTime += Time.deltaTime;
             if (zoomTime > 1.5f) { foreach (GameObject enemy in enemies) { Destroy(enemy); } } //Destroy all enemies
             yield return null;
@@ -420,8 +428,9 @@ public class Player : MonoBehaviour
         deathEffect.SetActive(true);
 
         screenFade.fadeCurve = fadeCurve;
+        screenFade.fadeDuration = 2;
         screenFade.ActivateFade();
-        yield return new WaitForSeconds(screenFade.fadeDuration + screenFade.endWait);
+        yield return new WaitForSeconds(screenFade.endWait);
         SceneManager.LoadScene(3);
     }
 
