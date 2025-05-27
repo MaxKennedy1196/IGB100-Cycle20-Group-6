@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 201621767}
   - component: {fileID: 201621769}
   - component: {fileID: 201621768}
+  - component: {fileID: 201621770}
   m_Layer: 5
   m_Name: Cutscene2Text
   m_TagString: Untagged
@@ -637,6 +638,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201621766}
   m_CullTransparentMesh: 1
+--- !u!114 &201621770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201621766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fe3ec30d4c30c419186db43dbae4c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersPerSecond: 20
+  interpunctuationDelay: 0.5
 --- !u!1 &222928585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1320,7 @@ GameObject:
   - component: {fileID: 304178929}
   - component: {fileID: 304178931}
   - component: {fileID: 304178930}
+  - component: {fileID: 304178932}
   m_Layer: 5
   m_Name: Cutscene1Text
   m_TagString: Untagged
@@ -1430,6 +1446,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304178928}
   m_CullTransparentMesh: 1
+--- !u!114 &304178932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304178928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fe3ec30d4c30c419186db43dbae4c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersPerSecond: 20
+  interpunctuationDelay: 0.5
 --- !u!1 &426733248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,7 +2261,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 70
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
