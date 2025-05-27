@@ -67,6 +67,7 @@ public class Upgrade : MonoBehaviour
                 player.moveSpeed += upgradeValues.MoveSpeedChange;
                 player.maxHealth += upgradeValues.MaxHealthChange;
                 player.health += upgradeValues.MaxHealthChange;
+                player.health += upgradeValues.HealthIncrease;
                 player.maxHunger += upgradeValues.MaxHungerChange;
                 player.hunger += upgradeValues.MaxHungerChange;
                 player.experienceMult += upgradeValues.XPGainChange;
