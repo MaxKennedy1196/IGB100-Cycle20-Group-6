@@ -11,6 +11,9 @@ public class CameraShakeManager : MonoBehaviour
 
     [SerializeField] private float criticalHitShakeForce = 2f;
 
+    [SerializeField] private float shakeCooldown = 2f;
+
+    private float lastShakeTime = -Mathf.Infinity;
 
     private void Awake()
     {
@@ -22,7 +25,12 @@ public class CameraShakeManager : MonoBehaviour
 
     public void CameraShake(CinemachineImpulseSource impulseSource)
     {
-        impulseSource.GenerateImpulseWithForce(globalShakeForce);
+        if (Time.time >= lastShakeTime + shakeCooldown)
+        {
+            impulseSource.GenerateImpulseWithForce(globalShakeForce);
+            lastShakeTime = Time.time;
+        }
+        
     }
 
     public void CriticalHitCameraShake(CinemachineImpulseSource impulseSource)
