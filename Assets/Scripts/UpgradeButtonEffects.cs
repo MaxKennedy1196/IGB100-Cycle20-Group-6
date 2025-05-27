@@ -4,88 +4,37 @@ using System.Collections;
 
 public class UpgradeButtonEffects : MonoBehaviour
 {
-    public GameObject[] hideObjects;
-
     public RectTransform buttonLocation;
     public float xLocation;
 
     public CanvasGroup fade;
-    public AnimationCurve fadeCurve;
-
+    public AnimationCurve fadeInCurve;
     public AnimationCurve slideInCurve;
-    public AnimationCurve hoverSizeCurve;
 
     public float slideInDuration;
-    float slideTime = 0.0f;
+    float menuOpenTime = 0.0f;
 
-    public float hoverDuration;
-    float hoverTime = 0.0f;
+    bool menuStart = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        SlideIn();
-        //StartCoroutine(SlideIn());
+        menuOpenTime = 0.0f;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    void Update()
     {
-        StartCoroutine(HoverOn());
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        StartCoroutine(HoverOff());
-    }
-
-    public void SlideIn()
-    {
-        float slideTime = 0.0f;
-
-        while (slideTime < slideInDuration)
+        if (menuStart)
         {
-            buttonLocation.anchoredPosition = new Vector2(xLocation, slideInCurve.Evaluate(slideTime));
-            fade.alpha = fadeCurve.Evaluate(slideTime);
-            slideTime += Time.unscaledDeltaTime;
+            buttonLocation.anchoredPosition = new Vector2(xLocation, slideInCurve.Evaluate(menuOpenTime));
+            fade.alpha = fadeInCurve.Evaluate(menuOpenTime);
         }
-    }
 
-    /*
-    public IEnumerator SlideIn()
-    {
-        float slideTime = 0.0f;
+        menuOpenTime += Time.deltaTime;
 
-        while (slideTime < slideInDuration)
+        if (menuOpenTime > slideInDuration)
         {
-            buttonLocation.anchoredPosition = new Vector2(xLocation, slideInCurve.Evaluate(slideTime));
-            fade.alpha = fadeCurve.Evaluate(slideTime);
-            slideTime += Time.unscaledDeltaTime;
+            menuStart = false;
+            Time.timeScale = 0.0f;
         }
-        yield return null;
-    }
-    */
-
-    public IEnumerator HoverOn()
-    {
-        float hoverTime = 0.0f;
-
-        while (hoverTime < hoverDuration)
-        {
-            buttonLocation.localScale = new Vector3(hoverSizeCurve.Evaluate(hoverTime), hoverSizeCurve.Evaluate(hoverTime), hoverSizeCurve.Evaluate(hoverTime));
-            hoverTime += 0.02f;
-        }
-        yield return null;
-    }
-
-    public IEnumerator HoverOff()
-    {
-        float hoverTime = 0.0f;
-
-        while (hoverTime < hoverDuration)
-        {
-            buttonLocation.localScale = new Vector3(1-hoverSizeCurve.Evaluate(hoverTime), 1-hoverSizeCurve.Evaluate(hoverTime), 1-hoverSizeCurve.Evaluate(hoverTime));
-            hoverTime += Time.deltaTime;
-        }
-        yield return null;
     }
 }

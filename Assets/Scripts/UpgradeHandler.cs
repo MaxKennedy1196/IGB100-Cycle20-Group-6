@@ -10,8 +10,22 @@ public class UpgradeMenu : MonoBehaviour
 {   
     public GameManager Manager;
     public GameObject pauseButton; //GameObject reference for the pause menu button
-    //UI Elements for the upgrade menu
+
+    [Header("Upgrade Menu Effect variables")]
     public Button[] upgradeButtons;
+    public GameObject[] buttonObjects;
+
+    public float[] buttonXLocations;
+    public CanvasGroup upgradeMenuFade;
+    public AnimationCurve fadeInCurve;
+    public AnimationCurve fadeOutCurve;
+    public AnimationCurve slideInCurve;
+    public AnimationCurve slideOutCurve;
+    public float slideDuration;
+    float menuOpenTime;
+    float menuCloseTime;
+    bool menuStart = true;
+    bool menuClose = true;
 
     [Header("Upgrade 1")]
     public TMP_Text upgrade1Name;
@@ -45,6 +59,11 @@ public class UpgradeMenu : MonoBehaviour
     //Generating upgrades when the menu is made active
     public void OnEnable()
     {
+        menuStart = true;
+        menuClose = false;
+        menuOpenTime = 0.0f;
+        menuCloseTime = 0.0f;
+
         Manager.upgradeMenuOpen = true;
         pauseButton.SetActive(false); //Hiding the pause menu button while the upgrade menu is open as it is non-functional
 
@@ -64,6 +83,45 @@ public class UpgradeMenu : MonoBehaviour
         
         GenerateUpgrades();
         PresentUpgrades();
+    }
+
+    void Update()
+    {
+        if (menuStart)
+        {
+            int step = 0;
+            foreach (Button upgradeButton in upgradeButtons)
+            {
+                upgradeButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(buttonXLocations[step], slideInCurve.Evaluate(menuOpenTime));
+                upgradeMenuFade.alpha = fadeInCurve.Evaluate(menuOpenTime);
+                step++;
+            }
+            menuOpenTime += Time.deltaTime;
+
+            if (menuOpenTime > slideDuration)
+            {
+                menuStart = false;
+                Time.timeScale = 0.0f;
+            }
+        }
+
+        else if (menuClose)
+        {
+            int step = 0;
+            foreach (Button upgradeButton in upgradeButtons)
+            {
+                upgradeButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(buttonXLocations[step], slideOutCurve.Evaluate(menuCloseTime));
+                upgradeMenuFade.alpha = fadeOutCurve.Evaluate(menuCloseTime);
+                step++;
+            }
+            menuCloseTime += Time.deltaTime;
+
+            if (menuCloseTime > slideDuration)
+            {
+                upgradeSelected = true;
+                this.gameObject.SetActive(false);
+            }
+        }
     }
 
     //Generates three upgrade choices for the player
@@ -169,7 +227,6 @@ public class UpgradeMenu : MonoBehaviour
         Manager.upgradeMenuOpen = false;
         pauseButton.SetActive(true); //Makes the pause button visible again upon resuming the game
         Time.timeScale = 1.0f;
-        upgradeSelected = true;
-        this.gameObject.SetActive(false);
+        menuClose = true;
     }
 }
