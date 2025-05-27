@@ -494,7 +494,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1951779155}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

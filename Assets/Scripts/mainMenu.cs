@@ -44,6 +44,11 @@ public class mainMenu : MonoBehaviour
         StartCoroutine(LoadNewScene(1));
     }
 
+    public void RestartGame()
+    {
+        StartCoroutine(LoadNewScene(2));
+    }
+
     public bool CutsceneComplete() { return startCutscene.cutsceneComplete; }
 
     public IEnumerator LoadNewScene(int sceneNum)
