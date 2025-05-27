@@ -743,14 +743,13 @@ MonoBehaviour:
   - cutsceneFrame: {fileID: 960122732}
     cutsceneText: {fileID: 304178930}
     lines:
-    - Line 1
-    - Line 2
-    - Line 3
+    - This parasite inside of you...
+    - It's hunger consuming...
+    - With only one goal in mind...
   - cutsceneFrame: {fileID: 199420002}
     cutsceneText: {fileID: 201621768}
     lines:
-    - Line 4
-    - Line 5
+    - Power...
 --- !u!1 &245658065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ea730ad740d1d74188e979ff9f51815, type: 2}
   m_sharedMaterial: {fileID: -3033741965650681147, guid: 9ea730ad740d1d74188e979ff9f51815, type: 2}
