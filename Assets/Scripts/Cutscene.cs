@@ -67,44 +67,6 @@ public class Cutscene : MonoBehaviour
         menu.RunGame();
     }
 
-    public IEnumerator WriteTextLine(string line, TMP_Text message, float startDelay = 0f, float timePerCharacter = 0.02f, float characterFadeTime = 1f)
-    {
-        float fadeStart = Time.time;
-        float fadeEnd = fadeStart + timePerCharacter * line.Length + characterFadeTime;
-
-        while (Time.time < fadeEnd)
-        {
-            string fadedText = string.Empty;
-            bool addedClear = false;
-
-            for (int i = 0; i < line.Length; i++)
-            {
-                Color c = message.color;
-                float timeSinceCharacterFadeIn = Time.time - (fadeStart + timePerCharacter * i);
-
-                if (timeSinceCharacterFadeIn <= 0)
-                {
-                    if (!addedClear)
-                    {
-                        fadedText += $"<color=#{ColorUtility.ToHtmlStringRGBA(Color.clear)}>";
-                        addedClear = true;
-                    }
-                }
-                else if (timeSinceCharacterFadeIn < characterFadeTime)
-                {
-                    c.a = timeSinceCharacterFadeIn / characterFadeTime;
-                    fadedText += $"<color=#{ColorUtility.ToHtmlStringRGBA(c)}>";
-                }
-                fadedText += line[i];
-            }
-
-            message.text = fadedText;
-            yield return null;
-        }
-
-        message.SetText(line);
-    }
-
     public IEnumerator FrameFadeIn()
     {
         frameNum++;
