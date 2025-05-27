@@ -1266,7 +1266,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5fbbab30a7a782e4dae171be12f24c87, type: 3}
   m_Resource: {fileID: 8300000, guid: 5fbbab30a7a782e4dae171be12f24c87, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 1968515672}
-  fadeDuration: 0
+  fadeDuration: 3
   startFadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1450,7 +1450,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  menuMusic: {fileID: 0}
+  menuMusic: {fileID: 1889798811}
   startCutscene: {fileID: 0}
 --- !u!1 &1968515670
 GameObject:
@@ -1529,7 +1529,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   endWait: 0.5
-  music: {fileID: 0}
+  music: {fileID: 1889798811}
   fade: {fileID: 1968515675}
 --- !u!114 &1968515673
 MonoBehaviour:
