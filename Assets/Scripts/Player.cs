@@ -297,8 +297,8 @@ public class Player : MonoBehaviour
 
     public IEnumerator UpgradeMenu()
     {
-        hungerTimerLimit -= 0.125f;
-        hungerDecayRate += 1f;
+        hungerTimerLimit -= 0.075f;
+        //hungerDecayRate += 1f;
         Time.timeScale = 0.0f;
         upgradeMenu.gameObject.SetActive(true);
         yield return new WaitUntil(UpgradeSelection);

@@ -6,11 +6,11 @@ public class ParallaxBackground : MonoBehaviour
     public GameObject playerCamera;
     public GameManager Manager;
 
-    public int tilesX = 5;
-    public int tilesY = 5;
+    int tilesX = 70;
+    int tilesY = 70;
 
-    public float tileWidth = 2.5f;
-    public float tileHeight = 2.5f;
+    float tileWidth = 2f;
+    float tileHeight = 2f;
 
     private Transform[,] tiles;
 
