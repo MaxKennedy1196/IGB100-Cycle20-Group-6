@@ -2181,7 +2181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ash Tarsilli - Design / art / Animation
+  m_text: 'Ash Tarsilli - Design / Art / Animation
 
     Asher Johnston - Programming
 
@@ -2193,7 +2193,7 @@ MonoBehaviour:
     Max
     Kennedy - Design / UI
 
-    Xavier Mackay - Design / Programming'
+    Xavier Mackay - Programming / Design'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ea730ad740d1d74188e979ff9f51815, type: 2}
   m_sharedMaterial: {fileID: -3033741965650681147, guid: 9ea730ad740d1d74188e979ff9f51815, type: 2}
