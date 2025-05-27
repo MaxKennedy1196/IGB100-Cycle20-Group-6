@@ -32,9 +32,9 @@ public class SpriteFade : MonoBehaviour
             StopCoroutine(fadeCoroutine);
             fadeCoroutine = null;
 
-            Color clearColor = spriteRenderer.color;
-            clearColor.a = 1f;
-            spriteRenderer.color = clearColor;
+            Color visibleColor = spriteRenderer.color;
+            visibleColor.a = 1f;
+            spriteRenderer.color = visibleColor;
         }
     }
 
@@ -84,9 +84,8 @@ public class SpriteFade : MonoBehaviour
             yield return null;
         }
 
-        // Ensure fully transparent
         Color clearColor = spriteRenderer.color;
-        clearColor.a = 0f;
+        clearColor.a = 1f;
         spriteRenderer.color = clearColor;
     }
 }

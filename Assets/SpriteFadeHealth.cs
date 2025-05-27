@@ -32,7 +32,6 @@ public class SpriteFadeHealth : MonoBehaviour
             StopCoroutine(fadeCoroutine);
             fadeCoroutine = null;
 
-            // Ensure icon is hidden
             Color clearColor = spriteRenderer.color;
             clearColor.a = 1f;
             spriteRenderer.color = clearColor;
@@ -87,7 +86,7 @@ public class SpriteFadeHealth : MonoBehaviour
 
         // Ensure fully invisible
         Color clearColor = spriteRenderer.color;
-        clearColor.a = 0f;
+        clearColor.a = 1f;
         spriteRenderer.color = clearColor;
     }
 }
