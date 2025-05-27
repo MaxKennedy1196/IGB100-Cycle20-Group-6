@@ -17,7 +17,7 @@ public class SpriteFadeHealth : MonoBehaviour
     private void Start()
     {
         Color initialColor = spriteRenderer.color;
-        initialColor.a = 0f;
+        initialColor.a = 1f;
         spriteRenderer.color = initialColor;
     }
 
@@ -34,7 +34,7 @@ public class SpriteFadeHealth : MonoBehaviour
 
             // Ensure icon is hidden
             Color clearColor = spriteRenderer.color;
-            clearColor.a = 0f;
+            clearColor.a = 1f;
             spriteRenderer.color = clearColor;
         }
     }

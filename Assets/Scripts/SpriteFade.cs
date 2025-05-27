@@ -17,7 +17,7 @@ public class SpriteFade : MonoBehaviour
     private void Start()
     {
         Color initialColor = spriteRenderer.color;
-        initialColor.a = 0f;
+        initialColor.a = 1f;
         spriteRenderer.color = initialColor;
     }
 
@@ -33,7 +33,7 @@ public class SpriteFade : MonoBehaviour
             fadeCoroutine = null;
 
             Color clearColor = spriteRenderer.color;
-            clearColor.a = 0f;
+            clearColor.a = 1f;
             spriteRenderer.color = clearColor;
         }
     }
