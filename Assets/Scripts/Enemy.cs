@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using Unity.Cinemachine;
 
 //Abstract enemy parent class to be inherited from for child enemy types 
 public class Enemy : MonoBehaviour
@@ -47,8 +48,18 @@ public class Enemy : MonoBehaviour
     string Name = "";
 
     public Rigidbody2D rb;
+    
+    private CinemachineImpulseSource impulseSource;
+
+
 
     Vector3 startFramePos;
+
+
+    private void Start()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
 
     void Awake()
     {
@@ -223,6 +234,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, bool crit)
     {
+        CameraShakeManager.instance.CameraShake(impulseSource);
+
         int randomGore = Random.Range(0,Manager.goreList.Count);
         int randomSound = Random.Range(0, Manager.enemyGoreSounds.Count);
         Instantiate(Manager.goreList[randomGore],transform.position,transform.rotation);
