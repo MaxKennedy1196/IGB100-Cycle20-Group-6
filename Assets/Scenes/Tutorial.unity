@@ -6303,9 +6303,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1066142211}
   - {fileID: 40532527}
   - {fileID: 1470901826}
+  - {fileID: 1066142211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &691290202
@@ -7509,6 +7509,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1004948629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004948631}
+  - component: {fileID: 1004948630}
+  m_Layer: 0
+  m_Name: CameraShakeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1004948630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004948629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f2312083cf287489194ac56e9ad0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalShakeForce: 0.15
+  criticalHitShakeForce: 2
+  shakeCooldown: 2
+--- !u!4 &1004948631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004948629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4860625, y: -3.2306466, z: 25.422457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017205827
 GameObject:
   m_ObjectHideFlags: 0
@@ -7815,6 +7862,34 @@ MonoBehaviour:
   - {fileID: 120839014}
   - {fileID: 1917432263}
   - {fileID: 2020849487}
+  buttonObjects: []
+  buttonXLocations: []
+  upgradeMenuFade: {fileID: 0}
+  fadeInCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fadeOutCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  slideInCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  slideOutCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  slideDuration: 0
   upgrade1Name: {fileID: 944476723}
   upgrade1Tier: {fileID: 45692706}
   upgrade1Description: {fileID: 934405848}
@@ -11117,7 +11192,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 900
   m_TargetDisplay: 0
 --- !u!1 &1481282142
 GameObject:
@@ -12684,10 +12759,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 239894472}
   Manager: {fileID: 0}
-  tilesX: 20
-  tilesY: 20
-  tileWidth: 2.5
-  tileHeight: 2.5
 --- !u!4 &1706526933
 Transform:
   m_ObjectHideFlags: 0
@@ -16232,3 +16303,4 @@ SceneRoots:
   - {fileID: 691290201}
   - {fileID: 973131286}
   - {fileID: 5185222972444929203}
+  - {fileID: 1004948631}

@@ -300,6 +300,9 @@ public class Player : MonoBehaviour
         hungerTimerLimit -= 0.075f;
         //hungerDecayRate += 1f;
         Time.timeScale = 0.0f;
+        hungerTimerLimit -= 0.125f;
+        hungerDecayRate += 1f;
+        //Time.timeScale = 0.0f;
         upgradeMenu.gameObject.SetActive(true);
         yield return new WaitUntil(UpgradeSelection);
     }
