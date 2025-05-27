@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
 
     float hungerDecayRate = 5f;
-    float hungerTimerLimit = 1.5f;
+    public float hungerTimerLimit = 1.5f;
 
     [Header("Death Effect Variables")]
     public AnimationCurve zoomCurve;
@@ -130,9 +130,9 @@ public class Player : MonoBehaviour
             lastCheckedLevel = currentLevel;
         }
 
-        if (hungerTimerLimit <= 0.5f)
+        if (hungerTimerLimit <= 1f)
         {
-            hungerTimerLimit = 0.5f;
+            hungerTimerLimit = 1f;
         }
 
 
