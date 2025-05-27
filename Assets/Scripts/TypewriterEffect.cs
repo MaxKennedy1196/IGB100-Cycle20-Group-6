@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEditor.Rendering;
 
 public class TypewriterEffect : MonoBehaviour
 {
-    private TMP_Text _textBox;
+    //private TMP_Text _textBox;
+    public TMP_Text _textBox;
+    public TMP_TextInfo lineText;
 
     //prototyping
     /*[Header("Test String")]
@@ -32,7 +35,7 @@ public class TypewriterEffect : MonoBehaviour
 
     private void Awake()
     {
-        _textBox = GetComponent<TMP_Text>();
+        //_textBox = GetComponent<TMP_Text>();
 
         _simpleDelay = new WaitForSeconds(1/charactersPerSecond);
         _interpunctuationDelay = new WaitForSeconds(1/interpunctuationDelay);
@@ -40,6 +43,7 @@ public class TypewriterEffect : MonoBehaviour
         //_skipDelay = new WaitForSeconds(1 / (charactersPerSecond * skipSpeedup));
     }
 
+    /*
     private void OnEnable()
     {
         TMPro_EventManager.TEXT_CHANGED_EVENT.Add(PrepareForNewText);
@@ -50,7 +54,13 @@ public class TypewriterEffect : MonoBehaviour
         TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(PrepareForNewText);
     }
 
+    */
 
+    public void NextText()
+    {
+        _readyForNewText = true;
+        TMPro_EventManager.TEXT_CHANGED_EVENT.Add(PrepareForNewText);
+    }
 
     private void Update()
     {
@@ -61,7 +71,7 @@ public class TypewriterEffect : MonoBehaviour
         }*/
     }
 
-    public void PrepareForNewText(Object obj)
+    public void PrepareForNewText(Object obj=null)
     {
         if (!_readyForNewText)
             return;

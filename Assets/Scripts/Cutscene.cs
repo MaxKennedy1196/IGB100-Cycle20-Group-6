@@ -22,6 +22,8 @@ public class Cutscene : MonoBehaviour
     public AnimationCurve startCurve;
     public AnimationCurve endCurve;
 
+    public TypewriterEffect typewriter;
+
     [Serializable]
     public struct CutsceneData
     {
@@ -40,8 +42,9 @@ public class Cutscene : MonoBehaviour
         fade.music = null;
         StartCoroutine(FrameFadeIn());
 
-        cutsceneData[frameNum].cutsceneText.SetText(cutsceneData[frameNum].lines[lineNum]);
-
+        typewriter._textBox = cutsceneData[frameNum].cutsceneText;
+        typewriter._textBox.SetText(cutsceneData[frameNum].lines[lineNum]);
+        typewriter.NextText();
     }
 
     void Update()
@@ -55,18 +58,18 @@ public class Cutscene : MonoBehaviour
     public void ContinuePressed() //Advances to the next line if possible, if there is no next line then go to the next cutscene frame
     {
         lineNum++;
-        Debug.Log(lineNum.ToString());
-        Debug.Log(cutsceneData[frameNum].lines.Length);
 
         if (lineNum >= cutsceneData[frameNum].lines.Length)
         {
             lineNum = 0;
-            Debug.Log(frameNum.ToString());
             StartCoroutine(FrameFadeOut());
         }
         else
         {
-            cutsceneData[frameNum].cutsceneText.SetText(cutsceneData[frameNum].lines[lineNum]);
+            //cutsceneData[frameNum].cutsceneText.SetText(cutsceneData[frameNum].lines[lineNum]);
+            typewriter._textBox.SetText(cutsceneData[frameNum].lines[lineNum]);
+            //typewriter.PrepareForNewText();
+            typewriter.NextText();
         }
     }
 
@@ -80,7 +83,10 @@ public class Cutscene : MonoBehaviour
         frameNum++;
         //Fade from black and set the next cutscene frame to active if these is another frame
         cutsceneData[frameNum].cutsceneFrame.SetActive(true);
-        cutsceneData[frameNum].cutsceneText.SetText(cutsceneData[frameNum].lines[lineNum]);
+        typewriter._textBox = cutsceneData[frameNum].cutsceneText;
+        typewriter._textBox.SetText(cutsceneData[frameNum].lines[lineNum]);
+        typewriter.NextText();
+
         fade.fadeCurve = startCurve;
         fade.ActivateFade();
         yield return new WaitForSeconds(fadeDuration);
