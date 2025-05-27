@@ -12,13 +12,12 @@ public class TutorialManager : MonoBehaviour
     public GameObject attackMessage;
     public GameObject hungerMessage;
     public GameObject xpMessage;
-    public GameObject tutorialCompleteMessage;
 
     public Transform XPSpawn;
-    public Transform FoodSpawn;
+    public Transform[] FoodSpawn;
 
     private bool wPressed, aPressed, sPressed, dPressed;
-    private bool hasTentacleAttacked = false;// I think the name of this variable is hilarious
+    private bool hasTentacleAttacked = false; // I think the name of this variable is hilarious
     private bool hasPickedUpHunger = false;
     private bool hasPickedUpXP = false;
 
@@ -27,8 +26,8 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         moveMessage.SetActive(true);
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();//find Player 
-        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();//find gamemanager    
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); // find Player 
+        Manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); // find gamemanager    
     }
 
     void Update()
@@ -37,7 +36,7 @@ public class TutorialManager : MonoBehaviour
         {
             player.experience = 12;
         }
-        
+
         if (player.hunger <= 0)
         {
             SceneManager.LoadScene(1);
@@ -58,13 +57,36 @@ public class TutorialManager : MonoBehaviour
     {
         // Track player movement input be or statement
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
-            Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            wPressed = wPressed || Input.GetKeyDown(KeyCode.W);
-            aPressed = aPressed || Input.GetKeyDown(KeyCode.A);
-            sPressed = sPressed || Input.GetKeyDown(KeyCode.S);
-            dPressed = dPressed || Input.GetKeyDown(KeyCode.D);
+            wPressed = true;
+            aPressed = true;
+            sPressed = true;
+            dPressed = true;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            aPressed = true;
+            wPressed = true;
+            sPressed = true;
+            dPressed = true;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            sPressed = true;
+            wPressed = true;
+            aPressed = true;
+            dPressed = true;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            dPressed = true;
+            wPressed = true;
+            aPressed = true;
+            sPressed = true;
         }
 
         if (wPressed && aPressed && sPressed && dPressed)
@@ -83,7 +105,12 @@ public class TutorialManager : MonoBehaviour
         {
             hasTentacleAttacked = true;
             Instantiate(Manager.expDrop, XPSpawn.position, XPSpawn.rotation);
-            Instantiate(Manager.foodDrop, FoodSpawn.position, FoodSpawn.rotation);
+
+            foreach (Transform foodSpawnPoint in FoodSpawn)
+            {
+                Instantiate(Manager.foodDrop, foodSpawnPoint.position, foodSpawnPoint.rotation);
+            }
+
             StartCoroutine(WaitForSeconds(1.5f));
             attackMessage.SetActive(false);
             hungerMessage.SetActive(true);
@@ -94,12 +121,13 @@ public class TutorialManager : MonoBehaviour
 
     void OnTutorialFoodPickedUp()
     {
-        if (foodpickup >= 1)
+        if (foodpickup >= 4)
         {
             hasPickedUpHunger = true;
 
             StartCoroutine(WaitForSeconds(3f));
             hungerMessage.SetActive(false);
+            StartCoroutine(WaitForSeconds(2f));
             xpMessage.SetActive(true);
             step++;
         }
@@ -118,11 +146,10 @@ public class TutorialManager : MonoBehaviour
 
             StartCoroutine(WaitForSeconds(1f));
             xpMessage.SetActive(false);
-            tutorialCompleteMessage.SetActive(true);
             step++;
 
             StartCoroutine(WaitAndCompleteTutorial());
-        }  
+        }
     }
 
     void TutorialComplete()
@@ -136,7 +163,6 @@ public class TutorialManager : MonoBehaviour
     private System.Collections.IEnumerator WaitAndCompleteTutorial()
     {
         yield return new WaitForSeconds(3f);
-        tutorialCompleteMessage.SetActive(false);
         Manager.tutorialComplete = true;
         Manager.TutorialComplete();
     }
