@@ -49,11 +49,13 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Decomposing Heart
     UpgradeTier: Tier 2
-    UpgradeText: +25 Maximum Health; + 50 Maximum Hunger
+    UpgradeText: <color=yellow>+25 </color=yellow>Maximum Health; <color=yellow>+50
+      </color=yellow>Maximum Hunger
     MoveSpeedChange: 0
     MaxHealthChange: 25
     MaxHungerChange: 50
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

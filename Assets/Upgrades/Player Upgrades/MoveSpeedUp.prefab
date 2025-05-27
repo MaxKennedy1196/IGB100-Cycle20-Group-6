@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Malevolent Soul
     UpgradeTier: Tier 1
-    UpgradeText: +2 Movement Speed
+    UpgradeText: <color=yellow>+2 </color=yellow>Movement Speed
     MoveSpeedChange: 2
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

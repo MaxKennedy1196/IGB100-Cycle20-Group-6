@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Eldritch Laser
     UpgradeTier: Tier 3
-    UpgradeText: +5 Damage
+    UpgradeText: <color=yellow>+5 </color=yellow>Damage
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 5084040750013431489, guid: a35b83b86a17c9b4187ca920c18cd2cf, type: 3}
     attackStats: {fileID: 11400000, guid: b052d2c97eae25744a863963a2ea367c, type: 2}
     AttackRateChangeAmount: 0
@@ -62,5 +63,6 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
+    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0

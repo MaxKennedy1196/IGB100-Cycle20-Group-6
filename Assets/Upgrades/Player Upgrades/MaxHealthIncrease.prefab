@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Sinner's Blood
     UpgradeTier: Tier 1
-    UpgradeText: +25 Maximum Health
+    UpgradeText: <color=yellow>+25 </color=yellow>Maximum Health
     MoveSpeedChange: 0
     MaxHealthChange: 25
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

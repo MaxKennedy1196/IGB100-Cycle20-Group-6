@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Blood Bottle
     UpgradeTier: Tier 1
-    UpgradeText: +50 Health
+    UpgradeText: <color=yellow>+50 </color=yellow>Health
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Twisted Soul
     UpgradeTier: Tier 1
-    UpgradeText: +20% XP Gain
+    UpgradeText: <color=yellow>+20% </color=yellow>XP Gain
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 1.2
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

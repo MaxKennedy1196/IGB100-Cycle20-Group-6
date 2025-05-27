@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Accursed Bones
     UpgradeTier: Tier 1
-    UpgradeText: +100 Maximum Hunger
+    UpgradeText: <color=yellow>+100 </color=yellow>Maximum Hunger
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 100
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 0}
     attackStats: {fileID: 0}
     AttackRateChangeAmount: 0

@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Miasma
     UpgradeTier: Tier 2
-    UpgradeText: +1 Attack Radius
+    UpgradeText: <color=yellow>+1 </color=yellow>Attack Radius
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 3467591044221890192, guid: 947f38a9ab220524cb8b9319b0afe33e, type: 3}
     attackStats: {fileID: 11400000, guid: a5cd587be34a1644ebb08ef0fe28fc80, type: 2}
     AttackRateChangeAmount: 0
@@ -62,4 +63,6 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 0
     ProjectileCountChangeAmount: 0
+    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
+    HealthIncrease: 0

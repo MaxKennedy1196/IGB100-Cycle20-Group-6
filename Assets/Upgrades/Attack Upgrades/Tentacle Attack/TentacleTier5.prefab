@@ -49,11 +49,12 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Tentacle
     UpgradeTier: Tier 5
-    UpgradeText: +1 Projectile Passthrough
+    UpgradeText: <color=yellow>+1 </color=yellow>Projectile Passthrough
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
     XPGainChange: 0
+    CritMultiplierChangeAmount: 0
     attackProjectile: {fileID: 6441343763223628207, guid: 7a7cea4c01cf4304bb0181b9ac9e152b, type: 3}
     attackStats: {fileID: 11400000, guid: 44cb8aaa978a24945b23f7edc43e80f8, type: 2}
     AttackRateChangeAmount: 0
@@ -62,5 +63,6 @@ MonoBehaviour:
     AttackLifetimeChangeAmount: 0
     AttackPassthroughChangeAmount: 1
     ProjectileCountChangeAmount: 0
+    CritChanceChangeAmount: 0
     NewAttackStats: {fileID: 0}
     HealthIncrease: 0

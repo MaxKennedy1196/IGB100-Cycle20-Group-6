@@ -49,7 +49,7 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Flesh Gnawer
     UpgradeTier: Tier 4
-    UpgradeText: -50% Attack Cooldown
+    UpgradeText: <color=yellow>-50% </color=yellow>Attack Cooldown
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0

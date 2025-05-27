@@ -49,7 +49,8 @@ MonoBehaviour:
   upgradeValues:
     UpgradeName: Flesh Gnawer
     UpgradeTier: Tier 2
-    UpgradeText: +2 Seconds Projectile Lifetime; +3 Damage
+    UpgradeText: <color=yellow>+2 </color=yellow> Seconds Projectile Lifetime; <color=yellow>+3
+      </color=yellow>Damage
     MoveSpeedChange: 0
     MaxHealthChange: 0
     MaxHungerChange: 0
