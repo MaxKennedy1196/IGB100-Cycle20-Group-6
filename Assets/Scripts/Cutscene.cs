@@ -44,6 +44,14 @@ public class Cutscene : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (lineNum >= 5)
+        {
+            menu.RunGame();
+        }
+    }
+
     public void ContinuePressed() //Advances to the next line if possible, if there is no next line then go to the next cutscene frame
     {
         lineNum++;
