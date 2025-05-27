@@ -162,7 +162,7 @@ public class TutorialManager : MonoBehaviour
 
     private System.Collections.IEnumerator WaitAndCompleteTutorial()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         Manager.tutorialComplete = true;
         Manager.TutorialComplete();
     }
