@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -134,7 +135,6 @@ public class Player : MonoBehaviour
         {
             hungerTimerLimit = 1f;
         }
-
 
         DMGSFXTime -= Time.deltaTime;
         

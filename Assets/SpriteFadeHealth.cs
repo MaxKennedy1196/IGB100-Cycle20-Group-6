@@ -1,0 +1,93 @@
+using UnityEngine;
+using System.Collections;
+
+public class SpriteFadeHealth : MonoBehaviour
+{
+    private SpriteRenderer spriteRenderer;
+    private float duration = 0.3f;
+    public Player player;
+
+    private Coroutine fadeCoroutine;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        Color initialColor = spriteRenderer.color;
+        initialColor.a = 0f;
+        spriteRenderer.color = initialColor;
+    }
+
+    private void Update()
+    {
+        if (player.health <= 20 && fadeCoroutine == null)
+        {
+            fadeCoroutine = StartCoroutine(FadeLoop());
+        }
+        else if (player.health > 20 && fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+
+            // Ensure icon is hidden
+            Color clearColor = spriteRenderer.color;
+            clearColor.a = 0f;
+            spriteRenderer.color = clearColor;
+        }
+    }
+
+    private IEnumerator FadeLoop()
+    {
+        while (player.health <= 20)
+        {
+            yield return StartCoroutine(FadeIcon());
+        }
+
+        fadeCoroutine = null; // Clear reference when done
+    }
+
+    private IEnumerator FadeIcon()
+    {
+        float halfDuration = duration / 2f;
+        float time = 0f;
+
+        // Fade In
+        while (time < halfDuration)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, time / halfDuration);
+            Color newColor = spriteRenderer.color;
+            newColor.a = alpha;
+            spriteRenderer.color = newColor;
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure fully visible
+        Color fullColor = spriteRenderer.color;
+        fullColor.a = 1f;
+        spriteRenderer.color = fullColor;
+
+        time = 0f;
+
+        // Fade Out
+        while (time < halfDuration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, time / halfDuration);
+            Color newColor = spriteRenderer.color;
+            newColor.a = alpha;
+            spriteRenderer.color = newColor;
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure fully invisible
+        Color clearColor = spriteRenderer.color;
+        clearColor.a = 0f;
+        spriteRenderer.color = clearColor;
+    }
+}
